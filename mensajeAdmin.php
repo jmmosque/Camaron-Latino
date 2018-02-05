@@ -79,7 +79,7 @@ session_start();
                 <?php
                  }
                 ?>
-            <a class="btn btn-primary" href="index.php">Regresar a inicio</a>
+            <a class="btn btn-primary" href="indexadministrativo.php">Regresar a inicio</a>
         </div>
     </section><!--/#error-->
 </body>

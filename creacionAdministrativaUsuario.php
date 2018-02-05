@@ -40,13 +40,13 @@
                         $idcre = $objColector->consultarCredencial($usuari,$contra);
                         $prov = $objColector2->crearusuario($nombre,$cedula,$correo,$telefo,$direcc,$idcre->getIdCredencial(),$idrola);
                         $mensaje="Usuario creado correctamente";
-                        header("location:creacionUsuarioPA.php?mensaje=$mensaje"); 
+                        header("location:mensajeAdmin.php?mensaje=$mensaje"); 
                     }else{
                         $cred = $objColector->crearcredencial($usuari,$contra);
                         $idcre = $objColector->consultarCredencial($usuari,$contra);
                         $prov = $objColector2->crearusuario($nombre,$cedula,$correo,$telefo,$direcc,$idcre->getIdCredencial(),$idrolu);
                         $mensaje="Usuario creado correctamente";
-                        header("location:creacionUsuarioPA.php?mensaje=$mensaje"); 
+                        header("location:mensajeAdmin.php?mensaje=$mensaje"); 
                     }
                 } 
             }
