@@ -108,28 +108,11 @@ session_start();
                       echo "<td>". $usuario->getNombre() . "</td>";
                       echo "<td>". $usuario->getUsuario() . "</td>";
                       echo "<td>". $usuario->getIdentificacion() . "</td>";
-                      $envio = $usuario->getNombre();
+                      $envio = $usuario->getIdentificacion();
                       echo "<td>". "<a href='editarUsuariosPA.php?usu=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
-                      echo "<td>". "<a data-toggle='modal' data-target='#exampleModal2'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
-                          echo "<div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
-                          echo "<div class='modal-dialog' role='document'>";
-                            echo "<div class='modal-content'>";
-                              echo "<div class='modal-header'>";
-                                echo "<h5 class='modal-title' id='exampleModalLabel2'>Estas seguro?</h5>";
-                                echo "<button class='close' type='button' data-dismiss='modal' aria-label='Close'>";
-                                  echo "<span aria-hidden='true'>×</span>";
-                                echo "</button>";
-                               echo "</div>";
-                              echo "<div class='modal-footer'>";
-                                  echo "<form>";
-                                   echo "<button class='btn btn-secondary' type='button' data-dismiss='modal'>Cancel</button>";
-                                   echo "<a class='btn btn-primary' href='eliminarUsuarioPA.php?mensaje=$envio'>Eliminar</a>";
-                                  echo "</form>";
-                              echo "</div>";
-                            echo "</div>";
-                          echo "</div>";
-                        echo "</div>";
+                      echo "<td>". "<a href='eliminarUsuarioPA.php?mensaje=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
                   }
+                 
                 ?>
               </tbody>
             </table>

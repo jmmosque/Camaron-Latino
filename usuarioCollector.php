@@ -124,9 +124,7 @@ class usuarioCollector extends Collector
     }
     
     function deleteUsuario($id){
-        echo "processing delete id:". $id ."<br>";
-        $deleterow = self::$db->deleteRow("DELETE FROM public.usuario WHERE id_usuario= ?", arrSSay("{$id}"));
-        echo "delete completed<br>";
+        $deleterow = self::$db->deleteRow("DELETE FROM public.usuario WHERE id_usuario= ?", array("{$id}"));
     }
     function crearusuario($nom,$ide,$cor,$tel,$dir,$idc,$idr){
         $insertarrow = self::$db->insertRow("INSERT INTO public.usuario (nombre,identificacion,correo,telefono,direccion,id_credencial,id_rol) VALUES (?,?,?,?,?,?,?)", array ("{$nom}","{$ide}","{$cor}","{$tel}","{$dir}","{$idc}","{$idr}"));

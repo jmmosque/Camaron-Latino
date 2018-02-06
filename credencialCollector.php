@@ -30,9 +30,7 @@ class credencialCollector extends Collector
       return $aux;        
    } 
     function deleteCredencial($id){
-        echo "processing delete id:". $id ."<br>";
         $deleterow = self::$db->deleteRow("DELETE FROM public.credencial WHERE id_credencial= ?", array("{$id}"));
-        echo "delete completed<br>";
     }
     function consultarCredencial($usuario, $clave) {
     $rows = self::$db->getRows("SELECT * FROM public.credencial WHERE usuario=? AND clave=?  ", array("{$usuario}","{$clave}"));        
