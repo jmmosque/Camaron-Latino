@@ -88,15 +88,17 @@ session_start();
             <div class="card card-register mx-auto mt-5">
               <div class="card-header">Editar cuenta</div>
               <div class="card-body">
-                <form action="editarUsuario.php" method="post">
+                <?php
+                    require_once('usuarioCollector.php');
+                    $objeto = new usuarioCollector();
+                    $persona = $objeto->todaInfoCed($recibido);
+                    $codper = $persona->getIdUsuario(); 
+                ?>
+                <form action="editarUsuario.php?persona=<?php echo $codper ?>" method="post">
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
-                          <?php
-                            require_once('usuarioCollector.php');
-                            $objeto = new usuarioCollector();
-                            $persona = $objeto->todaInfoCed($recibido);
-                          ?>
+
                         <label>Nombre</label>
                         <input class="form-control" placeholder="" name="nom" value="<?php echo $persona->getNombre(); ?>">
                       </div>
@@ -139,7 +141,7 @@ session_start();
                         <div class="col-md-6">
                         <label>Rol</label>
                         <?php $rol = $persona->getRol(); ?>
-                        <input class="form-control"  disabled type="text" placeholder="" name="usu" value="<?php echo $rol ?>">
+                        <input class="form-control" type="text" placeholder="" name="rol" value="<?php echo $rol ?>" disabled="true">
                       </div>
                       <div class="col-md-6">
                           <label>Elegir Nuevo Rol</label><br>

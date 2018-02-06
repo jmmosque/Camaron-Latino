@@ -10,8 +10,8 @@
     $usuari = $_POST["usu"];
     $contra = $_POST["con"];
     $opcion = $_POST["select"];
-    $idrola = "1";
-    $idrolu = "2";
+    $idrola = 1;
+    $idrolu = 2;
 
     $objColector= new credencialCollector();
     $credencial=$objColector->comprobarCredencial("$usuari");
@@ -35,16 +35,18 @@
                     $mensaje="este telefono ya esta registrado";
                     header("location:creacionUsuarioPA.php?mensaje=$mensaje");
                 }else{
-                    if($opcion = "1"){
+                    if($opcion == 1){
                         $cred = $objColector->crearcredencial($usuari,$contra);
                         $idcre = $objColector->consultarCredencial($usuari,$contra);
-                        $prov = $objColector2->crearusuario($nombre,$cedula,$correo,$telefo,$direcc,$idcre->getIdCredencial(),$idrola);
+                        $idc = $idcre->getIdCredencial();
+                        $prov = $objColector2->crearusuario($nombre,$cedula,$correo,$telefo,$direcc,$idc,$idrola);
                         $mensaje="Usuario creado correctamente";
                         header("location:mensajeAdmin.php?mensaje=$mensaje"); 
                     }else{
                         $cred = $objColector->crearcredencial($usuari,$contra);
                         $idcre = $objColector->consultarCredencial($usuari,$contra);
-                        $prov = $objColector2->crearusuario($nombre,$cedula,$correo,$telefo,$direcc,$idcre->getIdCredencial(),$idrolu);
+                        $idc = $idcre->getIdCredencial();
+                        $prov = $objColector2->crearusuario($nombre,$cedula,$correo,$telefo,$direcc,$idc,$idrolu);
                         $mensaje="Usuario creado correctamente";
                         header("location:mensajeAdmin.php?mensaje=$mensaje"); 
                     }
@@ -52,9 +54,4 @@
             }
         }   
     }
-    /*$DemoCollectorObj = new DemoCollector();
-    $ObjDemo = $DemoCollectorObj->createDemo($valor);
-
-    echo "Se ha guardado correctamente </br>";*/
-
 ?>
