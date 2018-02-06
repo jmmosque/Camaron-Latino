@@ -30,7 +30,29 @@ class usuarioCollector extends Collector
           array_push($arrayUsuario, $aux);
           }
          return $arrayUsuario;   
-        }     
+    }
+    function todaInfoCed($ced) {
+        $rows = self::$db->getRows("SELECT * FROM public.usuario WHERE identificacion=? ", array("{$ced}"));      
+        $aux = new usuario();    
+        foreach ($rows as $c){  
+          $aux->setIdUsuario($c{'id_usuario'});
+          $aux->setNombre($c{'nombre'});
+          $aux->setIdentificacion($c{'identificacion'});
+          $aux->setCorreo($c{'correo'});
+          $aux->setTelefono($c{'telefono'});
+          $aux->setDireccion($c{'direccion'});
+          $aux->setIdRol($c{'id_rol'});
+          $aux->setIdcredencial($c{'id_credencial'});
+          $rol = new rolCollector();
+          $r = $rol->showRol($aux->getIdRol());
+          $aux->setRol($r->getNombre());
+          $credencial = new credencialCollector();
+          $c = $credencial->showCredencial($aux->getIdcredencial());
+          $aux->setUsuario($c->getUsuario());
+          $aux->setClave($c->getClave());
+          }
+         return $aux;   
+    }
     function showUsuarios() {
         $rows = self::$db->getRows("SELECT * FROM public.usuario ");        
           $arrayUsuario= array();          
@@ -100,6 +122,7 @@ class usuarioCollector extends Collector
     $ObjUsuario->setIdcredencial($rows[0]{'id_credencial'});
     return $ObjUsuario;        
     }
+    
     function deleteUsuario($id){
         echo "processing delete id:". $id ."<br>";
         $deleterow = self::$db->deleteRow("DELETE FROM public.usuario WHERE id_usuario= ?", arrSSay("{$id}"));

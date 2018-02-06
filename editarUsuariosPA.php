@@ -76,67 +76,73 @@ session_start();
         <li class="breadcrumb-item">
           <a href="indexadministrativo.php">Usuarios</a>
         </li>
-        <li class="breadcrumb-item active">Creacion Usuario</li>
+        <li class="breadcrumb-item active">Editar Usuario</li>
       </ol>
    <section id="tamasec">
         <?php
-         if($_GET["mensaje"]){
+         $recibido = $_GET["usu"];
+         $mensaje = "";
         ?>
-              <div class="text-center"><p><?php echo $_GET["mensaje"];?></p></div>
-        <?php
-         }
-        ?>
+        <div class="text-center"><p><?php echo $mensaje;?></p></div>
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Registro de cuenta</div>
+              <div class="card-header">Editar cuenta</div>
               <div class="card-body">
-                <form action="creacionAdministrativaUsuario.php" method="post">
+                <form action="" method="post">
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
-                        <label>Ingrese nombre</label>
-                        <input class="form-control" placeholder="" name="nom">
+                          <?php
+                            require_once('usuarioCollector.php');
+                            $objeto = new usuarioCollector();
+                            $persona = $objeto->todaInfoCed($recibido);
+                          ?>
+                        <label>Nombre</label>
+                        <input class="form-control" placeholder="" name="nom" value="<?php echo $persona->getNombre(); ?>">
                       </div>
                       <div class="col-md-6">
-                        <label>Ingrese cédula o ruc</label>
-                        <input class="form-control" placeholder="" name="ced">
+                        <label>Cédula o Ruc</label>
+                        <input class="form-control" placeholder="" name="ced" value="<?php echo $persona->getIdentificacion(); ?>">
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
-                        <label>Ingrese telefono</label>
-                        <input class="form-control" placeholder="" name="tel">
+                        <label>Telefono</label>
+                        <input class="form-control" placeholder="" name="tel" value="<?php echo $persona->getTelefono(); ?>">
                       </div>
                       <div class="col-md-6">
                         <label>Correo electrónico</label>
-                        <input class="form-control" placeholder="" name="cor">
+                        <input class="form-control" placeholder="" name="cor" value="<?php echo $persona->getCorreo(); ?>">
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <label>Direccion</label>
-                    <input class="form-control" placeholder="" name="dir">
+                    <input class="form-control" placeholder="" name="dir" value="<?php echo $persona->getDireccion(); ?>">
                   </div>
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Usuario</label>
-                        <input class="form-control" type="text" placeholder="" name="usu">
+                        <input class="form-control" type="text" placeholder="" name="usu" value="<?php echo $persona->getUsuario(); ?>">
                       </div>
                       <div class="col-md-6">
                         <label>Contraseña</label>
-                        <input class="form-control"  type="password" placeholder="" name="con">
+                        <input class="form-control"  placeholder="" name="con" value="<?php echo $persona->getClave(); ?>">
                       </div>
                     </div>
                   </div>
-                    <div class="form-group">
+                 <div class="form-group">
                     <div class="form-row">
-                      <div class="col-md-12">
+                        <div class="col-md-6">
                         <label>Rol</label>
+                        <?php $rol = $persona->getRol(); ?>
+                        <input class="form-control"  disabled type="text" placeholder="" name="usu" value="<?php echo $rol ?>">
                       </div>
-                      <div class="col-md-12">
+                      <div class="col-md-6">
+                          <label>Elegir Nuevo Rol</label><br>
                         <?php
                             require_once('rolCollector.php');
                             $objeto = new rolCollector();
@@ -147,11 +153,11 @@ session_start();
                                 echo "<option value='$id' selected>$no</option>";
                             }
                           echo "</select>";
-                        ?>   
+                        ?>
                       </div>
                     </div>
                   </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Registrar </button>
+                     <button button class="btn btn-primary btn-block" type="submit"> Editar </button>
                 </form>
               </div>
             </div>
