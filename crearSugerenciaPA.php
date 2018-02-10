@@ -10,7 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Administración</title>
+  <title>SB Admin - Start Bootstrap Template</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -51,7 +51,7 @@ session_start();
             <span class="nav-link-text">Roles</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="tablasugerencia.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Sugerencias</span>
@@ -63,13 +63,12 @@ session_start();
             <span class="nav-link-text">Servicios</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="tables.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Productos</span>
+            <span class="nav-link-text">Tables</span>
           </a>
         </li>
-        
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -93,51 +92,49 @@ session_start();
         <li class="breadcrumb-item">
           <a href="tablasugerencia.php">Sugerencia</a>
         </li>
-        <li class="breadcrumb-item active">Tabla Sugerencia</li>
+        <li class="breadcrumb-item active">Creacion Sugerencia</li>
       </ol>
-    <ol class="breadcrumb">
-        <a href="crearSugerenciaPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
-      </ol>
+   <section id="tamasec">
 
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Sugerencias</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Usuario</th>
-                  <th>Tema</th>
-                  <th>Mensaje</th>
-                  <th>Editar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                  require_once('sugerenciaCollector.php');
-                  $objeto = new sugerenciaCollector();
-                  $arrayCre = $objeto->showSugerencia();
-                  foreach($arrayCre as $cre){
-                      echo "<tr>";
-                      echo "<td>". $cre->getIdsugerencia() . "</td>";
-                      echo "<td>". $cre->getNombre() . "</td>";
-                      echo "<td>". $cre->getTema() . "</td>";
-                      echo "<td>". $cre->getMensaje() . "</td>";
-                      $envio = $cre->getIdsugerencia();
-                      echo "<td>". "<a href='editarSugerenciaPA.php?id=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
-                      echo "<td>". "<a href='eliminarSugerencia.php?id=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
-                  }
-                 
-                ?>
-              </tbody>
-            </table>
+        <div class="containerlogin">
+            <div class="card card-register mx-auto mt-5">
+              <div class="card-header">Crear  </div>
+              <div class="card-body">
+                <form action="crearSugerencia.php" method="post">
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <label>Ingrese Tema</label>
+                        <input class="form-control" placeholder="" name="tem">
+                      </div>
+                      <div class="col-md-6">
+                        <label>Elija Usuario</label><br>
+                          <?php 
+                          require_once('usuarioCollector.php');
+                          $objeto = new usuarioCollector();
+                          $array = $objeto->showUsuarios();
+                          echo "<select name='select'>";
+                            foreach($array as $r){
+                                $id = $r->getIdUsuario();
+                                $no = $r->getNombre();
+                                echo "<option value='$id' selected>$no</option>";
+                            }
+                          echo "</select>";
+                          ?>
+                      </div>
+                    </div>
+                  
+                  <div class="form-group">
+                    <label>Mensaje</label>
+                    <!--<input class="form-control" placeholder="" name="des">-->
+                    <textarea name="message" id="message" required="required" class="form-control" rows="6"></textarea>
+                  </div>
+                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+    </section>   
+     
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -157,16 +154,15 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Seleccione "Logout" para cerrar session.</div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              
                <a class="btn btn-primary" href="logout.php">Logout</a>
               </form>
            
@@ -174,8 +170,6 @@ session_start();
         </div>
       </div>
     </div>
-      <!-- eliminar Modal-->
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -183,7 +177,8 @@ session_start();
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="vendor/chart.js/Chart.min.js"></script>
-    
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js2/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->

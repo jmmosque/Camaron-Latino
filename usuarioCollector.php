@@ -76,8 +76,8 @@ class usuarioCollector extends Collector
          return $aux;   
     }
     function showUsuarios() {
-        $rows = self::$db->getRows("SELECT * FROM public.usuario ");        
-          $arrayUsuario= array();          
+        $rows = self::$db->getRows("SELECT * FROM usuario ");        
+        $arrayUsuario= array();          
         foreach ($rows as $c){
           $aux = new usuario();
           $aux->setIdUsuario($c{'id_usuario'});
