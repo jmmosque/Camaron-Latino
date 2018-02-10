@@ -91,9 +91,9 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablacredencial.php">Credencial</a>
+          <a href="tablasugerencia.php">Sugerencia</a>
         </li>
-        <li class="breadcrumb-item active">Tabla Credencial</li>
+        <li class="breadcrumb-item active">Tabla Sugerencia</li>
       </ol>
     <ol class="breadcrumb">
         <a href="creacionCredencialPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
