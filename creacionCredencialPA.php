@@ -33,7 +33,7 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="indexadministrativo.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Usuarios</span>
@@ -63,12 +63,9 @@ session_start();
             <span class="nav-link-text">Servicios</span>
           </a>
         </li>
-         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.php">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
-          </a>
-        </li>      </ul>
+        
+        
+      </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -89,92 +86,36 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="indexadministrativo.php">Usuarios</a>
+          <a href="tablacredencial.php">Credenciales</a>
         </li>
-        <li class="breadcrumb-item active">Editar Usuario</li>
+        <li class="breadcrumb-item active">Creacion Credencial</li>
       </ol>
    <section id="tamasec">
         <?php
-         $recibido = $_GET["usu"];
-         $mensaje = "";
+         if($_GET["mensaje"]){
         ?>
-        <div class="text-center"><p><?php echo $mensaje;?></p></div>
+              <div class="text-center"><p><?php echo $_GET["mensaje"];?></p></div>
+        <?php
+         }
+        ?>
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Editar cuenta</div>
+              <div class="card-header">Registro credencial</div>
               <div class="card-body">
-                <?php
-                    require_once('usuarioCollector.php');
-                    $objeto = new usuarioCollector();
-                    $persona = $objeto->todaInfoCed($recibido);
-                    $codper = $persona->getIdUsuario(); 
-                ?>
-                <form action="editarUsuario.php?persona=<?php echo $codper ?>" method="post">
+                <form action="crearCredencial.php" method="post">
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
-
-                        <label>Nombre</label>
-                        <input class="form-control" placeholder="" name="nom" value="<?php echo $persona->getNombre(); ?>">
+                        <label>Ingrese usuario</label>
+                        <input class="form-control" placeholder="" name="usu">
                       </div>
                       <div class="col-md-6">
-                        <label>Cédula o Ruc</label>
-                        <input class="form-control" placeholder="" name="ced" value="<?php echo $persona->getIdentificacion(); ?>">
+                        <label>Ingrese Login</label>
+                        <input class="form-control" placeholder="" name="log">
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Telefono</label>
-                        <input class="form-control" placeholder="" name="tel" value="<?php echo $persona->getTelefono(); ?>">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Correo electrónico</label>
-                        <input class="form-control" placeholder="" name="cor" value="<?php echo $persona->getCorreo(); ?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Direccion</label>
-                    <input class="form-control" placeholder="" name="dir" value="<?php echo $persona->getDireccion(); ?>">
-                  </div>
-                  <!-- <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Usuario</label>
-                        <input class="form-control" type="text" placeholder="" name="usu" value="?php echo $persona->getUsuario(); ?>">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Contraseña</label>
-                        <input class="form-control"  placeholder="" name="con" value="<php echo $persona->getClave(); ?>">
-                      </div>
-                    </div>
-                  </div>-->
-                 <div class="form-group">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                        <label>Rol</label>
-                        <?php $rol = $persona->getRol(); ?>
-                        <input class="form-control" type="text" placeholder="" name="rol" value="<?php echo $rol ?>" disabled="true">
-                      </div>
-                      <div class="col-md-6">
-                          <label>Elegir Nuevo Rol</label><br>
-                        <?php
-                            require_once('rolCollector.php');
-                            $objeto = new rolCollector();
-                            echo "<select name='select' id='select'>";
-                            foreach($objeto->showRoles() as $r){
-                                $id = $r->getIdRol();
-                                $no = $r->getNombre();
-                                echo "<option value='$id' selected>$no</option>";
-                            }
-                          echo "</select>";
-                        ?>
-                      </div>
-                    </div>
-                  </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Editar </button>
+                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
                 </form>
               </div>
             </div>

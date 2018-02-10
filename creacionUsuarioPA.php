@@ -33,13 +33,30 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="indexadministrativo.php">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Uusarios</span>
+            <span class="nav-link-text">Usuarios</span>
           </a>
         </li>
-
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablacredencial.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Credenciales</span>
+          </a>
+        </li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablarol.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Roles</span>
+          </a>
+        </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablasugerencia.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Sugerencias</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="tablaservicio.php">
             <i class="fa fa-fw fa-dashboard"></i>
@@ -52,7 +69,6 @@ session_start();
             <span class="nav-link-text">Tables</span>
           </a>
         </li>
-        
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -119,28 +135,14 @@ session_start();
                     <label>Direccion</label>
                     <input class="form-control" placeholder="" name="dir">
                   </div>
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Usuario</label>
-                        <input class="form-control" type="text" placeholder="" name="usu">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Contraseña</label>
-                        <input class="form-control"  type="password" placeholder="" name="con">
-                      </div>
-                    </div>
-                  </div>
                     <div class="form-group">
                     <div class="form-row">
-                      <div class="col-md-12">
-                        <label>Rol</label>
-                      </div>
-                      <div class="col-md-12">
-                        <?php
+                      <div class="col-md-6">
+                        <label>Rol</label><br>
+                          <?php
                             require_once('rolCollector.php');
                             $objeto = new rolCollector();
-                            echo "<select name='select' id='select'>";
+                            echo "<select name='select'>";
                             foreach($objeto->showRoles() as $r){
                                 $id = $r->getIdRol();
                                 $no = $r->getNombre();
@@ -149,7 +151,22 @@ session_start();
                           echo "</select>";
                         ?>   
                       </div>
+                      <div class="col-md-6">
+                         <label>Credencial</label><br>
+                          <?php
+                            require_once('credencialCollector.php');
+                            $objeto2 = new credencialCollector();
+                            echo "<select name='select2'>";
+                            foreach($objeto2->mostrarCredencial() as $rc){
+                                $idc = $rc->getIdCredencial();
+                                $noc = $rc->getUsuario();
+                                echo "<option value='$idc' selected>$noc</option>";
+                            }
+                          echo "</select>";
+                        ?>  
+                      </div>   
                     </div>
+                        
                   </div>
                      <button button class="btn btn-primary btn-block" type="submit"> Registrar </button>
                 </form>

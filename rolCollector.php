@@ -18,7 +18,7 @@ class rolCollector extends Collector
     return $arrayRol;        
   }
   function showRol($id) {
-      $rows = self::$db->getRows("SELECT * FROM public.rol WHERE id_rol= ?", array("{$id}"));        
+      $rows = self::$db->getRows("SELECT * FROM rol WHERE id_rol= ?", array($id));        
       $aux = new rol();
       foreach ($rows as $c){ 
        $aux->setIdRol($c{'id_rol'});
@@ -42,7 +42,19 @@ class rolCollector extends Collector
    }
    function crearrol($nom,$des){
       $insertarrow = self::$db->insertRow("INSERT INTO public.rol (nombre,descripcion) VALUES (?,?)", array ("{$nom}","{$des}"));
-      echo "crear completed<br>";
    }
+   function comprobarRol($rol) {
+    $rows = self::$db->getRows("SELECT * FROM public.rol WHERE nombre=? ", array("{$rol}"));        
+    $ObjRol = new rol();
+        foreach($rows as $c){
+            $ObjRol->setIdRol($c{'id_rol'});
+            $ObjRol->setNombre($c{'nombre'});
+            $ObjRol->setDescripcion($c{'descripcion'});  
+        }
+        return $ObjRol;        
+    }
+    function actualizarRol($usu,$cla,$id){
+        $row = self::$db->getRows("UPDATE rol SET nombre = ? , descripcion = ? where id_rol= ?",array("{$usu}","{$cla}",$id));
+    }
 }
 ?>

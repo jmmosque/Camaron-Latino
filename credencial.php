@@ -9,7 +9,6 @@ class credencial
      function __construct() {
      }
     
- 
      function setIdCredencial($idCredencial){
        $this->idCredencial = $idCredencial;
      } 

@@ -9,18 +9,17 @@
     $telefo = $_POST["tel"];
     $correo = $_POST["cor"];
     $direcc = $_POST["dir"];
-    $usuari = $_POST["usu"];
-    $contra = $_POST["con"];
+    //$usuari = $_POST["usu"];
+    //$contra = $_POST["con"];
     $opcion = $_POST["select"];
-    $idrola = "1";
-    $idrolu = "2";
-
+    //$idrola = "1";
+    //$idrolu = "2";
     $colpersona = new usuarioCollector();
-    $persona = $colpersona->todaInfoID($codper);
-    $colcredencial = new credencialCollector();
-    $codcredencial = $persona->getIdcredencial();
+    //$persona = $colpersona->todaInfoID($codper);
+    //$colcredencial = new credencialCollector();
+    //$codcredencial = $persona->getIdcredencial();
     //echo "coda es:".$persona->getIdcredencial()."<br>";
-    $arraycre = $colcredencial->showCredenciales();
+    /*$arraycre = $colcredencial->showCredenciales();
     $contsi = 0;
     $contno = 0;
     foreach($arraycre as $c){
@@ -37,7 +36,6 @@
              $contsi = $contsi + 1;
         }
     }
-   
     if($contno > 0){
         $mensaje="ya existe un usuario con esta credencial";
         header("location:mensajeAdmin.php?mensaje=$mensaje");
@@ -46,5 +44,8 @@
         $mensaje="credenciales actualizadas correctamente";
         //echo "cod es:".$codcredencial;
         header("location:mensajeAdmin.php?mensaje=$mensaje");
-    }
+    }*/
+    $persona = $colpersona->editarusuario($codper,$nombre,$cedula,$correo,$telefo,$direcc,$opcion);
+    $mensaje="usuario actualizado correctamente";
+    header("location:mensajeAdmin.php?mensaje=$mensaje");
 ?>

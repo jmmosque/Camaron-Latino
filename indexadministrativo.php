@@ -39,7 +39,24 @@ session_start();
             <span class="nav-link-text">Usuarios</span>
           </a>
         </li>
-
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablacredencial.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Credenciales</span>
+          </a>
+        </li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablarol.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Roles</span>
+          </a>
+        </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablasugerencia.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Sugerencias</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="tablaservicio.php">
             <i class="fa fa-fw fa-dashboard"></i>
@@ -91,8 +108,8 @@ session_start();
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Nombre</th>
-                  <th>Usuario</th>
                   <th>C.I</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
@@ -105,14 +122,14 @@ session_start();
                   $arrayUsu = $objetoUsuario->todaInfo();
                   foreach($arrayUsu as $usuario){
                       echo "<tr>";
+                      echo "<td>". $usuario->getIdUsuario() . "</td>";
                       echo "<td>". $usuario->getNombre() . "</td>";
-                      echo "<td>". $usuario->getUsuario() . "</td>";
                       echo "<td>". $usuario->getIdentificacion() . "</td>";
                       $envio = $usuario->getIdentificacion();
+                      $valor = $usuario->getIdUsuario();
                       echo "<td>". "<a href='editarUsuariosPA.php?usu=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
-                      echo "<td>". "<a href='eliminarUsuarioPA.php?mensaje=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
+                      echo "<td>". "<a href='eliminarUsuarioPA.php?mensaje=$valor'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
                   }
-                 
                 ?>
               </tbody>
             </table>

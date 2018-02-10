@@ -10,7 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>Administración</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -33,7 +33,7 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="indexadministrativo.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Usuarios</span>
@@ -51,7 +51,7 @@ session_start();
             <span class="nav-link-text">Roles</span>
           </a>
         </li>
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="tablasugerencia.php">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Sugerencias</span>
@@ -63,12 +63,14 @@ session_start();
             <span class="nav-link-text">Servicios</span>
           </a>
         </li>
-         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="tables.php">
             <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+            <span class="nav-link-text">Productos</span>
           </a>
-        </li>      </ul>
+        </li>
+        
+      </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -89,98 +91,53 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="indexadministrativo.php">Usuarios</a>
+          <a href="tablacredencial.php">Credencial</a>
         </li>
-        <li class="breadcrumb-item active">Editar Usuario</li>
+        <li class="breadcrumb-item active">Tabla Credencial</li>
       </ol>
-   <section id="tamasec">
-        <?php
-         $recibido = $_GET["usu"];
-         $mensaje = "";
-        ?>
-        <div class="text-center"><p><?php echo $mensaje;?></p></div>
-        <div class="containerlogin">
-            <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Editar cuenta</div>
-              <div class="card-body">
-                <?php
-                    require_once('usuarioCollector.php');
-                    $objeto = new usuarioCollector();
-                    $persona = $objeto->todaInfoCed($recibido);
-                    $codper = $persona->getIdUsuario(); 
-                ?>
-                <form action="editarUsuario.php?persona=<?php echo $codper ?>" method="post">
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
+    <ol class="breadcrumb">
+        <a href="creacionCredencialPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
+      </ol>
 
-                        <label>Nombre</label>
-                        <input class="form-control" placeholder="" name="nom" value="<?php echo $persona->getNombre(); ?>">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Cédula o Ruc</label>
-                        <input class="form-control" placeholder="" name="ced" value="<?php echo $persona->getIdentificacion(); ?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Telefono</label>
-                        <input class="form-control" placeholder="" name="tel" value="<?php echo $persona->getTelefono(); ?>">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Correo electrónico</label>
-                        <input class="form-control" placeholder="" name="cor" value="<?php echo $persona->getCorreo(); ?>">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Direccion</label>
-                    <input class="form-control" placeholder="" name="dir" value="<?php echo $persona->getDireccion(); ?>">
-                  </div>
-                  <!-- <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Usuario</label>
-                        <input class="form-control" type="text" placeholder="" name="usu" value="?php echo $persona->getUsuario(); ?>">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Contraseña</label>
-                        <input class="form-control"  placeholder="" name="con" value="<php echo $persona->getClave(); ?>">
-                      </div>
-                    </div>
-                  </div>-->
-                 <div class="form-group">
-                    <div class="form-row">
-                        <div class="col-md-6">
-                        <label>Rol</label>
-                        <?php $rol = $persona->getRol(); ?>
-                        <input class="form-control" type="text" placeholder="" name="rol" value="<?php echo $rol ?>" disabled="true">
-                      </div>
-                      <div class="col-md-6">
-                          <label>Elegir Nuevo Rol</label><br>
-                        <?php
-                            require_once('rolCollector.php');
-                            $objeto = new rolCollector();
-                            echo "<select name='select' id='select'>";
-                            foreach($objeto->showRoles() as $r){
-                                $id = $r->getIdRol();
-                                $no = $r->getNombre();
-                                echo "<option value='$id' selected>$no</option>";
-                            }
-                          echo "</select>";
-                        ?>
-                      </div>
-                    </div>
-                  </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Editar </button>
-                </form>
-              </div>
-            </div>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Credenciales</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Usuario</th>
+                  <th>Clave</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                  require_once('credencialCollector.php');
+                  $objeto = new credencialCollector();
+                  $arrayCre = $objeto->showCredenciales();
+                  foreach($arrayCre as $cre){
+                      echo "<tr>";
+                      echo "<td>". $cre->getIdCredencial() . "</td>";
+                      echo "<td>". $cre->getUsuario() . "</td>";
+                      echo "<td>". $cre->getClave() . "</td>";
+                      $envio = $cre->getIdCredencial();
+                      $mens = "";
+                      //'href=editarUsuariosPA.php?usu=$envio' href='eliminarUsuarioPA.php?mensaje=$envio'
+                      echo "<td>". "<a href='editarCredencialPA.php?id=$envio&mens=$mens'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
+                      echo "<td>". "<a href='eliminarCredencial.php?id=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
+                  }
+                 
+                ?>
+              </tbody>
+            </table>
           </div>
-    </section>   
-     
+        </div>
+      </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -200,12 +157,12 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Seleccione "Logout" para cerrar session.</div>
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -217,6 +174,8 @@ session_start();
         </div>
       </div>
     </div>
+      <!-- eliminar Modal-->
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -224,8 +183,7 @@ session_start();
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    
     <!-- Custom scripts for all pages-->
     <script src="js2/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
