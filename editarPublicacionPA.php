@@ -57,6 +57,18 @@ session_start();
             <span class="nav-link-text">Sugerencias</span>
           </a>
         </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablapublicacion.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Publicacion</span>
+          </a>
+        </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablacomentario.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Comentario</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="tablaservicio.php">
             <i class="fa fa-fw fa-dashboard"></i>
@@ -90,36 +102,35 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablasugerencia.php">Sugerencia</a>
+          <a href="tablapublicacion.php">Publicacion</a>
         </li>
-        <li class="breadcrumb-item active">Editar Sugerencia</li>
+        <li class="breadcrumb-item active">Editar Publicacion</li>
       </ol>
    <section id="tamasec">
        <?php 
-        require_once('sugerenciaCollector.php');
+        require_once('publicacionCollector.php');
         $id = $_GET["id"];
-        $objeto = new sugerenciaCollector();
-        $sug = $objeto->comprobarSugerencia($id);
-        $tem = $sug->getTema();
-        $mes = $sug->getMensaje();
+        $objeto = new publicacionCollector();
+        $sug = $objeto->comprobarPublicacion($id);
+        $tem = $sug->getTitulo();
+        $mes = $sug->getContenido();
        ?>
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
               <div class="card-header">Editar  </div>
               <div class="card-body">
-                <form action="editarSugerencia.php?id=<?php echo $id;?>" method="post">
+                <form action="editarPublicacion.php?id=<?php echo $id;?>" method="post">
                     <div class="form-row">
                       <div class="col-md-6">
-                        <label>Tema</label>
+                        <label>Titulo</label>
                         <input class="form-control" placeholder="" name="tem" value="<?php echo $tem; ?>">
                       </div>
                       
                     </div>
                   
                   <div class="form-group">
-                    <label>Mensaje</label>
-                    <!--<input class="form-control" placeholder="" name="des">-->
-                    <textarea name="message" id="message" required="required" class="form-control" rows="6"><?php echo $mes; ?></textarea>
+                    <label>Contenido</label>
+                    <textarea name="message" id="message" required="required" class="form-control" rows="9"><?php echo $mes; ?></textarea>
                   </div>
                      <button button class="btn btn-primary btn-block" type="submit"> Editar </button>
                 </form>

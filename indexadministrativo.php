@@ -57,6 +57,18 @@ session_start();
             <span class="nav-link-text">Sugerencias</span>
           </a>
         </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablapublicacion.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Publicacion</span>
+          </a>
+        </li>
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link" href="tablacomentario.php">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Comentario</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="tablaservicio.php">
             <i class="fa fa-fw fa-dashboard"></i>

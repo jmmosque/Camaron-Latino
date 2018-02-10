@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once("sugerenciaCollector.php");
 
     $cod = $_GET["id"];
