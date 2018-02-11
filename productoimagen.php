@@ -5,7 +5,11 @@ class productoimagen
     private $idproductoimagen;
     private $direccion;
     private $nombre;
+<<<<<<< HEAD
     private $idproducto;
+=======
+    private $idproducto
+>>>>>>> fae2899ccc4073f14078b1ae0add480a1d6cc902
     private $producto;
     
      function __construct() {

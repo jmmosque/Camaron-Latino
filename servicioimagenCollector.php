@@ -3,7 +3,11 @@
 include_once('servicioimagen.php');
 include_once('Collector.php');
 
+<<<<<<< HEAD
 class servicioimagenCollector extends Collector
+=======
+class servicioimagenCollector. extends Collector
+>>>>>>> fae2899ccc4073f14078b1ae0add480a1d6cc902
 {
     function showImagenes() {
         $rows = self::$db->getRows("SELECT * FROM servicio_imagen inner join servicio on servicio.id_servicio = servicio_imagen.id_servicio"); 
