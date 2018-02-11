@@ -10,7 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>Administración</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -76,7 +76,7 @@ session_start();
             <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
             <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
           </ul>
-        </li>        
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -98,42 +98,52 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablacredencial.php">Credenciales</a>
+          <a href="tablacomentario.php">Comentarios</a>
         </li>
-        <li class="breadcrumb-item active">Creacion Credencial</li>
+        <li class="breadcrumb-item active">Tabla Comentario</li>
       </ol>
-   <section id="tamasec">
-        <?php
-         if($_GET["mensaje"]){
-        ?>
-              <div class="text-center"><p><?php echo $_GET["mensaje"];?></p></div>
-        <?php
-         }
-        ?>
-        <div class="containerlogin">
-            <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Registro credencial</div>
-              <div class="card-body">
-                <form action="crearCredencial.php" method="post">
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Ingrese usuario</label>
-                        <input class="form-control" placeholder="" name="usu">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Ingrese Login</label>
-                        <input class="form-control" placeholder="" name="log">
-                      </div>
-                    </div>
-                  </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
-                </form>
-              </div>
-            </div>
+    <ol class="breadcrumb">
+        <a href="creacionComentarioPA.php"><button class="btn btn-primary btn-block">Crear</button></a>
+      </ol>
+
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Comentarios</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Titulo</th>
+                  <th>Comentario</th>
+                  <th>Usuario</th>
+                  <th>Editar</th>
+                  <th>Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                  require_once('comentarioCollector.php');
+                  $objeto = new comentarioCollector();
+                  $array = $objeto->showComentario();
+                  foreach($array as $aux){
+                      echo "<tr>";
+                      echo "<td>". $aux->getIdComentario() . "</td>";
+                      echo "<td>". $aux->getTitulo() . "</td>";
+                      echo "<td>". $aux->getComentario() . "</td>";
+                      echo "<td>". $aux->getNombre() . "</td>";
+                      $envio = $aux->getIdComentario();
+                      echo "<td>". "<a href='editarComentarioPA.php?id=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
+                      echo "<td>". "<a href='eliminarComentario.php?id=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
+                  }
+                ?>
+              </tbody>
+            </table>
           </div>
-    </section>   
-     
+        </div>
+      </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -153,12 +163,12 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Seleccione "Logout" para cerrar session.</div>
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -170,6 +180,8 @@ session_start();
         </div>
       </div>
     </div>
+      <!-- eliminar Modal-->
+
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -177,8 +189,7 @@ session_start();
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    
     <!-- Custom scripts for all pages-->
     <script src="js2/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->

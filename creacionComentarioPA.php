@@ -76,7 +76,7 @@ session_start();
             <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
             <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
           </ul>
-        </li>        
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -98,34 +98,52 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablacredencial.php">Credenciales</a>
+          <a href="tablacomentario.php">Comentario</a>
         </li>
-        <li class="breadcrumb-item active">Creacion Credencial</li>
+        <li class="breadcrumb-item active">Creacion Comentario</li>
       </ol>
    <section id="tamasec">
-        <?php
-         if($_GET["mensaje"]){
-        ?>
-              <div class="text-center"><p><?php echo $_GET["mensaje"];?></p></div>
-        <?php
-         }
-        ?>
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Registro credencial</div>
+              <div class="card-header">Crear  </div>
               <div class="card-body">
-                <form action="crearCredencial.php" method="post">
-                  <div class="form-group">
+                <form action="crearComentario.php" method="post">
                     <div class="form-row">
                       <div class="col-md-6">
-                        <label>Ingrese usuario</label>
-                        <input class="form-control" placeholder="" name="usu">
+                        <label>Elija Publicacion</label><br>
+                           <?php 
+                          require_once('publicacionCollector.php');
+                          $objet = new publicacionCollector();
+                          $arra = $objet->showPublicacion();
+                          echo "<select name='select2'>";
+                            foreach($arra as $rc){
+                                $idc = $rc->getIdPublicacion();
+                                $noc = $rc->getTitulo();
+                                echo "<option value='$idc' selected>$noc</option>";
+                            }
+                          echo "</select>";
+                          ?>
                       </div>
                       <div class="col-md-6">
-                        <label>Ingrese Login</label>
-                        <input class="form-control" placeholder="" name="log">
+                        <label>Elija Usuario</label><br>
+                          <?php 
+                          require_once('usuarioCollector.php');
+                          $objeto = new usuarioCollector();
+                          $array = $objeto->showUsuarios();
+                          echo "<select name='select'>";
+                            foreach($array as $r){
+                                $id = $r->getIdUsuario();
+                                $no = $r->getNombre();
+                                echo "<option value='$id' selected>$no</option>";
+                            }
+                          echo "</select>";
+                          ?>
                       </div>
                     </div>
+                  <div class="form-group">
+                    <label >Contenido</label>
+                    <!--<input class="form-control" placeholder="" name="des">-->
+                    <textarea name="message" id="message" required="required" class="form-control" rows="6"></textarea>
                   </div>
                      <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
                 </form>
@@ -162,7 +180,6 @@ session_start();
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              
                <a class="btn btn-primary" href="logout.php">Logout</a>
               </form>
            

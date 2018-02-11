@@ -5,7 +5,7 @@ include_once('Collector.php');
 class comentarioCollector extends Collector{
 
     function showComentario(){
-        $rows = self::$db->getRows("SELECT comentario.id_comentario,comentario.comentario,comentario.id_publicacion,comentario.id_publicacion,publicacion.titulo,usuario.nombre FROM
+        $rows = self::$db->getRows("SELECT comentario.id_comentario,comentario.comentario,comentario.id_publicacion,comentario.id_usuario,publicacion.titulo,usuario.nombre FROM
         comentario INNER JOIN publicacion ON (comentario.id_publicacion = publicacion.id_publicacion) INNER JOIN usuario ON (comentario.id_usuario = usuario.id_usuario);");
         $array = array();
         foreach($rows as $c){
