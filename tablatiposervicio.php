@@ -76,8 +76,8 @@ session_start();
             <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
             <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
           </ul>
-        </li>        
-      </ul>
+        </li>      
+        </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -98,46 +98,43 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablarol.php">Rol</a>
+          <a href="tablatiposervicio.php">Tipo Servicio</a>
         </li>
-        <li class="breadcrumb-item active">Tabla Rol</li>
+        <li class="breadcrumb-item active">Tabla Tipo Servicio</li>
       </ol>
     <ol class="breadcrumb">
-        <a href="crearRol.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
+        <a href="creacionTServicioPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
       </ol>
 
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Roles</div>
+          <i class="fa fa-table"></i> Tipo de Servicios</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Id</th>
-                  <th>Rol</th>
-                  <th>Descripcion</th>
+                  <th>id</th>
+                  <th>Nombre</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                  require_once('rolCollector.php');
-                  $objeto = new rolCollector();
-                  $arrayRol = $objeto->showRoles();
-                  foreach($arrayRol as $cre){
+                  require_once('tiposervicioCollector.php');
+                  $objeto = new tiposervicioCollector();
+                  $array = $objeto ->showTiposervicios();
+                  foreach($array as $c){
                       echo "<tr>";
-                      echo "<td>". $cre->getIdRol() . "</td>";
-                      echo "<td>". $cre->getNombre() . "</td>";
-                      echo "<td>". $cre->getDescripcion() . "</td>";
-                      $id = $cre->getIdRol();
+                      echo "<td>". $c->getIdTipoServicio() . "</td>";
+                      echo "<td>". $c->getNombre() . "</td>";
+                      $id = $c->getIdTipoServicio();
                       $mensaje = "";
-                      echo "<td><a href='editarRolPa.php?id=$id&mensaje=$mensaje'><button class='material-icons button2 edit'>edit</button></a></td>";
-                      echo "<td><a href='eliminarRol.php?id=$id'><button class='material-icons button2 delete'>delete</button></a></td>";
+                      echo "<td><a href='editarTServicioPa.php?id=$id&mensaje=$mensaje'><button class='material-icons button2 edit'>edit</button></a></td>";
+                      echo "<td><a href='eliminarTServicio.php?id=$id'><button class='material-icons button2 delete'>delete</button></a></td>";
                   }
-                 
                 ?>
               </tbody>
             </table>
@@ -163,12 +160,12 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Seleccione "Logout" para cerrar session.</div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -180,8 +177,6 @@ session_start();
         </div>
       </div>
     </div>
-      <!-- eliminar Modal-->
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

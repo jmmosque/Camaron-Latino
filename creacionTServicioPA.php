@@ -10,7 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Administración</title>
+  <title>SB Admin - Start Bootstrap Template</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -76,7 +76,7 @@ session_start();
             <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
             <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
           </ul>
-        </li>        
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -98,52 +98,38 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablarol.php">Rol</a>
+          <a href="tablatiposervicio.php">Tipo Servicio</a>
         </li>
-        <li class="breadcrumb-item active">Tabla Rol</li>
+        <li class="breadcrumb-item active">Creacion Tipo Servicio</li>
       </ol>
-    <ol class="breadcrumb">
-        <a href="crearRol.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
-      </ol>
-
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Roles</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Rol</th>
-                  <th>Descripcion</th>
-                  <th>Editar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                  require_once('rolCollector.php');
-                  $objeto = new rolCollector();
-                  $arrayRol = $objeto->showRoles();
-                  foreach($arrayRol as $cre){
-                      echo "<tr>";
-                      echo "<td>". $cre->getIdRol() . "</td>";
-                      echo "<td>". $cre->getNombre() . "</td>";
-                      echo "<td>". $cre->getDescripcion() . "</td>";
-                      $id = $cre->getIdRol();
-                      $mensaje = "";
-                      echo "<td><a href='editarRolPa.php?id=$id&mensaje=$mensaje'><button class='material-icons button2 edit'>edit</button></a></td>";
-                      echo "<td><a href='eliminarRol.php?id=$id'><button class='material-icons button2 delete'>delete</button></a></td>";
-                  }
-                 
-                ?>
-              </tbody>
-            </table>
+   <section id="tamasec">
+        <?php
+         if($_GET["mensaje"]){
+        ?>
+              <div class="text-center"><p><?php echo $_GET["mensaje"];?></p></div>
+        <?php
+         }
+        ?>
+        <div class="containerlogin">
+            <div class="card card-register mx-auto mt-5">
+              <div class="card-header">Crear Nuevo Tipo Servicio</div>
+              <div class="card-body">
+                <form action="crearNuevoTServicio.php" method="post">
+                  <div class="form-group">
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <label>Tipo Servicio</label>
+                        <input class="form-control" placeholder="" name="nue">
+                      </div>
+                    </div>
+                  </div>
+                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+    </section>   
+     
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -163,12 +149,12 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Seleccione "Logout" para cerrar session.</div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -180,8 +166,6 @@ session_start();
         </div>
       </div>
     </div>
-      <!-- eliminar Modal-->
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -189,7 +173,8 @@ session_start();
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="vendor/chart.js/Chart.min.js"></script>
-    
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js2/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->

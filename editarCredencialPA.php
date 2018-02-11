@@ -122,11 +122,11 @@ session_start();
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Ingrese usuario</label>
-                        <input class="form-control" placeholder="" name="usu" value = "<?php echo $log; ?>">
+                        <input class="form-control" placeholder="" name="usu" value ="<?php echo $log; ?>">
                       </div>
                       <div class="col-md-6">
                         <label>Ingrese Login</label>
-                        <input class="form-control" placeholder="" name="log"  value = "<?php echo $cla; ?>">
+                        <input class="form-control" placeholder="" name="log"  value ="<?php echo $cla; ?>">
                       </div>
                     </div>
                   </div>

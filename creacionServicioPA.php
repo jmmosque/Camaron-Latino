@@ -33,26 +33,50 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="indexadministrativo.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Uusarios</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user-md"></i>
+            <span class="nav-link-text">Usuario</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li><a href="indexadministrativo.php">Tabla Usuario</a></li>
+            <li><a href="tablacredencial.php">Tabla Credencial</a></li>
+            <li><a href="tablarol.php">Tabla Rol</a></li>
+            <li><a href="tablasugerencia.php">Tabla Sugerencia</a></li>
+          </ul>
         </li>
-
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="tablaservicio.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Servicios</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file-text-o"></i>
+            <span class="nav-link-text">Publicacion</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents2">
+            <li><a href="tablapublicacion.php">Tabla Publicacion</a></li>
+            <li><a href="tablacomentario.php">Tabla Comentario</a></li>
+          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.php">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-server"></i>
+            <span class="nav-link-text">Servicio</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents3">
+            <li><a href="tablaservicio.php">Tabla Servicio</a></li>
+            <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
+            <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
+          </ul>
         </li>
-        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-product-hunt"></i>
+            <span class="nav-link-text">Producto</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents4">
+            <li><a href="tablaproducto.php">Tabla Producto</a></li>
+            <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
+            <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -74,84 +98,62 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="tablaservicio.php">Servicio</a>
         </li>
-        <li class="breadcrumb-item active">Creacion Usuario</li>
+        <li class="breadcrumb-item active">Creacion Servicio</li>
       </ol>
    <section id="tamasec">
-        <?php
-         if($_GET["mensaje"]){
-        ?>
-              <div class="text-center"><p><?php echo $_GET["mensaje"];?></p></div>
-        <?php
-         }
-        ?>
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Registro de cuenta</div>
+              <div class="card-header">Crear  </div>
               <div class="card-body">
-                <form action="creacionAdministrativaUsuario.php" method="post">
-                  <div class="form-group">
+                <form action="crearServicio.php" method="post">
                     <div class="form-row">
                       <div class="col-md-6">
-                        <label>Ingrese nombre</label>
-                        <input class="form-control" placeholder="" name="nom">
+                        <label>Elija Tipo Servicio</label><br>
+                           <?php 
+                          require_once('tiposervicioCollector.php');
+                          $objet = new tiposervicioCollector();
+                          $arra = $objet->showTiposervicios();
+                          echo "<select name='select2'>";
+                            foreach($arra as $rc){
+                                $idc = $rc->getIdTipoServicio();
+                                $noc = $rc->getNombre();
+                                echo "<option value='$idc' selected>$noc</option>";
+                            }
+                          echo "</select>";
+                          ?>
                       </div>
                       <div class="col-md-6">
-                        <label>Ingrese cédula o ruc</label>
-                        <input class="form-control" placeholder="" name="ced">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Ingrese telefono</label>
-                        <input class="form-control" placeholder="" name="tel">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Correo electrónico</label>
-                        <input class="form-control" placeholder="" name="cor">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Direccion</label>
-                    <input class="form-control" placeholder="" name="dir">
-                  </div>
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Usuario</label>
-                        <input class="form-control" type="text" placeholder="" name="usu">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Contraseña</label>
-                        <input class="form-control"  type="password" placeholder="" name="con">
-                      </div>
-                    </div>
-                  </div>
-                    <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-12">
-                        <label>Rol</label>
-                      </div>
-                      <div class="col-md-12">
-                        <?php
-                            require_once('rolCollector.php');
-                            $objeto = new rolCollector();
-                            echo "<select name='select' id='select'>";
-                            foreach($objeto->showRoles() as $r){
-                                $id = $r->getIdRol();
+                        <label>Elija Usuario</label><br>
+                          <?php 
+                          require_once('usuarioCollector.php');
+                          $objeto = new usuarioCollector();
+                          $array = $objeto->showUsuarios();
+                          echo "<select name='select'>";
+                            foreach($array as $r){
+                                $id = $r->getIdUsuario();
                                 $no = $r->getNombre();
                                 echo "<option value='$id' selected>$no</option>";
                             }
                           echo "</select>";
-                        ?>   
+                          ?>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <label>Nuevo Servico</label>
+                        <input class="form-control" placeholder="" name="nue">
                       </div>
                     </div>
                   </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Registrar </button>
+                  <div class="form-group">
+                    <label >Descripcion del Servicio</label>
+                    <!--<input class="form-control" placeholder="" name="des">-->
+                    <textarea name="message" id="message" required="required" class="form-control" rows="6"></textarea>
+                  </div>
+                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
                 </form>
               </div>
             </div>
@@ -186,7 +188,6 @@ session_start();
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              
                <a class="btn btn-primary" href="logout.php">Logout</a>
               </form>
            

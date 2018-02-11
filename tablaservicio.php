@@ -76,7 +76,8 @@ session_start();
             <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
             <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
           </ul>
-        </li>      </ul>
+        </li>      
+        </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -97,42 +98,43 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="tablaservicio.php">Servicio</a>
         </li>
         <li class="breadcrumb-item active">Tabla Servicio</li>
       </ol>
     <ol class="breadcrumb">
-        <a href="creacionUsuarioPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
+        <a href="creacionServicioPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
       </ol>
 
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Usuarios</div>
+          <i class="fa fa-table"></i> Tabla Servicios</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Usuario</th>
+                  <th>ID</th>
                   <th>Nombre</th>
-                  <th>Clave</th>
+                  <th>Usuario</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                  require_once('usuarioCollector.php');
-                  $objetoUsuario = new usuarioCollector();
-                  $arrayUsu = $objetoUsuario->todaInfo();
-                  foreach($arrayUsu as $usuario){
+                  require_once('servicioCollector.php');
+                  $objeto = new servicioCollector();
+                  $array = $objeto->showServicios();
+                  foreach($array as $c){
                       echo "<tr>";
-                      echo "<td>". $usuario->getUsuario() . "</td>";
-                      echo "<td>". $usuario->getNombre() . "</td>";
-                      echo "<td>". $usuario->getClave() . "</td>";
-                      echo "<td>". "<a class='material-icons button2 edit' href=''>edit</a>" . "</td>";
-                      echo "<td>". "<a class='material-icons button2 delete' href=''>delete</a>" . "</td>";
+                      echo "<td>". $c->getIdServicio() . "</td>";
+                      echo "<td>". $c->getServicio() . "</td>";
+                      echo "<td>". $c->getUsuario() . "</td>";
+                      $id = $c->getIdServicio();
+                      echo "<td><a href='editarServicioPa.php?id=$id'><button class='material-icons button2 edit'>edit</button></a></td>";
+                      echo "<td><a href='eliminarServicio.php?id=$id'><button class='material-icons button2 delete'>delete</button></a></td>";
                   }
                 ?>
               </tbody>
