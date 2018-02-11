@@ -71,13 +71,13 @@ session_start();
             <i class="fa fa-fw fa-product-hunt"></i>
             <span class="nav-link-text">Producto</span>
           </a>
-            <ul class="sidenav-second-level collapse" id="collapseComponents4">
+             <ul class="sidenav-second-level collapse" id="collapseComponents4">
             <li><a href="tablaproducto.php">Tabla Producto</a></li>
             <li><a href="tablatipoproducto.php">Tabla Tipo Producto</a></li>
             <li><a href="tablaimagenproducto.php">Tabla Imagen Producto</a></li>
           </ul>
-        </li>
-      </ul>
+        </li>      
+        </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -98,45 +98,42 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablacomentario.php">Comentarios</a>
+          <a href="tablatipoproducto.php">Tipo Producto</a>
         </li>
-        <li class="breadcrumb-item active">Tabla Comentario</li>
+        <li class="breadcrumb-item active">Tabla Tipo Producto</li>
       </ol>
     <ol class="breadcrumb">
-        <a href="creacionComentarioPA.php"><button class="btn btn-primary btn-block">Crear</button></a>
+        <a href="creacionTProductoPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
       </ol>
 
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Comentarios</div>
+          <i class="fa fa-table"></i> Tipo de Producto</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Titulo</th>
-                  <th>Comentario</th>
-                  <th>Usuario</th>
+                  <th>Nombre</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                  require_once('comentarioCollector.php');
-                  $objeto = new comentarioCollector();
-                  $array = $objeto->showComentario();
-                  foreach($array as $aux){
+                  require_once('tipoproductoCollector.php');
+                  $objeto = new tipoproductoCollector();
+                  $array = $objeto ->showtipoProductos();
+                  foreach($array as $c){
                       echo "<tr>";
-                      echo "<td>". $aux->getIdComentario() . "</td>";
-                      echo "<td>". $aux->getTitulo() . "</td>";
-                      echo "<td>". $aux->getComentario() . "</td>";
-                      echo "<td>". $aux->getNombre() . "</td>";
-                      $envio = $aux->getIdComentario();
-                      echo "<td>". "<a href='editarComentarioPA.php?id=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
-                      echo "<td>". "<a href='eliminarComentario.php?id=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
+                      echo "<td>". $c->getIdTiPoproducto() . "</td>";
+                      echo "<td>". $c->getNombre() . "</td>";
+                      $id = $c->getIdTiPoproducto();
+                      $mensaje = "";
+                      echo "<td><a href='editarTProductoPa.php?id=$id&mensaje=$mensaje'><button class='material-icons button2 edit'>edit</button></a></td>";
+                      echo "<td><a href='eliminarTProducto.php?id=$id'><button class='material-icons button2 delete'>delete</button></a></td>";
                   }
                 ?>
               </tbody>
@@ -163,12 +160,12 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Seleccione "Logout" para cerrar session.</div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -180,8 +177,6 @@ session_start();
         </div>
       </div>
     </div>
-      <!-- eliminar Modal-->
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

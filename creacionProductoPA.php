@@ -10,7 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Administración</title>
+  <title>SB Admin - Start Bootstrap Template</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -71,7 +71,7 @@ session_start();
             <i class="fa fa-fw fa-product-hunt"></i>
             <span class="nav-link-text">Producto</span>
           </a>
-            <ul class="sidenav-second-level collapse" id="collapseComponents4">
+           <ul class="sidenav-second-level collapse" id="collapseComponents4">
             <li><a href="tablaproducto.php">Tabla Producto</a></li>
             <li><a href="tablatipoproducto.php">Tabla Tipo Producto</a></li>
             <li><a href="tablaimagenproducto.php">Tabla Imagen Producto</a></li>
@@ -98,52 +98,68 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablacomentario.php">Comentarios</a>
+          <a href="tablaproducto.php">Producto</a>
         </li>
-        <li class="breadcrumb-item active">Tabla Comentario</li>
+        <li class="breadcrumb-item active">Creacion Producto</li>
       </ol>
-    <ol class="breadcrumb">
-        <a href="creacionComentarioPA.php"><button class="btn btn-primary btn-block">Crear</button></a>
-      </ol>
-
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Comentarios</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Titulo</th>
-                  <th>Comentario</th>
-                  <th>Usuario</th>
-                  <th>Editar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                  require_once('comentarioCollector.php');
-                  $objeto = new comentarioCollector();
-                  $array = $objeto->showComentario();
-                  foreach($array as $aux){
-                      echo "<tr>";
-                      echo "<td>". $aux->getIdComentario() . "</td>";
-                      echo "<td>". $aux->getTitulo() . "</td>";
-                      echo "<td>". $aux->getComentario() . "</td>";
-                      echo "<td>". $aux->getNombre() . "</td>";
-                      $envio = $aux->getIdComentario();
-                      echo "<td>". "<a href='editarComentarioPA.php?id=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
-                      echo "<td>". "<a href='eliminarComentario.php?id=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
-                  }
-                ?>
-              </tbody>
-            </table>
+   <section id="tamasec">
+        <div class="containerlogin">
+            <div class="card card-register mx-auto mt-5">
+              <div class="card-header">Crear  </div>
+              <div class="card-body">
+                <form action="crearProducto.php" method="post">
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <label>Elija Tipo Producto</label><br>
+                           <?php 
+                          require_once('tipoproductoCollector.php');
+                          $objet = new tipoproductoCollector();
+                          $arra = $objet->showtipoProductos();
+                          echo "<select name='select2'>";
+                            foreach($arra as $rc){
+                                $idc = $rc->getIdTiPoproducto();
+                                $noc = $rc->getNombre();
+                                echo "<option value='$idc' selected>$noc</option>";
+                            }
+                          echo "</select>";
+                          ?>
+                      </div>
+                      <div class="col-md-6">
+                        <label>Elija Usuario</label><br>
+                          <?php 
+                          require_once('usuarioCollector.php');
+                          $objeto = new usuarioCollector();
+                          $array = $objeto->showUsuarios();
+                          echo "<select name='select'>";
+                            foreach($array as $r){
+                                $id = $r->getIdUsuario();
+                                $no = $r->getNombre();
+                                echo "<option value='$id' selected>$no</option>";
+                            }
+                          echo "</select>";
+                          ?>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <label>Nuevo Producto</label>
+                        <input class="form-control" placeholder="" name="nue">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label >Descripcion del Producto</label>
+                    <!--<input class="form-control" placeholder="" name="des">-->
+                    <textarea name="message" id="message" required="required" class="form-control" rows="6"></textarea>
+                  </div>
+                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+    </section>   
+     
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -163,16 +179,15 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Estas seguro?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Seleccione "Logout" para cerrar session.</div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              
                <a class="btn btn-primary" href="logout.php">Logout</a>
               </form>
            
@@ -180,8 +195,6 @@ session_start();
         </div>
       </div>
     </div>
-      <!-- eliminar Modal-->
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -189,7 +202,8 @@ session_start();
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="vendor/chart.js/Chart.min.js"></script>
-    
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js2/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->

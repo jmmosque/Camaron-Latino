@@ -71,10 +71,10 @@ session_start();
             <i class="fa fa-fw fa-product-hunt"></i>
             <span class="nav-link-text">Producto</span>
           </a>
-          <ul class="sidenav-second-level collapse" id="collapseComponents4">
+             <ul class="sidenav-second-level collapse" id="collapseComponents4">
             <li><a href="tablaproducto.php">Tabla Producto</a></li>
-            <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
-            <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
+            <li><a href="tablatipoproducto.php">Tabla Tipo Producto</a></li>
+            <li><a href="tablaimagenproducto.php">Tabla Imagen Producto</a></li>
           </ul>
         </li>      
         </ul>
