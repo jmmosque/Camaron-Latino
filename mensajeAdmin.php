@@ -33,26 +33,51 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="indexadministrativo.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user-md"></i>
+            <span class="nav-link-text">Usuario</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li><a href="indexadministrativo.php">Tabla Usuario</a></li>
+            <li><a href="tablacredencial.php">Tabla Credencial</a></li>
+            <li><a href="tablarol.php">Tabla Rol</a></li>
+            <li><a href="tablasugerencia.php">Tabla Sugerencia</a></li>
+          </ul>
         </li>
-
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="tablaservicio.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file-text-o"></i>
+            <span class="nav-link-text">Publicacion</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents2">
+            <li><a href="tablapublicacion.php">Tabla Publicacion</a></li>
+            <li><a href="tablacomentario.php">Tabla Comentario</a></li>
+          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.php">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-server"></i>
+            <span class="nav-link-text">Servicio</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents3">
+            <li><a href="tablaservicio.php">Tabla Servicio</a></li>
+            <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
+            <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
+          </ul>
         </li>
-        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-product-hunt"></i>
+            <span class="nav-link-text">Producto</span>
+          </a>
+           <ul class="sidenav-second-level collapse" id="collapseComponents4">
+            <li><a href="tablaproducto.php">Tabla Producto</a></li>
+            <li><a href="tablatipoproducto.php">Tabla Tipo Producto</a></li>
+            <li><a href="tablaimagenproducto.php">Tabla Imagen Producto</a></li>
+          </ul>
+        </li>    
+      
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">

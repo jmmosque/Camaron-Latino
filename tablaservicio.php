@@ -33,27 +33,51 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="indexadministrativo.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Usuarios</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user-md"></i>
+            <span class="nav-link-text">Usuario</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li><a href="indexadministrativo.php">Tabla Usuario</a></li>
+            <li><a href="tablacredencial.php">Tabla Credencial</a></li>
+            <li><a href="tablarol.php">Tabla Rol</a></li>
+            <li><a href="tablasugerencia.php">Tabla Sugerencia</a></li>
+          </ul>
         </li>
-
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="tablaservicio.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Servicios</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file-text-o"></i>
+            <span class="nav-link-text">Publicacion</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents2">
+            <li><a href="tablapublicacion.php">Tabla Publicacion</a></li>
+            <li><a href="tablacomentario.php">Tabla Comentario</a></li>
+          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.php">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Productos</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-server"></i>
+            <span class="nav-link-text">Servicio</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents3">
+            <li><a href="tablaservicio.php">Tabla Servicio</a></li>
+            <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
+            <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
+          </ul>
         </li>
-        
-      </ul>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-product-hunt"></i>
+            <span class="nav-link-text">Producto</span>
+          </a>
+             <ul class="sidenav-second-level collapse" id="collapseComponents4">
+            <li><a href="tablaproducto.php">Tabla Producto</a></li>
+            <li><a href="tablatipoproducto.php">Tabla Tipo Producto</a></li>
+            <li><a href="tablaimagenproducto.php">Tabla Imagen Producto</a></li>
+          </ul>
+        </li>      
+        </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -74,42 +98,43 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="tablaservicio.php">Servicio</a>
         </li>
         <li class="breadcrumb-item active">Tabla Servicio</li>
       </ol>
     <ol class="breadcrumb">
-        <a href="creacionUsuarioPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
+        <a href="creacionServicioPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
       </ol>
 
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Usuarios</div>
+          <i class="fa fa-table"></i> Tabla Servicios</div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>Usuario</th>
+                  <th>ID</th>
                   <th>Nombre</th>
-                  <th>Clave</th>
+                  <th>Usuario</th>
                   <th>Editar</th>
                   <th>Eliminar</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                  require_once('usuarioCollector.php');
-                  $objetoUsuario = new usuarioCollector();
-                  $arrayUsu = $objetoUsuario->todaInfo();
-                  foreach($arrayUsu as $usuario){
+                  require_once('servicioCollector.php');
+                  $objeto = new servicioCollector();
+                  $array = $objeto->showServicios();
+                  foreach($array as $c){
                       echo "<tr>";
-                      echo "<td>". $usuario->getUsuario() . "</td>";
-                      echo "<td>". $usuario->getNombre() . "</td>";
-                      echo "<td>". $usuario->getClave() . "</td>";
-                      echo "<td>". "<a class='material-icons button2 edit' href=''>edit</a>" . "</td>";
-                      echo "<td>". "<a class='material-icons button2 delete' href=''>delete</a>" . "</td>";
+                      echo "<td>". $c->getIdServicio() . "</td>";
+                      echo "<td>". $c->getServicio() . "</td>";
+                      echo "<td>". $c->getUsuario() . "</td>";
+                      $id = $c->getIdServicio();
+                      echo "<td><a href='editarServicioPa.php?id=$id'><button class='material-icons button2 edit'>edit</button></a></td>";
+                      echo "<td><a href='eliminarServicio.php?id=$id'><button class='material-icons button2 delete'>delete</button></a></td>";
                   }
                 ?>
               </tbody>
