@@ -128,7 +128,7 @@ session_start();
                     <div class="form-row">
                       <div class="col-md-6">
                           <br>
-                        <label>Elija Imagen de  Producto</label><br>
+                        <label>Elija Imagen de Producto</label><br>
                         <input type="file" name="fileToUpload" id="fileToUpload">
                       </div>
                     </div>

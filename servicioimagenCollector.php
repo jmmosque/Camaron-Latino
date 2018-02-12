@@ -3,12 +3,7 @@
 include_once('servicioimagen.php');
 include_once('Collector.php');
 
-<<<<<<< HEAD
-class servicioimagenCollector extends Collector
-=======
-class servicioimagenCollector. extends Collector
->>>>>>> fae2899ccc4073f14078b1ae0add480a1d6cc902
-{
+class servicioimagenCollector extends Collector{
     function showImagenes() {
         $rows = self::$db->getRows("SELECT * FROM servicio_imagen inner join servicio on servicio.id_servicio = servicio_imagen.id_servicio"); 
         $array = array();
@@ -38,7 +33,7 @@ class servicioimagenCollector. extends Collector
         $deleterow = self::$db->deleteRow("DELETE FROM servicio_imagen WHERE id_servicio_imagen= ?", array($id));
     }
     function crearImagen($dir,$nom,$idp){
-        $insertarrow = self::$db->insertRow("INSERT INTO servicio_imagen (direccion,nombre,id_servicio) VALUES (?,?,?)", array ("{$dir}","{$nom}",$idp));
+        $insertarrow = self::$db->insertRow("INSERT INTO servicio_imagen (direccion,nombre,id_servicio) VALUES (?,?,?)", array("{$dir}","{$nom}",$idp));
     }
     function actualizarImagen($nom,$id){
         $row = self::$db->getRows("UPDATE servicio_imagen SET nombre = ? where id_servicio_imagen= ?",array("{$nom}",$id));

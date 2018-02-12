@@ -1,19 +1,11 @@
 <?php
-<<<<<<< HEAD
 class servicioimagen
-=======
-class productoimagen
->>>>>>> fae2899ccc4073f14078b1ae0add480a1d6cc902
 {
     
     private $idservicioimagen;
     private $direccion;
     private $nombre;
-<<<<<<< HEAD
     private $idservicio;
-=======
-    private $idservicio
->>>>>>> fae2899ccc4073f14078b1ae0add480a1d6cc902
     private $servicio;
     
      function __construct() {
@@ -46,11 +38,7 @@ class productoimagen
      function setServicio($servicio){
         $this->servicio = $servicio;
      } 
-<<<<<<< HEAD
      function getServicio(){
-=======
-     function getServicioo(){
->>>>>>> fae2899ccc4073f14078b1ae0add480a1d6cc902
         return $this->servicio;
      }
 }

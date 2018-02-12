@@ -10,7 +10,7 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Administración</title>
+  <title>SB Admin - Start Bootstrap Template</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -71,13 +71,13 @@ session_start();
             <i class="fa fa-fw fa-product-hunt"></i>
             <span class="nav-link-text">Producto</span>
           </a>
-             <ul class="sidenav-second-level collapse" id="collapseComponents4">
+           <ul class="sidenav-second-level collapse" id="collapseComponents4">
             <li><a href="tablaproducto.php">Tabla Producto</a></li>
             <li><a href="tablatipoproducto.php">Tabla Tipo Producto</a></li>
             <li><a href="tablaimagenproducto.php">Tabla Imagen Producto</a></li>
           </ul>
-        </li>      
-        </ul>
+        </li>
+      </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
           <a class="nav-link text-center" id="sidenavToggler">
@@ -98,54 +98,50 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablaimagenservicio.php">Imagen Servicio</a>
+          <a href="tablaimagenproducto.php">Imagen Producto</a>
         </li>
-        <li class="breadcrumb-item active">Tabla Imagen Servicio</li>
+        <li class="breadcrumb-item active">Editar Imagen Producto</li>
       </ol>
-    <ol class="breadcrumb">
-        <a href="creacionIServicioPA.php?mensaje="><button class="btn btn-primary btn-block">Crear</button></a>
-      </ol>
-
-      <!-- Example DataTables Card-->
-      <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Tabla Imagenes Servicios</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Servicio</th>
-                  <th>Direccion</th>
-                  <th>Editar</th>
-                  <th>Eliminar</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                  require_once('servicioimagenCollector.php');
-                  $objeto = new servicioimagenCollector();
-                  $array = $objeto->showImagenes();
-                  foreach($array as $c){
-                      echo "<tr>";
-                      echo "<td>". $c->getIdServicioImagen() . "</td>";
-                      echo "<td>". $c->getNombre() . "</td>";
-                      echo "<td>". $c->getDireccion() . "</td>";
-                      echo "<td>". $c->getServicio() . "</td>";
-                      $id = $c->getIdServicioImagen();
-                      echo "<td><a href='editarIServicioPa.php?id=$id'><button class='material-icons button2 edit'>edit</button></a></td>";
-                      echo "<td><a href='eliminarIServicio.php?id=$id'><button class='material-icons button2 delete'>delete</button></a></td>";
-                  }
-                ?>
-              </tbody>
-            </table>
+    <section id="tamasec">
+        <?php
+        require_once('productoimagenCollector.php');
+        $id = $_GET["id"];
+        $objeto = new productoimagenCollector();
+        $img = $objeto->showImagen($id);
+        $dir = $img->getDireccion();
+        $nom = $img->getNombre();
+        ?>
+        <div class="containerlogin">
+            <div class="card card-register mx-auto mt-5">
+              <div class="card-header">Cambiar</div>
+              <div class="card-body">
+                <form action="editarIProducto.php?id=<?php echo $id;?>" method="post" enctype="multipart/form-data">
+                <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                          
+                        <label>Imagen Actual</label><br>
+                        <img class="img-responsive" src="<?php echo $dir.$nom?>" alt="">
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                        <label>Elija Nueva Imagen de  Producto</label><br>
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                      </div>
+                    </div>
+                    <br>
+                     <button button class="btn btn-primary btn-block" type="submit"> Cambiar </button>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+    </section>   
+     
     </div>
     <!-- /.container-fluid-->
+      
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
       <div class="container">
@@ -172,7 +168,6 @@ session_start();
           <div class="modal-footer">
               <form action="logout.php">
                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              
                <a class="btn btn-primary" href="logout.php">Logout</a>
               </form>
            
@@ -187,7 +182,8 @@ session_start();
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="vendor/chart.js/Chart.min.js"></script>
-    
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js2/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
