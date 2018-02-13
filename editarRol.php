@@ -1,5 +1,17 @@
 <?php
-    require_once("rolCollector.php");
+session_start();
+         if ($_SESSION){     
+                           if ($_SESSION["perfil"]=="admin"){
+                
+                           }else{
+                                header("location:index.php"); 
+                           }
+                            
+                }else{
+                    header("location:index.php");
+                }
+    
+require_once("rolCollector.php");
 
     $codper = $_GET["id"];
     $usuari = $_POST["nue"];

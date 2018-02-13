@@ -1,5 +1,15 @@
 <?php
     session_start();
+                if ($_SESSION){     
+                           if ($_SESSION["perfil"]=="admin"){
+                
+                           }else{
+                                header("location:index.php"); 
+                           }
+                            
+                }else{
+                    header("location:index.php");
+                }
     require_once("usuarioCollector.php");
     $nombre = $_POST["nom"];
     $cedula = $_POST["ced"];
