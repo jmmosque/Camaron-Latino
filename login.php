@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog Single | Corlate</title>
+    <title>Blog | Camarón Latino</title>
     
     <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -51,12 +51,12 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li><a href="contact-us.php">Contactenos</a></li> 
+                        <li><a href="contact-us.php">Contáctenos</a></li> 
                         <!--<li><a href="login.html">Login</a></li>-->
                          <?php
                             if ($_SESSION){
                         ?>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="logout.php">Cerrar Sesión</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
@@ -69,7 +69,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li class="active"><a href="login.php">Login</a></li>
+                            <li class="active"><a href="login.php">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -78,10 +78,10 @@ session_start();
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->
-    <section id="tamasec"><h2 class="center2">Inicie Sesion</h2>
+    <section id="tamasec"><h2 class="center2">Inicie Sesión</h2>
       <div class="containerlogin">
         <div class="card card-login mx-auto mt-5">
-          <div class="card-header">Login</div>
+          <div class="card-header">Inicio de Sesión</div>
             <div class="card-body">
                 <form action="validacredencial.php" method="post">
                     <div class="form-group">
@@ -97,7 +97,7 @@ session_start();
                 <div class="text-center">
                     <br>
                     <a class="d-block small mt-3" href="registre.php?mensaje=">Registre una Cuenta</a>
-                    <a class="d-block small" href="forgot.php">Olvidó contraseña?</a>
+                    <a class="d-block small" href="forgot.php">¿Olvidó contraseña?</a>
                 </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ session_start();
             <div class="container">
                 <div class="row">
                       <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. Todos los Derechos Reservados.
                 </div>
                    
                     <div class="col-sm-6 col-xs-8">

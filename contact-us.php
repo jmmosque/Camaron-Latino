@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog Single | Corlate</title>
+    <title>Blog | Camarón Latino</title>
     
     <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -56,7 +56,7 @@ session_start();
                         <?php
                             if ($_SESSION){
                         ?>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="logout.php">Cerrar Sesión</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
@@ -69,7 +69,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="login.php">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -84,7 +84,7 @@ session_start();
             <div class="center">  
                 <br>
                 <h2>Sugerencias</h2>
-                <p class="lead">Ayúdenos a brindarle un mejor servicio. Su palabra es importante para nosotros</p>
+                <p class="lead">Ayúdanos a brindar un mejor servicio. Tu palabra es importante para nosotros</p>
             </div> 
             <div class="row contact-wrap"> 
                 <div class="status alert alert-success" style="display: none"></div>
@@ -95,7 +95,7 @@ session_start();
                             <input type="text" name="name" class="form-control" required="required">
                         </div>
                         <div class="form-group">
-                            <label>Correo *</label>
+                            <label>Correo electrónico *</label>
                             <input type="email" name="email" class="form-control" required="required">
                         </div>
                         <div class="form-group">
@@ -103,7 +103,7 @@ session_start();
                             <input type="number" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Comapañía o Institución</label>
+                            <label>Comapañía/Institución</label>
                             <input type="text" class="form-control">
                         </div>                        
                     </div>

@@ -19,7 +19,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>404 | Corlate</title>
+    <title>404 | Camarón Latino</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -45,7 +45,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -59,12 +59,12 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li><a href="contact-us.php">Contactenos</a></li> 
+                        <li><a href="contact-us.php">Contáctenos</a></li> 
                           <!--<li><a href="login.html">Login</a></li>-->
                         <?php
                             if ($_SESSION){
                         ?>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="logout.php">Cerrar Sesiónt</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
@@ -77,7 +77,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="login.php">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>                       
@@ -106,7 +106,7 @@ session_start();
             <div class="container">
                 <div class="row">
                       <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. Todos los derechos reservados.
                 </div>
                    
                     <div class="col-sm-6 col-xs-8">

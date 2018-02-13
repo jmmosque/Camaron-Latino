@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog Single | Corlate</title>
+    <title>Blog Solo | Camarón Latino</title>
     
     <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -51,11 +51,11 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li><a href="contact-us.php">Contactenos</a></li> 
+                        <li><a href="contact-us.php">Contáctenos</a></li> 
                         <?php
                             if ($_SESSION){
                         ?>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="logout.php">Cerrar Sesión</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
@@ -68,7 +68,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="login.php">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -93,11 +93,11 @@ session_start();
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
-                        <label>Ingrese nombre</label>
+                        <label>Nombre</label>
                         <input class="form-control" placeholder="" name="nom">
                       </div>
                       <div class="col-md-6">
-                        <label>Ingrese cédula o ruc</label>
+                        <label>Cédula/RUC</label>
                         <input class="form-control" placeholder="" name="ced">
                       </div>
                     </div>
@@ -105,7 +105,7 @@ session_start();
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
-                        <label>Ingrese telefono</label>
+                        <label>Telefono</label>
                         <input class="form-control" placeholder="" name="tel">
                       </div>
                       <div class="col-md-6">
@@ -115,7 +115,7 @@ session_start();
                     </div>
                   </div>
                   <div class="form-group">
-                    <label>Direccion</label>
+                    <label>Dirección</label>
                     <input class="form-control" placeholder="" name="dir">
                   </div>
                   <div class="form-group">
@@ -133,7 +133,7 @@ session_start();
                      <button class="btn btn-primary btn-block" type="submit"> Registrar </button>
                 </form>
                 <div class="text-center">
-                  <a class="d-block small mt-3" href="login.php">Login</a>
+                  <a class="d-block small mt-3" href="login.php">Inicio de Sesión</a>
                   <a class="d-block small" href="forgot.php">Olvidó contraseña?</a>
                 </div>
               </div>
@@ -145,7 +145,7 @@ session_start();
             <div class="container">
                 <div class="row">
                       <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. Todos los Derechos Reservados.
                 </div>
                    
                     <div class="col-sm-6 col-xs-8">

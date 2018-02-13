@@ -8,7 +8,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+<<<<<<< HEAD
+    <title>Inicio | Camarón Latino</title>
+=======
     <title>Camaron Latino</title>
+>>>>>>> 98f13960d1dfa0752c16cba00b5e31a3ca6ead05
 	
 	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +40,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -55,7 +59,7 @@ session_start();
                         <?php
                             if ($_SESSION){
                         ?>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="logout.php">Cerrar Sesión</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
@@ -68,7 +72,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="login.php">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -94,8 +98,8 @@ session_start();
                             <div class="col-sm-6">
                                 <div class="carousel-content">
                                     <h1 class="animation animated-item-1">Crece y Únete Ya!!!</h1>
-                                    <h2 class="animation animated-item-2">En nuestra comunidad con tu ayuda juntos mejoraremos el sector camaronero  </h2>
-                                    <h2 class="animation animated-item-3">No lo pienses más te estamos esperando </h2>                                                        
+                                    <h2 class="animation animated-item-2">En nuestra comunidad con tu ayuda juntos mejoraremos el sector camaronero.  </h2>
+                                    <h2 class="animation animated-item-3">No lo pienses más te estamos esperando. </h2>                                                        
                                 </div>
                             </div>
 
@@ -114,8 +118,8 @@ session_start();
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Aquí encontrarás los mejores productos y servicios</h1>
-                                    <h2 class="animation animated-item-2">De la mano de mejores porfesionales del país</h2>
+                                    <h1 class="animation animated-item-1">Aquí encontrarás los mejores productos y servicios.</h1>
+                                    <h2 class="animation animated-item-2">De la mano de mejores porfesionales del país.</h2>
                                     </div>
                             </div>
 
@@ -133,8 +137,8 @@ session_start();
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Con excelentes resultados</h1>
-                                    <h2 class="animation animated-item-2">En todos los campos de acción</h2>
+                                    <h1 class="animation animated-item-1">Con excelentes resultados.</h1>
+                                    <h2 class="animation animated-item-2">En todos los campos de acción.</h2>
                                     
                                 </div>
                             </div>
@@ -161,7 +165,7 @@ session_start();
             <div class="container">
                 <div class="row">
                       <div class="col-sm-6">
-                    &copy; 2018 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">Camarón Latino</a>. Todos los derechos reservados
+                    &copy; 2018 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">Camarón Latino</a>. Todos los Derechos Reservados.
                 </div>
                    
                     <div class="col-sm-6 col-xs-8">
