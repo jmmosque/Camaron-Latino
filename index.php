@@ -8,13 +8,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-<<<<<<< HEAD
-    <title>Inicio | Camarón Latino</title>
-=======
     <title>Camaron Latino</title>
->>>>>>> 98f13960d1dfa0752c16cba00b5e31a3ca6ead05
-	
-	<!-- core CSS -->
+    <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
