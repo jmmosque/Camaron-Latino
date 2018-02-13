@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Portfolio | Corlate</title>
+    <title>Portafolio | Camarón Latino</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -59,7 +59,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -69,21 +69,21 @@ session_start();
                 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li class="active"><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="about-us.html">Acerca de Nosotros</a></li>
+                        <li><a href="services.html">Servicios</a></li>
+                        <li class="active"><a href="portfolio.html">Portafolio</a></li>
                         <li class="dropdown">  
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Páginas <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="blog-item.html">Blog Single</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="blog-item.html">Blog Solo</a></li>
+                                <li><a href="pricing.html">Precios</a></li>
                                 <li><a href="404.html">404</a></li>
-                                <li><a href="shortcodes.html">Shortcodes</a></li>
+                                <li><a href="shortcodes.html">Códigos cortos</a></li>
                             </ul>
                         </li>
                         <li><a href="blog.html">Blog</a></li> 
-                        <li><a href="contact-us.html">Contact</a></li>                        
+                        <li><a href="contact-us.html">Contacto</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -94,15 +94,14 @@ session_start();
         <div class="container">
             <div class="center">
                <h2>Portfolio</h2>
-               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+               <p class="lead">Camarón Latino</p>
             </div>
         
 
             <ul class="portfolio-filter text-center">
-                <li><a class="btn btn-default active" href="#" data-filter="*">All Works</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".bootstrap">Creative</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".html">Photography</a></li>
-                <li><a class="btn btn-default" href="#" data-filter=".wordpress">Web Development</a></li>
+                <li><a class="btn btn-default" href="#" data-filter=".bootstrap">Creativo</a></li>
+                <li><a class="btn btn-default" href="#" data-filter=".html">Fotografía</a></li>
+                <li><a class="btn btn-default" href="#" data-filter=".wordpress">Desarrollo Web</a></li>
             </ul><!--/#portfolio-filter-->
 
             <div class="row">
@@ -112,9 +111,9 @@ session_start();
                             <img class="img-responsive" src="images/portfolio/recent/item1.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item1.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <h3><a href="#">Nuestro Negocio</a></h3>
+                                    <p>Camarón Latino</p>
+                                    <a class="preview" href="images/portfolio/full/item1.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>
                                 </div> 
                             </div>
                         </div>
@@ -125,9 +124,9 @@ session_start();
                             <img class="img-responsive" src="images/portfolio/recent/item2.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <h3><a href="#">Nuestro Negocio</a></h3>
+                                    <p>Camarón Latino</p>
+                                    <a class="preview" href="images/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>
                                 </div> 
                             </div>
                         </div>          
@@ -138,9 +137,9 @@ session_start();
                             <img class="img-responsive" src="images/portfolio/recent/item3.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <h3><a href="#">Nuestro Negocio</a></h3>
+                                    <p>Camarón Latino</p>
+                                    <a class="preview" href="images/portfolio/full/item3.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>
                                 </div> 
                             </div>
                         </div>        
@@ -151,9 +150,9 @@ session_start();
                             <img class="img-responsive" src="images/portfolio/recent/item4.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <h3><a href="#">Nuestro Negocio</a></h3>
+                                    <p>Camarón Latino</p>
+                                    <a class="preview" href="images/portfolio/full/item4.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>
                                 </div> 
                             </div>
                         </div>           
@@ -164,9 +163,9 @@ session_start();
                             <img class="img-responsive" src="images/portfolio/recent/item5.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item5.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <h3><a href="#">Nuestro Negocio</a></h3>
+                                    <p>Camarón Latino</p>
+                                    <a class="preview" href="images/portfolio/full/item5.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>
                                 </div> 
                             </div>
                         </div>      
@@ -177,9 +176,9 @@ session_start();
                             <img class="img-responsive" src="images/portfolio/recent/item6.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item6.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <h3><a href="#">Nuestro Negocio</a></h3>
+                                    <p>Camarón Latino</p>
+                                    <a class="preview" href="images/portfolio/full/item6.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>
                                 </div> 
                             </div>
                         </div>         
@@ -190,9 +189,9 @@ session_start();
                             <img class="img-responsive" src="images/portfolio/recent/item7.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item7.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <h3><a href="#">Nuestto Negocio</a></h3>
+                                    <p>Camarón Latino</p>
+                                    <a class="preview" href="images/portfolio/full/item7.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>
                                 </div> 
                             </div>
                         </div>          
@@ -203,9 +202,9 @@ session_start();
                             <img class="img-responsive" src="images/portfolio/recent/item8.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
-                                    <h3><a href="#">Business theme</a></h3>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item8.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <h3><a href="#">Nuestto Negocio</a></h3>
+                                    <p>Camarón Latino</p>
+                                    <a class="preview" href="images/portfolio/full/item8.png" rel="prettyPhoto"><i class="fa fa-eye"></i> Ver</a>
                                 </div> 
                             </div>
                         </div>          
@@ -220,63 +219,49 @@ session_start();
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Company</h3>
+                        <h3>Compañía</h3>
                         <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">We are hiring</a></li>
-                            <li><a href="#">Meet the team</a></li>
+                            <li><a href="#">Acerca de Nosotros</a></li>
+                            <li><a href="#">Estamos contratando</a></li>
+                            <li><a href="#">Conoce el equipo de trabajo</a></li>
                             <li><a href="#">Copyright</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Términos de uso</a></li>
+                            <li><a href="#">Políticas de privacidad</a></li>
+                            <li><a href="#">Contáctenos</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Support</h3>
+                        <h3>Soporte</h3>
                         <ul>
-                            <li><a href="#">Faq</a></li>
+                            <li><a href="#">Preguntas más frecuentes</a></li>
                             <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Refund policy</a></li>
-                            <li><a href="#">Ticket system</a></li>
-                            <li><a href="#">Billing system</a></li>
+                            <li><a href="#">Foro</a></li>
+                            <li><a href="#">Documentación</a></li>
+                            <li><a href="#">Políticas de reembolso</a></li>
+                            <li><a href="#">Sistema de tickets</a></li>
+                            <li><a href="#">Sistema de cobranza</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Developers</h3>
+                        <h3>Desarrolladores</h3>
                         <ul>
-                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">Desarrolladores Web</a></li>
                             <li><a href="#">SEO Marketing</a></li>
-                            <li><a href="#">Theme</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Email Marketing</a></li>
-                            <li><a href="#">Plugin Development</a></li>
-                            <li><a href="#">Article Writing</a></li>
+                            <li><a href="#">Tema</a></li>
+                            <li><a href="#">Desarrollo</a></li>
+                            <li><a href="#">Correo electrónico de Marketing</a></li>
+                            <li><a href="#">Plugin de Desarrollo</a></li>
+                            <li><a href="#">Artículo Escrito</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Our Partners</h3>
-                        <ul>
-                            <li><a href="#">Adipisicing Elit</a></li>
-                            <li><a href="#">Eiusmod</a></li>
-                            <li><a href="#">Tempor</a></li>
-                            <li><a href="#">Veniam</a></li>
-                            <li><a href="#">Exercitation</a></li>
-                            <li><a href="#">Ullamco</a></li>
-                            <li><a href="#">Laboris</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
             </div>
         </div>
     </section><!--/#bottom-->
@@ -285,14 +270,14 @@ session_start();
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. Todos los Derechos Reservados.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Preguntas más frecuentes</a></li>
+                        <li><a href="#">Contáctenos</a></li>
                     </ul>
                 </div>
             </div>

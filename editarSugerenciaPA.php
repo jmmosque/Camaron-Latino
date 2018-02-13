@@ -25,7 +25,7 @@ session_start();
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php">Camaron Latino</a>
+    <a class="navbar-brand" href="index.php">Camarón Latino</a>
     
       
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,10 +48,10 @@ session_start();
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file-text-o"></i>
-            <span class="nav-link-text">Publicacion</span>
+            <span class="nav-link-text">Publicación</span>
           </a>
           <ul class="sidenav-second-level collapse" id="collapseComponents2">
-            <li><a href="tablapublicacion.php">Tabla Publicacion</a></li>
+            <li><a href="tablapublicacion.php">Tabla Publicación</a></li>
             <li><a href="tablacomentario.php">Tabla Comentario</a></li>
           </ul>
         </li>
@@ -88,7 +88,7 @@ session_start();
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesión</a>
         </li>
       </ul>
     </div>
@@ -155,16 +155,16 @@ session_start();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">¿listo para salir?</h5>
             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-body">Seleccione "Cerrar Sesión" a continuación si está listo para finalizar su sesión actual.</div>
           <div class="modal-footer">
               <form action="logout.php">
-               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-               <a class="btn btn-primary" href="logout.php">Logout</a>
+               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+               <a class="btn btn-primary" href="logout.php">Cerrar Sesión</a>
               </form>
            
           </div>

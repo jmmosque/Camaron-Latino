@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>About Us | Corlate</title>
+    <title>Acerca de nosotros | Camarón Latino</title>
 	
 	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -56,7 +56,7 @@ session_start();
                         <?php
                             if ($_SESSION){
                         ?>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="logout.php">Cerrar Sesión</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
@@ -69,7 +69,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="login.php">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -83,7 +83,7 @@ session_start();
         <div class="container">
 			<div class="center wow fadeInDown">
 				<h2>Acerca de Nosotros</h2>
-				<p class="lead">Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores </p>
+				<p class="lead">Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
 			</div>
 			
 			<!-- about us slider -->
@@ -123,7 +123,7 @@ session_start();
 			<div class="team">
 				<div class="center wow fadeInDown">
 					<h2>Equipo de Camarón Latino</h2>
-					<p class="lead">Nuestro Equipo encargado de filtrar los mejores proveedores y productos para satisfacer sus necesidades</p>
+					<p class="lead">Nuestro Equipo está encargado de filtrar los mejores proveedores y productos para satisfacer sus necesidades</p>
 				</div>
 
 				<div class="row clearfix">
@@ -135,7 +135,7 @@ session_start();
 								</div>
 								<div class="media-body">
 									<h4>Daniel Flor</h4>
-									<h5>fundador y Programador</h5>
+									<h5>Fundador y Programador</h5>
 									<ul class="social_icons">
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
@@ -143,7 +143,7 @@ session_start();
 									</ul>
 								</div>
 							</div><!--/.media -->
-							<p>Estudiante de Licenciatura en sistemas de Información </p>
+							<p>Estudiante de Licenciatura en Sistemas de Información </p>
 						</div>
 					</div><!--/.col-lg-4 -->
 					
@@ -196,7 +196,7 @@ session_start();
 
 								<div class="media-body">
 									<h4>Jennifer Mosquera</h4>
-									<h5>Fundadora y Analista informático</h5>
+									<h5>Fundadora y Analista Informático</h5>
 									<ul class="social_icons">
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
@@ -223,7 +223,7 @@ session_start();
 									</ul>
 								</div>
 							</div><!--/.media -->
-							<p>Estudiante de Licenciatura en Sistemas de información</p>
+							<p>Estudiante de Licenciatura en Sistemas de Información</p>
 						</div>
 					</div>
 				</div>	<!--/.row-->

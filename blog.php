@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog | Corlate</title>
+    <title>Blog | Camarón Latino</title>
     
     <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -63,7 +63,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -73,21 +73,21 @@ session_start();
                 
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="about-us.html">Acerca de Nosotros</a></li>
+                        <li><a href="services.html">Servicios</a></li>
+                        <li><a href="portfolio.html">Portafolio</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Páginas <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="blog-item.html">Blog Single</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="blog-item.html">Blog</a></li>
+                                <li><a href="pricing.html">Precios</a></li>
                                 <li><a href="404.html">404</a></li>
-                                <li><a href="shortcodes.html">Shortcodes</a></li>
+                                <li><a href="shortcodes.html">Códigos cortos</a></li>
                             </ul>
                         </li>
                         <li class="active"><a href="blog.html">Blog</a></li> 
-                        <li><a href="contact-us.html">Contact</a></li>                        
+                        <li><a href="contact-us.html">Contacto</a></li>                        
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -98,7 +98,7 @@ session_start();
     <section id="blog" class="container">
         <div class="center">
             <h2>Blogs</h2>
-            <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+            <p class="lead"></p>
         </div>
 
         <div class="blog">
@@ -117,9 +117,9 @@ session_start();
                                 
                             <div class="col-xs-12 col-sm-10 blog-content">
                                 <a href="#"><img class="img-responsive img-blog" src="images/blog/blog1.jpg" width="100%" alt="" /></a>
-                                <h2><a href="blog-item.html">Consequat bibendum quam liquam viverra</a></h2>
-                                <h3>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</h3>
-                                <a class="btn btn-primary readmore" href="blog-item.html">Read More <i class="fa fa-angle-right"></i></a>
+                                <h2><a href="blog-item.html">Camarón Latino</a></h2>
+                                <h3>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</h3>
+                                <a class="btn btn-primary readmore" href="blog-item.html">Seguir leyendo <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>    
                     </div><!--/.blog-item-->
@@ -136,21 +136,20 @@ session_start();
                             </div>
                             <div class="col-sm-10 blog-content">
                                 <a href=""><img class="img-responsive img-blog" src="images/blog/blog2.jpg" width="100%" alt="" /></a>
-                                <h2><a href="blog-item.html">Consequat bibendum quam liquam viverra</a></h2>
-                                <h3>Curabitur quis libero leo, pharetra mattis eros. Praesent consequat libero eget dolor convallis vel rhoncus magna scelerisque. Donec nisl ante, elementum eget posuere a, consectetur a metus. Proin a adipiscing sapien. Suspendisse vehicula porta lectus vel semper. Nullam sapien elit, lacinia eu tristique non.posuere at mi. Morbi at turpis id urna ullamcorper ullamcorper.</h3>
-                                <a class="btn btn-primary readmore" href="blog-item.html">Read More <i class="fa fa-angle-right"></i></a>
+                                <h2><a href="blog-item.html">Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</h3>
+                                <a class="btn btn-primary readmore" href="blog-item.html">Seguir leyendo <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>    
                     </div><!--/.blog-item-->
                         
                     <ul class="pagination pagination-lg">
-                        <li><a href="#"><i class="fa fa-long-arrow-left"></i>Previous Page</a></li>
+                        <li><a href="#"><i class="fa fa-long-arrow-left"></i>Página Anterior</a></li>
                         <li class="active"><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                         <li><a href="#">4</a></li>
                         <li><a href="#">5</a></li>
-                        <li><a href="#">Next Page<i class="fa fa-long-arrow-right"></i></a></li>
+                        <li><a href="#">Siguiente Página<i class="fa fa-long-arrow-right"></i></a></li>
                     </ul><!--/.pagination-->
                 </div><!--/.col-md-8-->
 
@@ -162,28 +161,28 @@ session_start();
                     </div><!--/.search-->
     				
     				<div class="widget categories">
-                        <h3>Recent Comments</h3>
+                        <h3>Comentarios Recientes</h3>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="single_comments">
                                     <img src="images/blog/avatar3.png" alt=""  />
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                                    <p>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
                                     <div class="entry-meta small muted">
-                                        <span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
+                                        <span>Hecho por <a href="#">Jennifer</a></span <span>para <a href="#">Camarón Latino</a></span>
                                     </div>
                                 </div>
                                 <div class="single_comments">
                                     <img src="images/blog/avatar3.png" alt=""  />
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                                    <p>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
                                     <div class="entry-meta small muted">
-                                        <span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
+                                        <span>Hecho por <a href="#">Jennyfer</a></span <span>para <a href="#">Camarón Latino</a></span>
                                     </div>
                                 </div>
                                 <div class="single_comments">
                                     <img src="images/blog/avatar3.png" alt=""  />
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+                                    <p>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
                                     <div class="entry-meta small muted">
-                                        <span>By <a href="#">Alex</a></span <span>On <a href="#">Creative</a></span>
+                                        <span>Hecho por <a href="#">Jennyfer</a></span <span>para <a href="#">Camarón Latino</a></span>
                                     </div>
                                 </div>
                                 
@@ -193,51 +192,21 @@ session_start();
                      
 
                     <div class="widget categories">
-                        <h3>Categories</h3>
+                        <h3>Categorías</h3>
                         <div class="row">
                             <div class="col-sm-6">
                                 <ul class="blog_category">
-                                    <li><a href="#">Computers <span class="badge">04</span></a></li>
-                                    <li><a href="#">Smartphone <span class="badge">10</span></a></li>
-                                    <li><a href="#">Gedgets <span class="badge">06</span></a></li>
-                                    <li><a href="#">Technology <span class="badge">25</span></a></li>
+                                    <li><a href="#">Computadores <span class="badge">04</span></a></li>
+                                    <li><a href="#">Teléfonos inteligentes <span class="badge">10</span></a></li>
+                                    <li><a href="#">Gatgets <span class="badge">06</span></a></li>
+                                    <li><a href="#">Tecnología <span class="badge">25</span></a></li>
                                 </ul>
                             </div>
                         </div>                     
                     </div><!--/.categories-->
     				
-    				<div class="widget archieve">
-                        <h3>Archieve</h3>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <ul class="blog_archieve">
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-                                </ul>
-                            </div>
-                        </div>                     
-                    </div><!--/.archieve-->
-    				
-                    <div class="widget tags">
-                        <h3>Tag Cloud</h3>
-                        <ul class="tag-cloud">
-                            <li><a class="btn btn-xs btn-primary" href="#">Apple</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">Barcelona</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">Office</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">Ipod</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">Stock</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">Race</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">London</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">Football</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">Porche</a></li>
-                            <li><a class="btn btn-xs btn-primary" href="#">Gadgets</a></li>
-                        </ul>
-                    </div><!--/.tags-->
-    				
     				<div class="widget blog_gallery">
-                        <h3>Our Gallery</h3>
+                        <h3>Nuestra Galería</h3>
                         <ul class="sidebar-gallery">
                             <li><a href="#"><img src="images/blog/gallery1.png" alt="" /></a></li>
                             <li><a href="#"><img src="images/blog/gallery2.png" alt="" /></a></li>
@@ -257,60 +226,43 @@ session_start();
             <div class="row">
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Company</h3>
+                        <h3>Compañía</h3>
                         <ul>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">We are hiring</a></li>
-                            <li><a href="#">Meet the team</a></li>
+                            <li><a href="#">Acerca de Nosotros</a></li>
+                            <li><a href="#">Estamos Contratando</a></li>
+                            <li><a href="#">Conoce el equipo de trabajo</a></li>
                             <li><a href="#">Copyright</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Términos de Uso</a></li>
+                            <li><a href="#">Política de privacidad</a></li>
+                            <li><a href="#">Contáctenos</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Support</h3>
+                        <h3>Soporte</h3>
                         <ul>
-                            <li><a href="#">Faq</a></li>
+                            <li><a href="#">Preguntas más frecuentes</a></li>
                             <li><a href="#">Blog</a></li>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Refund policy</a></li>
-                            <li><a href="#">Ticket system</a></li>
-                            <li><a href="#">Billing system</a></li>
+                            <li><a href="#">Foro</a></li>
+                            <li><a href="#">Documentación</a></li>
+                            <li><a href="#">Plítica de reembolso</a></li>
+                            <li><a href="#">Sistema de cobranza</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Developers</h3>
+                        <h3>Desarrolladores</h3>
                         <ul>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">SEO Marketing</a></li>
-                            <li><a href="#">Theme</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Email Marketing</a></li>
-                            <li><a href="#">Plugin Development</a></li>
-                            <li><a href="#">Article Writing</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Our Partners</h3>
-                        <ul>
-                            <li><a href="#">Adipisicing Elit</a></li>
-                            <li><a href="#">Eiusmod</a></li>
-                            <li><a href="#">Tempor</a></li>
-                            <li><a href="#">Veniam</a></li>
-                            <li><a href="#">Exercitation</a></li>
-                            <li><a href="#">Ullamco</a></li>
-                            <li><a href="#">Laboris</a></li>
+                            <li><a href="#">Desarrolladores Web</a></li>
+                            <li><a href="#">SEO Marketing</a></li>                            
+                            <li><a href="#">Desarrollo</a></li>
+                            <li><a href="#">Correo de Marketing</a></li>
+                            <li><a href="#">Plugin de Desarrollo</a></li>
+                            <li><a href="#">Escritura del Artículo</a></li>
                         </ul>
                     </div>    
                 </div><!--/.col-md-3-->
@@ -322,14 +274,14 @@ session_start();
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. All Rights Reserved.
+                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. Todos los Derechos Reservados.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Faq</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Acerca de Nosotros</a></li>
+                        <li><a href="#">Preguntas más frecuentes</a></li>
+                        <li><a href="#">Contáctenos</a></li>
                     </ul>
                 </div>
             </div>
