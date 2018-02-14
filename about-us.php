@@ -1,15 +1,5 @@
 <?php
-session_start();
-         if ($_SESSION){     
-                           if ($_SESSION["perfil"]=="admin"){
-                
-                           }else{
-                                header("location:index.php"); 
-                           }
-                            
-                }else{
-                    header("location:index.php");
-                }
+    session_start();
 
 ?>
 <!DOCTYPE html>
@@ -62,11 +52,13 @@ session_start();
                         <li class="active"><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li><a href="contact-us.php">Contáctenos</a></li> 
+                        <li><a href="blog.php">Publicacion</a></li> 
+                        
                           <!--<li><a href="login.html">Login</a></li>-->
                         <?php
                             if ($_SESSION){
                         ?>
+                            <li><a href="contact-us.php">Contáctenos</a></li>
                             <li><a href="logout.php">Cerrar Sesión</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
@@ -80,7 +72,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Inicio de Sesión</a></li>
+                            <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -96,39 +88,6 @@ session_start();
 				<h2>Acerca de Nosotros</h2>
 				<p class="lead">Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
 			</div>
-			
-			<!-- about us slider -->
-			<div id="about-slider">
-				<div id="carousel-slider" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-				  	<ol class="carousel-indicators visible-xs">
-					    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
-					    <li data-target="#carousel-slider" data-slide-to="1"></li>
-					    <li data-target="#carousel-slider" data-slide-to="2"></li>
-				  	</ol>
-
-					<div class="carousel-inner">
-						<div class="item active">
-							<img src="images/slider_one.jpg" class="img-responsive" alt=""> 
-					   </div>
-					   <div class="item">
-							<img src="images/slider_one.jpg" class="img-responsive" alt=""> 
-					   </div> 
-					   <div class="item">
-							<img src="images/slider_one.jpg" class="img-responsive" alt=""> 
-					   </div> 
-					</div>
-					
-					<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-						<i class="fa fa-angle-left"></i> 
-					</a>
-					
-					<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
-						<i class="fa fa-angle-right"></i> 
-					</a>
-				</div> <!--/#carousel-slider-->
-			</div><!--/#about-slider-->
-						
 
 			<!-- our-team -->
 			<div class="team">

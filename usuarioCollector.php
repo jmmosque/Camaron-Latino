@@ -1,22 +1,20 @@
 <?php
     if ($_SESSION){     
-                           if ($_SESSION["perfil"]=="admin"){
-                
-                           }else{
-                                header("location:index.php"); 
-                           }
-                            
-                }else{
-                    header("location:index.php");
-                }
+        if ($_SESSION["perfil"]=="admin"){                
+        }else{
+            header("location:index.php"); 
+        }                            
+    }else{
+        header("location:index.php");
+    }
 
-include_once('usuario.php');
-include_once('Collector.php');
-include_once('credencialCollector.php');
-include_once('rolCollector.php');
+    include_once('usuario.php');
+    include_once('Collector.php');
+    include_once('credencialCollector.php');
+    include_once('rolCollector.php');
 
-class usuarioCollector extends Collector
-{
+    class usuarioCollector extends Collector
+    {
     function todaInfo() {
         $rows = self::$db->getRows("SELECT * FROM public.usuario ");        
         $arrayUsuario= array();          
