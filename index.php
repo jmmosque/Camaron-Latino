@@ -84,10 +84,7 @@ session_start();
                             <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
-                        ?>
-                        
-                                           
-                        
+                        ?>                                               
                         
                     </ul>
                 </div>
