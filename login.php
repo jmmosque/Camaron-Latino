@@ -68,7 +68,7 @@
                                     }
                                 }else{
                             ?>
-                                <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
+                                <li class="active"><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                             <?php
                                 }
                             ?>
