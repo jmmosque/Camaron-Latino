@@ -45,9 +45,9 @@ session_start();
                     <ul class="nav navbar-nav">
                         <li ><a href="index.php">Inicio</a></li>
                         <li><a href="about-us.php">Nosotros</a></li>
-                        <li><a href="servicios.php">Servicios</a></li>
+                        <li><a href="servicios.php">Servicios</a></li>                        
                         <li class="active"><a href="productos.php">Productos</a></li> 
-                       
+                        <li><a href="blog.php">Publicacion</a></li> 
                           <!--<li><a href="login.html">Login</a></li>-->
                             <?php
                                 if ($_SESSION){

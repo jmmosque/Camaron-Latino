@@ -49,21 +49,34 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        
+                        <li><a href="blog.php">Publicacion</a></li> 
                           <!--<li><a href="login.html">Login</a></li>-->
                         <?php
                             if ($_SESSION){
                         ?>
                             <li><a href="contact-us.php">Contáctenos</a></li>
-                            <li><a href="logout.php">Cerrar Sesión</a></li>
+                           
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
-                            <li><a href="indexadministrativo.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a href="indexadministrativo.php"><strong> <?php echo $_SESSION["usu"];?> </strong> </a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
                         <?php
                                 }else{
-                        ?>
-                            <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                        ?>                            
+                            
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
                         <?php
                                 }
                             }else{
@@ -72,6 +85,10 @@ session_start();
                         <?php
                             }
                         ?>
+                        
+                                           
+                        
+                        
                     </ul>
                 </div>
             </div><!--/.container-->

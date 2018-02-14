@@ -59,7 +59,7 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                       
+                        <li><a href="blog.php">Publicacion</a></li> 
                           <!--<li><a href="login.html">Login</a></li>-->
                             <?php
                                 if ($_SESSION){
