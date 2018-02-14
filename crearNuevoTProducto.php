@@ -1,5 +1,13 @@
 <?php
     session_start();
+    if ($_SESSION){     
+        if ($_SESSION["perfil"]=="admin"){            
+        }else{
+            header("location:index.php"); 
+        }                            
+    }else{
+        header("location:index.php");
+    }
     require_once("tipoproductoCollector.php");
     
     $nombre = $_POST["nue"];
