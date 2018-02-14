@@ -57,16 +57,15 @@
                         <?php
                             if ($_SESSION){
                         ?>
+                            <li><a href="contact-us.php">Contáctenos</a></li>
                             <li><a href="logout.php">Cerrar Sesión</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
-                            <li><a href="contact-us.php">Contáctenos</a></li>
                             <li><a href="index.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
                         <?php
                                 }else{
                         ?>
-                            <li><a href="contact-us.php">Contáctenos</a></li>
                             <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
                         <?php
                                 }

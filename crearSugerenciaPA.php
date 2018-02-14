@@ -105,7 +105,6 @@
         <li class="breadcrumb-item active">Creación Sugerencia</li>
       </ol>
    <section id="tamasec">
-
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
               <div class="card-header">Crear  </div>

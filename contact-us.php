@@ -1,5 +1,13 @@
 <?php
 session_start();
+    if ($_SESSION){     
+        if ($_SESSION["perfil"]=="admin"){                
+        }else{
+            header("location:index.php"); 
+        }                        
+    }else{
+        header("location:index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,21 +59,20 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li class="active"><a href="contact-us.php">Contáctenos</a></li> 
+                       
                           <!--<li><a href="login.html">Login</a></li>-->
                             <?php
                                 if ($_SESSION){
                             ?>
+                                <li class="active"><a href="contact-us.php">Contáctenos</a></li> 
                                 <li><a href="logout.php">Cerrar Sesión</a></li>
                             <?php
                                     if ($_SESSION["perfil"]=="admin"){
                             ?>
-                                <li><a href="contact-us.php">Contáctenos</a></li>
                                 <li><a href="indexadministrativo.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
                             <?php
                                     }else{
                             ?>
-                                <li><a href="contact-us.php">Contáctenos</a></li>
                                 <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
                             <?php
                                     }
@@ -88,26 +95,11 @@ session_start();
                 <h2>Sugerencias</h2>
                 <p class="lead">Ayúdanos a brindar un mejor servicio. Tu palabra es importante para nosotros</p>
             </div> 
-            <div class="row contact-wrap"> 
+            <div class="row"> 
                 <div class="status alert alert-success" style="display: none"></div>
-                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
-                    <div class="col-sm-5 col-sm-offset-1">
-                        <div class="form-group">
-                            <label>Nombre *</label>
-                            <input type="text" name="name" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Correo electrónico *</label>
-                            <input type="email" name="email" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Teléfono</label>
-                            <input type="number" class="form-control" name="tele">
-                        </div>
-                        <div class="form-group">
-                            <label>Comapañía/Institución</label>
-                            <input type="text" class="form-control" name="comp">
-                        </div>                        
+                <form  name="contact-form" method="post" action="enviarSugerencia.php">
+                    <div class="col-sm-4">
+                        
                     </div>
                     <div class="col-sm-5">
                         <div class="form-group">

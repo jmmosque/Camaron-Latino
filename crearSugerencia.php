@@ -21,4 +21,4 @@
         $mensaje="Nueva Sugerencia Ingresada";
         header("location:mensajeAdmin.php?mensaje=$mensaje");
     }
-    ?>
+?>
