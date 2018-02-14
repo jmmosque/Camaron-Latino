@@ -53,26 +53,28 @@ session_start();
                         <li><a href="productos.php">Productos</a></li> 
                         <li class="active"><a href="contact-us.php">Contáctenos</a></li> 
                           <!--<li><a href="login.html">Login</a></li>-->
-                        <?php
-                            if ($_SESSION){
-                        ?>
-                            <li><a href="logout.php">Cerrar Sesión</a></li>
-                        <?php
-                                if ($_SESSION["perfil"]=="admin"){
-                        ?>
-                            <li><a href="index.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
-                        <?php
+                            <?php
+                                if ($_SESSION){
+                            ?>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            <?php
+                                    if ($_SESSION["perfil"]=="admin"){
+                            ?>
+                                <li><a href="contact-us.php">Contáctenos</a></li>
+                                <li><a href="indexadministrativo.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                            <?php
+                                    }else{
+                            ?>
+                                <li><a href="contact-us.php">Contáctenos</a></li>
+                                <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                            <?php
+                                    }
                                 }else{
-                        ?>
-                            <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
-                        <?php
+                            ?>
+                                <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
+                            <?php
                                 }
-                            }else{
-                        ?>
-                            <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
-                        <?php
-                            }
-                        ?>
+                            ?>
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -100,11 +102,11 @@ session_start();
                         </div>
                         <div class="form-group">
                             <label>Teléfono</label>
-                            <input type="number" class="form-control">
+                            <input type="number" class="form-control" name="tele">
                         </div>
                         <div class="form-group">
                             <label>Comapañía/Institución</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="comp">
                         </div>                        
                     </div>
                     <div class="col-sm-5">

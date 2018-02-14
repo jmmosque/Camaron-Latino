@@ -51,7 +51,7 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li><a href="contact-us.php">Contáctenos</a></li> 
+                        
                             <?php
                                 if ($_SESSION){
                             ?>
@@ -59,10 +59,12 @@ session_start();
                             <?php
                                     if ($_SESSION["perfil"]=="admin"){
                             ?>
+                                <li><a href="contact-us.php">Contáctenos</a></li> 
                                 <li><a href="indexadministrativo.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
                             <?php
                                     }else{
                             ?>
+                                <li><a href="contact-us.php">Contáctenos</a></li> 
                                 <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
                             <?php
                                     }
@@ -106,11 +108,11 @@ session_start();
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Telefono</label>
-                        <input class="form-control" placeholder="" name="tel">
+                        <input class="form-control"  placeholder="" name="tel">
                       </div>
                       <div class="col-md-6">
                         <label>Correo electrónico</label>
-                        <input class="form-control" placeholder="" name="cor">
+                        <input class="form-control" type="email" placeholder="" name="cor">
                       </div>
                     </div>
                   </div>
@@ -126,14 +128,14 @@ session_start();
                       </div>
                       <div class="col-md-6">
                         <label>Contraseña</label>
-                        <input class="form-control"  type="password" placeholder="" name="con">
+                        <input class="form-control"  type="text" placeholder="" name="con">
                       </div>
                     </div>
                   </div>
                      <button class="btn btn-primary btn-block" type="submit"> Registrar </button>
                 </form>
                 <div class="text-center">
-                  <a class="d-block small mt-3" href="login.php">Inicio de Sesión</a>
+                  <a class="d-block small mt-3" href="login.php?mensaje=">Inicio de Sesión</a>
                 </div>
               </div>
             </div>
