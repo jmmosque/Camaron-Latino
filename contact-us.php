@@ -69,7 +69,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Inicio de Sesión</a></li>
+                            <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>

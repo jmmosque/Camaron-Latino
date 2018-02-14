@@ -69,7 +69,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li class="active"><a href="login.php">Inicio de Sesión</a></li>
+                            <li class="active"><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -78,11 +78,22 @@ session_start();
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->
+     <?php
+                $mensaje = "";
+                if($_GET["mensaje"]){
+                     $mensaje = $_GET["mensaje"];
+                }
+                
+                     
+                ?>
+                <br><div class="text-center"><p><?php echo $mensaje;?></p></div>
     <section id="tamasec"><h2 class="center2">Inicie Sesión</h2>
       <div class="containerlogin">
         <div class="card card-login mx-auto mt-5">
           <div class="card-header">Inicio de Sesión</div>
             <div class="card-body">
+
+               
                 <form action="validacredencial.php" method="post">
                     <div class="form-group">
                         <label>Usuario</label>

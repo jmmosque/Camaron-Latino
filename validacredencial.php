@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
     require_once("credencialCollector.php");
     require_once("usuarioCollector.php");
     $usuario = $_POST["usu"];
@@ -23,6 +24,6 @@
          /*$mensaje="login incorrecto";-->
          header("location:../pages/login.php?mensaje=$mensaje");*/
         $mensaje="login incorrecto";
-        header("location:404.php?mensaje=$mensaje"); 
+        header("location:login.php?mensaje=$mensaje"); 
     }
 ?>

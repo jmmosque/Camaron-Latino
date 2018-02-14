@@ -67,7 +67,7 @@ session_start();
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Inicio de Sesión</a></li>
+                            <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -98,12 +98,7 @@ session_start();
                                 </div>
                             </div>
 
-                            <div class="col-sm-6 hidden-xs animation animated-item-4">
-                                <div class="slider-img">
-                                    <img src="images/slider/img1.png" class="img-responsive">
-                                </div>
-                            </div>
-
+           
                         </div>
                     </div>
                 </div><!--/.item-->
