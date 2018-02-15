@@ -13,24 +13,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
-  <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>SB Admin - Start Bootstrap Template</title>
+        <!-- Bootstrap core CSS-->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom fonts for this template-->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <!-- Page level plugin CSS-->
+        <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin.css" rel="stylesheet">
+        <link rel="shortcut icon" href="images/ico/favicon.ico">
+        <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
@@ -110,7 +110,18 @@
             <div class="card card-register mx-auto mt-5">
               <div class="card-header">Crear  </div>
               <div class="card-body">
-                <form action="crearPublicacion.php" method="post">
+                <form action="crearPublicacion.php" method="post" enctype="multipart/form-data"> 
+                    <div class="form-group">
+                       <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                        <label>Elija Imagen de Publicacion</label><br>
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                      </div>
+                    </div>    
+                    </div>
+                    <div class="form-group">
+                        
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Ingrese Título</label>
@@ -131,6 +142,16 @@
                           echo "</select>";
                           ?>
                       </div>
+                    </div>
+                    </div>
+                                <div class="form-group">
+                       <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                        <label>Elija Fecha de Publicacion</label><br>
+                        <input type="date" name="date" placeholder="">
+                      </div>
+                    </div>    
                     </div>
                   <div class="form-group">
                     <label>Contenido</label>

@@ -117,7 +117,7 @@
             <div class="card card-register mx-auto mt-5">
               <div class="card-header">Registro de cuenta</div>
               <div class="card-body">
-                <form action="creacionAdministrativaUsuario.php" method="post">
+                <form action="creacionAdministrativaUsuario.php" method="post" enctype="multipart/form-data">
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
@@ -179,6 +179,15 @@
                     </div>
                         
                   </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                        <label>Elija Imagen de Usuario</label><br>
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                      </div>
+                    </div>
+                    </div>
                      <button button class="btn btn-primary btn-block" type="submit"> Registrar </button>
                 </form>
               </div>

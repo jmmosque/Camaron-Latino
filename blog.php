@@ -50,7 +50,7 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li class="active"><a href="blog.html">Publicaion</a></li> 
+                        <li class="active"><a href="blog.php">Publicacion</a></li> 
                         
                         <!--<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
@@ -61,20 +61,32 @@ session_start();
                                 <li><a href="shortcodes.html">Shortcodes</a></li>
                             </ul>
                         </li>-->
-                        
                         <?php
                             if ($_SESSION){
                         ?>
                             <li><a href="contact-us.php">Contáctenos</a></li>
-                            <li><a href="logout.php">Cerrar Sesión</a></li>
+                           
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
-                            <li><a href="index.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a href="indexadministrativo.php"><strong> <?php echo $_SESSION["usu"];?> </strong> </a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
                         <?php
                                 }else{
-                        ?>
-                            <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
+                        ?>                            
+                            
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
                         <?php
                                 }
                             }else{
@@ -82,7 +94,7 @@ session_start();
                             <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
-                        ?>              
+                        ?>          
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -92,7 +104,7 @@ session_start();
 
     <section id="blog" class="container">
         <div class="center">
-            <h2>Blogs</h2>
+            <h2>Publicaciones</h2>
             <p class="lead"></p>
         </div>
 
@@ -104,119 +116,62 @@ session_start();
                             <div class="col-xs-12 col-sm-2 text-center">
                                 <div class="entry-meta">
                                     <span id="publish_date">07  NOV</span>
-                                    <span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
+                                    <span><i class="fa fa-user"></i> <a href="">John Doe</a></span>
                                     <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
-                                    <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
                                 </div>
                             </div>
                                 
                             <div class="col-xs-12 col-sm-10 blog-content">
-                                <a href="#"><img class="img-responsive img-blog" src="images/blog/blog1.jpg" width="100%" alt="" /></a>
-                                <h2><a href="blog-item.html">Camarón Latino</a></h2>
+                                <a href=""><img class="img-responsive img-blog" src="images/blog/blog1.jpg" width="100%" alt="" /></a>
+                                <h2><a href="blog-item.php">Camarón Latino</a></h2>
                                 <h3>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</h3>
-                                <a class="btn btn-primary readmore" href="blog-item.html">Seguir leyendo <i class="fa fa-angle-right"></i></a>
+                                <a class="btn btn-primary readmore" href="blog-item.php">Seguir leyendo <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>    
-                    </div><!--/.blog-item-->
-                        
-                    <div class="blog-item">
-                        <div class="row">
-                             <div class="col-sm-2 text-center">
-                                <div class="entry-meta"> 
-                                    <span id="publish_date">07  NOV</span>
-                                    <span><i class="fa fa-user"></i> <a href="#">John Doe</a></span>
-                                    <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
-                                    <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-10 blog-content">
-                                <a href=""><img class="img-responsive img-blog" src="images/blog/blog2.jpg" width="100%" alt="" /></a>
-                                <h2><a href="blog-item.html">Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</h3>
-                                <a class="btn btn-primary readmore" href="blog-item.html">Seguir leyendo <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>    
-                    </div><!--/.blog-item-->
-                        
-                    <ul class="pagination pagination-lg">
-                        <li><a href="#"><i class="fa fa-long-arrow-left"></i>Página Anterior</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">Siguiente Página<i class="fa fa-long-arrow-right"></i></a></li>
-                    </ul><!--/.pagination-->
+                    </div><!--/.blog-item-->                                          
                 </div><!--/.col-md-8-->
-
-                <aside class="col-md-4">
-                    <div class="widget search">
-                        <form role="form">
-                                <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
-                        </form>
-                    </div><!--/.search-->
-    				
-    				<div class="widget categories">
-                        <h3>Comentarios Recientes</h3>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="single_comments">
-                                    <img src="images/blog/avatar3.png" alt=""  />
-                                    <p>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
-                                    <div class="entry-meta small muted">
-                                        <span>Hecho por <a href="#">Jennifer</a></span <span>para <a href="#">Camarón Latino</a></span>
-                                    </div>
-                                </div>
-                                <div class="single_comments">
-                                    <img src="images/blog/avatar3.png" alt=""  />
-                                    <p>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
-                                    <div class="entry-meta small muted">
-                                        <span>Hecho por <a href="#">Jennyfer</a></span <span>para <a href="#">Camarón Latino</a></span>
-                                    </div>
-                                </div>
-                                <div class="single_comments">
-                                    <img src="images/blog/avatar3.png" alt=""  />
-                                    <p>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
-                                    <div class="entry-meta small muted">
-                                        <span>Hecho por <a href="#">Jennyfer</a></span <span>para <a href="#">Camarón Latino</a></span>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>                     
-                    </div><!--/.recent comments-->
-                     
-
-                    <div class="widget categories">
-                        <h3>Categorías</h3>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="blog_category">
-                                    <li><a href="#">Computadores <span class="badge">04</span></a></li>
-                                    <li><a href="#">Teléfonos inteligentes <span class="badge">10</span></a></li>
-                                    <li><a href="#">Gatgets <span class="badge">06</span></a></li>
-                                    <li><a href="#">Tecnología <span class="badge">25</span></a></li>
-                                </ul>
-                            </div>
-                        </div>                     
-                    </div><!--/.categories-->
-    				
-    				<div class="widget blog_gallery">
-                        <h3>Nuestra Galería</h3>
-                        <ul class="sidebar-gallery">
-                            <li><a href="#"><img src="images/blog/gallery1.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery2.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery3.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery4.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery5.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery6.png" alt="" /></a></li>
-                        </ul>
-                    </div><!--/.blog_gallery-->
-    			</aside>  
             </div><!--/.row-->
         </div>
+         <?php
+            require_once('publicacionCollector.php');
+            $objeto = new publicacionCollector();
+            foreach($objeto->showPublicacion() as $c){
+                $id = $c->getIdPublicacion();
+                $nomb = $c->getNombre();
+                $fech = $c->getFecha();           
+                $titu = $c->getTitulo();
+                $nomi = $c->getImagen();
+                $diri = $c->getDirimg();
+                $cont = $c->getContenido();
+                $coun = $objeto->contarComentario($id);
+                echo "<div class='blog'>";
+                echo "<div class='row'>";   
+                echo "<div class='col-md-8'>";         
+                echo "<div class='blog-item'>";            
+                echo "<div class='row'>";                
+                echo "<div class='col-xs-12 col-sm-2 text-center'>";                    
+                echo "<div class='entry-meta'>";                        
+                echo "<span id='publish_date'>$fech</span>";                            
+                echo "<span><i class='fa fa-user'></i>$nomb</span>";                            
+                echo "<span><i class='fa fa-comment'></i> $coun Comentario</span>";                        
+                echo "</div>";                        
+                echo "</div>";                    
+                echo "<div class='col-xs-12 col-sm-10 blog-content'>";                    
+                echo "<a href=''><img class='img-responsive img-blog' src=".$diri.$nomi." width='100%' alt='' /></a>";     
+                echo "<h2><a href='blog-item-usuario.html?id=$id'>$titu</a></h2>";                        
+                echo "<h3>$cont</h3>";                        
+                echo "<a class='btn btn-primary readmore' href='blog-item-usuario.php?id=$id'>Seguir leyendo <i class='fa fa-angle-right'></i></a>"; 
+                echo " </div>";         
+                echo "</div>";          
+                echo "</div><!--/.blog-item-->";                                           
+                echo "</div><!--/.col-md-8-->";       
+                echo "</div><!--/.row-->";
+                echo "</div>";
+            }
+        ?>
     </section><!--/#blog-->
 
-   
+  
 
     <footer id="footer" class="midnight-blue">
             <div class="container">

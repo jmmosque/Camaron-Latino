@@ -32,32 +32,6 @@ session_start();
 <body>
 
     <header id="header">
-        <div class="top-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-xs-4">
-                        <div class="top-number"><p><i class="fa fa-phone-square"></i>  +0123 456 70 90</p></div>
-                    </div>
-                    <div class="col-sm-6 col-xs-8">
-                       <div class="social">
-                            <ul class="social-share">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                            </ul>
-                            <div class="search">
-                                <form role="form">
-                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                                    <i class="fa fa-search"></i>
-                                </form>
-                           </div>
-                       </div>
-                    </div>
-                </div>
-            </div><!--/.container-->
-        </div><!--/.top-bar-->
 
         <nav class="navbar navbar-inverse" role="banner">
             <div class="container">
@@ -68,26 +42,59 @@ session_start();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>
                 </div>
-                
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="about-us.html">Acerca de Nosotros</a></li>
-                        <li><a href="services.html">Servicios</a></li>
-                        <li><a href="portfolio.html">Portafolio</a></li>
-                        <li class="dropdown active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Páginas <i class="fa fa-angle-down"></i></a>
+                        <li ><a href="index.php">Inicio</a></li>
+                        <li><a href="about-us.php">Nosotros</a></li>
+                        <li><a href="servicios.php">Servicios</a></li>
+                        <li><a href="productos.php">Productos</a></li> 
+                        <li class="active"><a href="blog.php">Publicacion</a></li> 
+                        
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li class="active"><a href="blog-item.html">Blog Solo</a></li>
-                                <li><a href="pricing.html">Precios</a></li>
+                                <li><a href="blog-item.html">Blog Single</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
                                 <li><a href="404.html">404</a></li>
-                                <li><a href="shortcodes.html">Códigos cortos</a></li>
+                                <li><a href="shortcodes.html">Shortcodes</a></li>
                             </ul>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li> 
-                        <li><a href="contact-us.html">Contacto</a></li>                        
+                        </li>-->
+                        <?php
+                            if ($_SESSION){
+                        ?>
+                            <li><a href="contact-us.php">Contáctenos</a></li>
+                           
+                        <?php
+                                if ($_SESSION["perfil"]=="admin"){
+                        ?>
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a href="indexadministrativo.php"><strong> <?php echo $_SESSION["usu"];?> </strong> </a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
+                        <?php
+                                }else{
+                        ?>                            
+                            
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
+                        <?php
+                                }
+                            }else{
+                        ?>
+                            <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
+                        <?php
+                            }
+                        ?>          
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -98,10 +105,10 @@ session_start();
 
     <section id="blog" class="container">
         <div class="center">
-            <h2>Blogs</h2>
+            <h2>Publicacion</h2>
         </div>
-
-        <div class="blog">
+   
+               <div class="blog">
             <div class="row">
                 <div class="col-md-8">
                     <div class="blog-item">
@@ -111,7 +118,7 @@ session_start();
                                     <div class="entry-meta">
                                         <span id="publish_date">07  NOV</span>
                                         <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
-                                        <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2 Comments</a></span>
+                                        <span><i class="fa fa-comment"></i> <a href="blog-item.php#comments">2 Comments</a></span>
                                         <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
                                     </div>
                                 </div>
@@ -128,24 +135,10 @@ session_start();
                                 </div>
                             </div>
                         </div><!--/.blog-item-->
-                        
-                        <div class="media reply_section">
-                            <div class="pull-left post_reply text-center">
-                                <a href="#"><img src="images/blog/boy.png" class="img-circle" alt="" /></a>
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i> </a></li>
-                                </ul>
-                            </div>
-                            <div class="media-body post_reply_content">
-                                <h3>Antone L. Huges</h3>
-                                <p class="lead"></p>
-                                <p><strong>Web:</strong> <a href="#">www.shapebootstrap.net</a></p>
-                            </div>
-                        </div> 
+
                         
                         <h1 id="comments_title">5 Comments</h1>
+                    
                         <div class="media comment_section">
                             <div class="pull-left post_comments">
                                 <a href="#"><img src="images/blog/girl.png" class="img-circle" alt="" /></a>
@@ -157,6 +150,8 @@ session_start();
                                 <a href="#">Responder</a>
                             </div>
                         </div> 
+                    
+                    
                         <div class="media comment_section">
                             <div class="pull-left post_comments">
                                 <a href="#"><img src="images/blog/boy2.png" class="img-circle" alt="" /></a>
@@ -217,167 +212,36 @@ session_start();
                             </form>     
                         </div><!--/#contact-page-->
                     </div><!--/.col-md-8-->
-
-                <aside class="col-md-4">
-                    <div class="widget search">
-                        <form role="form">
-                                <input type="text" class="form-control search_box" autocomplete="off" placeholder="Search Here">
-                        </form>
-                    </div><!--/.search-->
-    				
-    				<div class="widget categories">
-                        <h3>Comentarios Recientes</h3>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="single_comments">
-    								<img src="images/blog/avatar3.png" alt=""  />
-    								
-                                    <div class="entry-meta small muted">
-                                        <span>Hecho por <a href="#">Jennyfer</a></span ><span>para <a href="#">Camarón Latino</a></span>
-                                    </div>
-    							</div>
-    							<div class="single_comments">
-    								<img src="images/blog/avatar3.png" alt=""  />
-    								
-    								<div class="entry-meta small muted">
-                                        <span>Hecho por <a href="#">Jennyfer</a></span ><span>para <a href="#">Camarón Latino</a></span>
-                                    </div>
-    							</div>
-    							<div class="single_comments">
-    								<img src="images/blog/avatar3.png" alt=""  />
-    								
-    								<div class="entry-meta small muted">
-                                        <span>Hecho por <a href="#">Jennyfer</a></span ><span>para <a href="#">Camarón Latino</a></span>
-                                    </div>
-    							</div>
-    							
-                            </div>
-                        </div>                     
-                    </div><!--/.recent comments-->
-                     
-
-                    <div class="widget categories">
-                        <h3>Categorías</h3>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="blog_category">
-                                    <li><a href="#">Computadores <span class="badge">04</span></a></li>
-                                    <li><a href="#">Teléfonos inteligentes <span class="badge">10</span></a></li>
-                                    <li><a href="#">Gadgets <span class="badge">06</span></a></li>
-                                    <li><a href="#">Tecnología <span class="badge">25</span></a></li>
-                                </ul>
-                            </div>
-                        </div>                     
-                    </div><!--/.categories-->
-    				
-    				<div class="widget archieve">
-                        <h3>Archivo</h3>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <ul class="blog_archieve">
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> December 2013 <span class="pull-right">(97)</span></a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> November 2013 <span class="pull-right">(32)</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> October 2013 <span class="pull-right">(19)</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-double-right"></i> September 2013 <span class="pull-right">(08)</a></li>
-                                </ul>
-                            </div>
-                        </div>                     
-                    </div><!--/.archieve-->
-    				
                 
-    				
-    				<div class="widget blog_gallery">
-                        <h3>Nuestra Galería</h3>
-                        <ul class="sidebar-gallery">
-                            <li><a href="#"><img src="images/blog/gallery1.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery2.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery3.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery4.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery5.png" alt="" /></a></li>
-                            <li><a href="#"><img src="images/blog/gallery6.png" alt="" /></a></li>
-                        </ul>
-                    </div><!--/.blog_gallery-->
-    					
-    				
-                </aside>     
-
             </div><!--/.row-->
 
-         </div><!--/.blog-->
+         </div><!--/.blog-->  
 
     </section><!--/#blog-->
 
 
-    <section id="bottom">
-        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Compañía</h3>
-                        <ul>
-                            <li><a href="#">Acerca de Nosotros</a></li>
-                            <li><a href="#">Estamos Contratando</a></li>
-                            <li><a href="#">Conoce al equipo de trabajo</a></li>
-                            <li><a href="#">Copyright</a></li>
-                            <li><a href="#">Términos de Uso</a></li>
-                            <li><a href="#">Políticas de privacidad</a></li>
-                            <li><a href="#">Contáctenos</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Soporte</h3>
-                        <ul>
-                            <li><a href="#">Preguntas más frecuentes</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Foro</a></li>
-                            <li><a href="#">Documentación</a></li>
-                            <li><a href="#">Políticas de reembolso</a></li>
-                            <li><a href="#">Sistema de tickets</a></li>
-                            <li><a href="#">Sistema de cobranza</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="widget">
-                        <h3>Desarrolladores</h3>
-                        <ul>
-                            <li><a href="#">Desarrolladores Web</a></li>
-                            <li><a href="#">SEO Marketing</a></li>
-                            <li><a href="#">Tema</a></li>
-                            <li><a href="#">Desarrollo</a></li>
-                            <li><a href="#">Correo electrponico de Marketing</a></li>
-                            <li><a href="#">Plugin de Desarrollo</a></li>
-                            <li><a href="#">Artículo Escrito</a></li>
-                        </ul>
-                    </div>    
-                </div><!--/.col-md-3-->
-
-            </div>
-        </div>
-    </section><!--/#bottom-->
 
     <footer id="footer" class="midnight-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2013 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">ShapeBootstrap</a>. Todos los Derechos Reservados.
+            <div class="container">
+                <div class="row">
+                      <div class="col-sm-6">
+                    &copy; 2018 <a target="_blank" href="http://shapebootstrap.net/" title="Free Twitter Bootstrap WordPress Themes and HTML templates">Camarón Latino</a>. Todos los derechos reservados
                 </div>
-                <div class="col-sm-6">
-                    <ul class="pull-right">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Acerca de Nosotros</a></li>
-                        <li><a href="#">Preguntas más frecuentes</a></li>
-                        <li><a href="#">Contáctenos</a></li>
-                    </ul>
+                   
+                    <div class="col-sm-6 col-xs-8">
+                       <div class="social">
+                            <ul class="social-share">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            </ul>
+                       </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </div><!--/.container-->
     </footer><!--/#footer-->
-
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>

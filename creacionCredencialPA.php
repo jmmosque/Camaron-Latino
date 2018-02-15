@@ -124,7 +124,7 @@
                         <input class="form-control" placeholder="" name="usu">
                       </div>
                       <div class="col-md-6">
-                        <label>Ingrese Inicio de Sesión</label>
+                        <label>Ingresar Clave</label>
                         <input class="form-control" placeholder="" name="log">
                       </div>
                     </div>

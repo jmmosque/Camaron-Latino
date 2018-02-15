@@ -1,20 +1,18 @@
 <?php
     session_start();
-         if ($_SESSION){     
-                           if ($_SESSION["perfil"]=="admin"){
-                
-                           }else{
-                                header("location:index.php"); 
-                           }
-                            
-                }else{
-                    header("location:index.php");
-                }
+    if ($_SESSION){     
+        if ($_SESSION["perfil"]=="admin"){                
+        }else{
+            header("location:index.php"); 
+        }                            
+    }else{
+        header("location:index.php");
+    }
 
     require_once('productoimagenCollector.php');
     $id = $_GET["id"];
     //direccion de donde se encuentra ubicado la imagen
-    $target_dir = "images/";
+    $target_dir = "images/producto/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

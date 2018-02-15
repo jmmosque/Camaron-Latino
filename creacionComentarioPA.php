@@ -110,6 +110,7 @@
               <div class="card-header">Crear  </div>
               <div class="card-body">
                 <form action="crearComentario.php" method="post">
+                  <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Elija Publicación</label><br>
@@ -141,6 +142,16 @@
                           echo "</select>";
                           ?>
                       </div>
+                    </div>
+                    </div>
+                  <div class="form-group">
+                       <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                        <label>Elija Nueva Fecha de Publicacion</label><br>
+                        <input type="date" name="date" placeholder="" value="<?php echo $fec;?>">
+                      </div>
+                    </div>    
                     </div>
                   <div class="form-group">
                     <label >Contenido</label>

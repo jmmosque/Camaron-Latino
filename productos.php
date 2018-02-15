@@ -49,27 +49,40 @@ session_start();
                         <li class="active"><a href="productos.php">Productos</a></li> 
                         <li><a href="blog.php">Publicacion</a></li> 
                           <!--<li><a href="login.html">Login</a></li>-->
-                            <?php
-                                if ($_SESSION){
-                            ?>
-                                <li><a href="contact-us.php">Contáctenos</a></li>                                 
+                        <?php
+                            if ($_SESSION){
+                        ?>
+                            <li><a href="contact-us.php">Contáctenos</a></li>
+                           
+                        <?php
+                                if ($_SESSION["perfil"]=="admin"){
+                        ?>
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a href="indexadministrativo.php"><strong> <?php echo $_SESSION["usu"];?> </strong> </a></li>
                                 <li><a href="logout.php">Cerrar Sesión</a></li>
-                            <?php
-                                    if ($_SESSION["perfil"]=="admin"){
-                            ?>
-                                <li><a href="indexadministrativo.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
-                            <?php
-                                    }else{
-                            ?>
-                                <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
-                            <?php
-                                    }
+                            </ul>
+                            </li>
+                        <?php
                                 }else{
-                            ?>
-                                <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
-                            <?php
+                        ?>                            
+                            
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
+                        <?php
                                 }
-                            ?>
+                            }else{
+                        ?>
+                            <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </div>
             </div><!--/.container-->
@@ -100,7 +113,7 @@ session_start();
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Business theme</a></h3>
                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item1.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <a class="preview" href="images/portfolio/full/item10.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                                 </div> 
                             </div>
                         </div>
@@ -108,12 +121,12 @@ session_start();
 
                     <div class="portfolio-item joomla bootstrap col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/portfolio/recent/item2.png" alt="">
+                            <img class="img-responsive" src="images/portfolio/recent/item11.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Business theme</a></h3>
                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority</p>
-                                    <a class="preview" href="images/portfolio/full/item2.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
+                                    <a class="preview" href="images/portfolio/full/item12.png" rel="prettyPhoto"><i class="fa fa-eye"></i> View</a>
                                 </div> 
                             </div>
                         </div>          
@@ -121,7 +134,7 @@ session_start();
 
                     <div class="portfolio-item bootstrap wordpress col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/portfolio/recent/item3.png" alt="">
+                            <img class="img-responsive" src="images/portfolio/recent/item12.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Business theme</a></h3>
@@ -134,7 +147,7 @@ session_start();
 
                     <div class="portfolio-item joomla wordpress apps col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/portfolio/recent/item4.png" alt="">
+                            <img class="img-responsive" src="images/portfolio/recent/item13.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Business theme</a></h3>
@@ -147,7 +160,7 @@ session_start();
           
                     <div class="portfolio-item joomla html bootstrap col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/portfolio/recent/item5.png" alt="">
+                            <img class="img-responsive" src="images/portfolio/recent/item14.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Business theme</a></h3>
@@ -160,7 +173,7 @@ session_start();
 
                     <div class="portfolio-item wordpress html apps col-xs-12 col-sm-4 col-md-3">
                         <div class="recent-work-wrap">
-                            <img class="img-responsive" src="images/portfolio/recent/item6.png" alt="">
+                            <img class="img-responsive" src="images/portfolio/recent/item15.png" alt="">
                             <div class="overlay">
                                 <div class="recent-work-inner">
                                     <h3><a href="#">Business theme</a></h3>

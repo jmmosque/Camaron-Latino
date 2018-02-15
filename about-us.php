@@ -59,15 +59,28 @@
                             if ($_SESSION){
                         ?>
                             <li><a href="contact-us.php">Contáctenos</a></li>
-                            <li><a href="logout.php">Cerrar Sesión</a></li>
+                           
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
-                            <li><a href="index.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a href="indexadministrativo.php"><strong> <?php echo $_SESSION["usu"];?> </strong> </a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
                         <?php
                                 }else{
-                        ?>
-                            <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
+                        ?>                            
+                            
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
                         <?php
                                 }
                             }else{
