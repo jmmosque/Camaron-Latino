@@ -5,7 +5,7 @@
             header("location:index.php"); 
         }                            
     }else{
-        header("location:index.php");
+      //  header("location:index.php");
     }
 
     include_once('publicacion.php');
@@ -14,7 +14,7 @@
     class publicacionCollector extends Collector{
 
     function showPublicacion(){
-        $rows = self::$db->getRows("SELECT * FROM publicacion INNER JOIN usuario ON usuario.id_usuario = publicacion.id_usuario");
+        $rows = self::$db->getRows("SELECT publicacion.id_publicacion, publicacion.titulo, publicacion.contenido, publicacion.id_usuario, publicacion.fecha_publicacion, publicacion.imagen, publicacion.direccion, usuario.nombre FROM publicacion INNER JOIN usuario ON usuario.id_usuario = publicacion.id_usuario");
         $array = array();
         foreach($rows as $c){
         $aux = new publicacion();
@@ -30,7 +30,15 @@
         }
         return $array;
     }
-
+    
+    function contarComentario($id){
+        $rows = self::$db->getRows("SELECT count(*) FROM comentario inner join publicacion on publicacion.id_publicacion = comentario.id_publicacion where comentario.id_publicacion = ?", array($id));
+        $valor = 0;
+        foreach($rows as $c){
+            $valor = $c{'count'};
+        }
+        return $valor;
+    }
     function deletePublicacion($id){
         $deleterow = self::$db->deleteRow("DELETE FROM publicacion WHERE id_publicacion= ?", array($id));
     }
