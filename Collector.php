@@ -12,7 +12,7 @@ include_once('dataBase.php');
 // Define configuration
 define("DB_HOST", "localhost");
 define("DB_USER", "postgres");
-define("DB_PASS", "postgres");
+define("DB_PASS", "1234");
 define("DB_NAME", "camaron");
 
 
