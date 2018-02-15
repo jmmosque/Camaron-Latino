@@ -15,9 +15,9 @@
 
     $cod = $_GET["id"];
     $mes = $_POST["message"];
-
+    $fec = $_POST["date"];
     $sug = new comentarioCollector();
-    $actcre = $sug->editarComentario($mes,$cod);
+    $actcre = $sug->editarComentario($mes,$cod,$fec);
     $mensaje="comentario actualizado correctamente";
     header("location:mensajeAdmin.php?mensaje=$mensaje");
 ?>

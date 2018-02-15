@@ -112,12 +112,32 @@
         $sug = $objeto->comprobarPublicacion($id);
         $tem = $sug->getTitulo();
         $mes = $sug->getContenido();
+        $fec = $sug->getFecha();
+        $dir = $sug->getDirimg();
+        $img = $sug->getImagen();
        ?>
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
               <div class="card-header">Editar  </div>
               <div class="card-body">
-                <form action="editarPublicacion.php?id=<?php echo $id;?>" method="post">
+                <form action="editarPublicacion.php?id=<?php echo $id;?>" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                                        <div class="form-row">
+                                        <div class="col-md-6">
+                                            <br>                          
+                                            <label>Imagen Actual</label><br>
+                                            <img class="img-responsive" src="<?php echo $dir.$img?>" alt="">
+                                        </div>
+                                        </div>
+                                        <div class="form-row">
+                                        <div class="col-md-6">
+                                            <br>
+                                            <label>Elija Nueva Imagen de  Publicacion</label><br>
+                                            <input type="file" name="fileToUpload" id="fileToUpload" required="required">
+                                            </div>
+                                        </div>
+                                    </div>
+                    <div class="form-group">
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Título</label>
@@ -125,7 +145,17 @@
                       </div>
                       
                     </div>
-                  
+                    </div>
+    
+                    <div class="form-group">
+                       <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                        <label>Elija Nueva Fecha de Publicacion</label><br>
+                        <input type="date" name="date" placeholder="" value="<?php echo $fec;?>">
+                      </div>
+                    </div>    
+                    </div>
                   <div class="form-group">
                     <label>Contenido</label>
                     <textarea name="message" id="message" required="required" class="form-control" rows="9"><?php echo $mes; ?></textarea>

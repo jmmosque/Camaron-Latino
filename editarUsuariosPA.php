@@ -118,7 +118,7 @@ session_start();
                                 $dir = $persona->getDirImg();
                                 $nom = $persona->getNomImg();
                                 ?>
-                                <form action="editarUsuario.php?persona=<?php echo $codper ?>" method="post" enctype="multipart/form-data">                                                                         
+                                <form action="editarUsuario.php?persona=<?php echo $codper ?>" method="post" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <div class="form-row">
                                         <div class="col-md-6">

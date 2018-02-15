@@ -12,7 +12,7 @@
     require_once('servicioimagenCollector.php');
     $id = $_GET["id"];
     //direccion de donde se encuentra ubicado la imagen
-    $target_dir = "images/";
+    $target_dir = "images/servicio/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

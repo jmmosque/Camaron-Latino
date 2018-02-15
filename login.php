@@ -106,13 +106,13 @@
                     <form action="validacredencial.php" method="post">
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input class="form-control estiloborder" placeholder="" type="text" name="usu">
+                            <input class="form-control estiloborder" placeholder="" type="text" name="usu" required="required">
                         </div>
                         <div class="form-group">
                             <label >Contraseña</label>
-                            <input class="form-control" type="password" placeholder="" type="text" name="cla">
+                            <input class="form-control" type="password" placeholder="" type="text" required="required" name="cla">
                         </div>
-                        <button class="btn btn-primary btn-block" type="submit"> ENVIAR </button>
+                        <button class="btn btn-primary btn-block" type="submit" required="required"> ENVIAR </button>
                     </form>
                     <div class="text-center">
                         <br>

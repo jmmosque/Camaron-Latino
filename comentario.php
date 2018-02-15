@@ -15,7 +15,7 @@ class comentario
     private $idusuario;
     private $titulo;
     private $nombre;
-
+    private $fecha;
      function __construct() {
      }
      
@@ -54,6 +54,12 @@ class comentario
      } 
      function getNombre(){
        return $this->nombre;
+     }
+     function setFecha($fecha){
+       $this->fecha = $fecha;
+     } 
+     function getFecha(){
+       return $this->fecha;
      }
 }
 ?> 

@@ -101,9 +101,9 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="tablapublicacion.php">Publicación</a>
+          <a href="tablacomentario.php">Comentario</a>
         </li>
-        <li class="breadcrumb-item active">Editar Publicación</li>
+        <li class="breadcrumb-item active">Editar Comentario</li>
       </ol>
    <section id="tamasec">
        <?php 
@@ -112,13 +112,23 @@
         $objeto = new comentarioCollector();
         $sug = $objeto->comprobarComentario($id);
         $mes = $sug->getComentario();
+        $fec = $sug->getFecha();
        ?>
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
               <div class="card-header">Editar  </div>
               <div class="card-body">
                 <form action="editarComentario.php?id=<?php echo $id;?>" method="post">
-                  <div class="form-group">
+                   <div class="form-group">
+                       <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                        <label>Elija Nueva Fecha de Publicacion</label><br>
+                        <input type="date" name="date" placeholder="" value="<?php echo $fec;?>">
+                      </div>
+                    </div>    
+                    </div>
+                    <div class="form-group">
                     <label>Contenido</label>
                     <textarea name="message" id="message" required="required" class="form-control" rows="9"><?php echo $mes; ?></textarea>
                   </div>

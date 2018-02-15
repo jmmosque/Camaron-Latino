@@ -10,6 +10,7 @@
     }
     require_once("comentarioCollector.php");
     $mes = $_POST["message"];
+    $date = $_POST["date"];
     if(empty($_POST["select"])){    
         $mensaje="No existen publicaciones disponibles para crear el comentario";
         header("location:mensajeAdmin.php?mensaje=$mensaje");             
@@ -21,7 +22,7 @@
             $opc = $_POST["select"];
             $op2 = $_POST["select2"];
             $objColector = new comentarioCollector();
-            $cred = $objColector->crearComentario($mes,$op2,$opc);
+            $cred = $objColector->crearComentario($mes,$op2,$opc,$date);
             $mensaje="Nuevo Comentario Ingresado";
             header("location:mensajeAdmin.php?mensaje=$mensaje");        
         }
