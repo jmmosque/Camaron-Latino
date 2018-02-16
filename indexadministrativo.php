@@ -128,7 +128,7 @@ session_start();
               </thead>
               <tbody>
                 <?php
-                  require_once('usuarioCollector.php');
+                  /*require_once('usuarioCollector.php');
                   $objetoUsuario = new usuarioCollector();
                   $arrayUsu = $objetoUsuario->todaInfo();
                   foreach($arrayUsu as $usuario){
@@ -140,7 +140,7 @@ session_start();
                       $valor = $usuario->getIdUsuario();
                       echo "<td>". "<a href='editarUsuariosPA.php?usu=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
                       echo "<td>". "<a href='eliminarUsuarioPA.php?mensaje=$valor'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
-                  }
+                  }*/
                 ?>
               </tbody>
             </table>
