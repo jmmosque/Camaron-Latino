@@ -123,7 +123,7 @@ session_start();
                                 
                             <div class="col-xs-12 col-sm-10 blog-content">
                                 <a href=""><img class="img-responsive img-blog" src="images/blog/blog1.jpg" width="100%" alt="" /></a>
-                                <h2><a href="blog-item.html">Camarón Latino</a></h2>
+                                <h2><a href="blog-item.php">Camarón Latino</a></h2>
                                 <h3>Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</h3>
                                 <a class="btn btn-primary readmore" href="blog-item.php">Seguir leyendo <i class="fa fa-angle-right"></i></a>
                             </div>
@@ -144,8 +144,6 @@ session_start();
                 $diri = $c->getDirimg();
                 $cont = $c->getContenido();
                 $coun = $objeto->contarComentario($id);
-                echo $diri;
-                echo $nomi;
                 echo "<div class='blog'>";
                 echo "<div class='row'>";   
                 echo "<div class='col-md-8'>";         
@@ -154,15 +152,15 @@ session_start();
                 echo "<div class='col-xs-12 col-sm-2 text-center'>";                    
                 echo "<div class='entry-meta'>";                        
                 echo "<span id='publish_date'>$fech</span>";                            
-                echo "<span><i class='fa fa-user'></i> <a href=''>$nomb</a></span>";                            
-                echo "<span><i class='fa fa-comment'></i> <a href='blog-item.html#comments'>$coun Comentario</a></span>";                        
+                echo "<span><i class='fa fa-user'></i>$nomb</span>";                            
+                echo "<span><i class='fa fa-comment'></i> $coun Comentario</span>";                        
                 echo "</div>";                        
                 echo "</div>";                    
                 echo "<div class='col-xs-12 col-sm-10 blog-content'>";                    
                 echo "<a href=''><img class='img-responsive img-blog' src=".$diri.$nomi." width='100%' alt='' /></a>";     
-                echo "<h2><a href='blog-item.html'>$titu</a></h2>";                        
+                echo "<h2><a href='blog-item-usuario.html?id=$id'>$titu</a></h2>";                        
                 echo "<h3>$cont</h3>";                        
-                echo "<a class='btn btn-primary readmore' href='blog-item.php'>Seguir leyendo <i class='fa fa-angle-right'></i></a>";      
+                echo "<a class='btn btn-primary readmore' href='blog-item-usuario.php?id=$id'>Seguir leyendo <i class='fa fa-angle-right'></i></a>"; 
                 echo " </div>";         
                 echo "</div>";          
                 echo "</div><!--/.blog-item-->";                                           

@@ -107,8 +107,8 @@ session_start();
         <div class="center">
             <h2>Publicacion</h2>
         </div>
-
-        <div class="blog">
+   
+               <div class="blog">
             <div class="row">
                 <div class="col-md-8">
                     <div class="blog-item">
@@ -138,6 +138,7 @@ session_start();
 
                         
                         <h1 id="comments_title">5 Comments</h1>
+                    
                         <div class="media comment_section">
                             <div class="pull-left post_comments">
                                 <a href="#"><img src="images/blog/girl.png" class="img-circle" alt="" /></a>
@@ -149,6 +150,8 @@ session_start();
                                 <a href="#">Responder</a>
                             </div>
                         </div> 
+                    
+                    
                         <div class="media comment_section">
                             <div class="pull-left post_comments">
                                 <a href="#"><img src="images/blog/boy2.png" class="img-circle" alt="" /></a>
@@ -209,12 +212,10 @@ session_start();
                             </form>     
                         </div><!--/#contact-page-->
                     </div><!--/.col-md-8-->
-
                 
-
             </div><!--/.row-->
 
-         </div><!--/.blog-->
+         </div><!--/.blog-->  
 
     </section><!--/#blog-->
 

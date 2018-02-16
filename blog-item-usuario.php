@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Blog | Camarón Latino</title>
+    <title>Blog Solo | Camarón Latino</title>
     
     <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,16 +44,24 @@ session_start();
                     </button>
                     <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>
                 </div>
-                
-                 <div class="collapse navbar-collapse navbar-right">
+                <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li ><a href="index.php">Inicio</a></li>
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li><a href="blog.php">Publicacion</a></li> 
-                          <!--<li><a href="login.html">Login</a></li>-->
-                           <?php
+                        <li class="active"><a href="blog.php">Publicacion</a></li> 
+                        
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="blog-item.html">Blog Single</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="404.html">404</a></li>
+                                <li><a href="shortcodes.html">Shortcodes</a></li>
+                            </ul>
+                        </li>-->
+                        <?php
                             if ($_SESSION){
                         ?>
                             <li><a href="contact-us.php">Contáctenos</a></li>
@@ -87,43 +94,107 @@ session_start();
                             <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
-                        ?>
+                        ?>          
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
+        
     </header><!--/header-->
 
-    <section id="contact-page">
-        <div class="container">
-            <div class="center">  
-                <br>
-                <h2>Sugerencias</h2>
-                <p class="lead">Ayúdanos a brindar un mejor servicio. Tu palabra es importante para nosotros</p>
-            </div> 
-            <div class="row"> 
-                <div class="status alert alert-success" style="display: none"></div>
-                <form  name="contact-form" method="post" action="enviarSugerencia.php">
-                    <div class="col-sm-4">
-                        
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="form-group">
-                            <label>Tema *</label>
-                            <input type="text" name="subject" class="form-control" required="required">
-                        </div>
-                        <div class="form-group">
-                            <label>Mensaje *</label>
-                            <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
-                        </div>                        
-                        <div class="form-group">
-                            <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Enviar </button>
-                        </div>
-                    </div>
-                </form> 
-            </div><!--/.row-->
-        </div><!--/.container-->
-    </section><!--/#contact-page-->
+    <?php 
+        $id = $_GET["id"];
+        require_once('publicacionCollector.php');
+        require_once('comentarioCollector.php');
+        require_once('usuarioCollector.php');
+        $objeto = new publicacionCollector();
+        $objet2 = new comentarioCollector(); 
+        $c = $objeto->comprobarPublicacion($id);
+        $nomb = $c->getNombre();
+        $fech = $c->getFecha();           
+        $titu = $c->getTitulo();
+        $nomi = $c->getImagen();
+        $diri = $c->getDirimg();
+        $cont = $c->getContenido();
+        $coun = $objeto->contarComentario($id);
+        echo "<section id='blog' class='container'>";    
+        echo "<div class='center'>";   
+        echo "<h2>Publicacion</h2>";
+        echo "</div>";
+        echo "<div class='blog'>";
+        echo "<div class='row'>";
+        echo "<div class='col-md-8'>";
+        echo "<div class='blog-item'>";
+        echo "<img class='img-responsive img-blog' src=".$diri.$nomi." width='100%' alt='' />";
+        echo "<div class='row'>";
+        echo "<div class='col-xs-12 col-sm-2 text-center'>";
+        echo "<div class='entry-meta'>";
+        echo "<span id='publish_date'> $fech</span>";
+        echo "<span><i class='fa fa-user'></i> $nomb</span>"; 
+        echo "<span><i class='fa fa-user'></i> $coun comentarios</span>";
+        echo "</div>";
+        echo "</div>";
+        echo "<div class='col-xs-12 col-sm-10 blog-content'>";          
+        echo "<h2>$titu</h2>";                        
+        echo "<p>$cont</p>";                    
+        echo "<div class='post-tags'>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";                                      
+        echo "</div><!--/.blog-item-->";                        
+        echo "<h1 id='comments_title'>$coun Commentario</h1>";
+        foreach($objeto->comprobarComentarioPublicacion($id) as $a){            
+            $idu = $a->getIdUsuario();   
+            $fec = $a->getFecha();
+            $cont = $a->getContenido();
+            $objet3 = new usuarioCollector();    
+            $usuario = $objet3->todaInfoID($idu);
+            $nomusu = $usuario->getNombre();
+            $diru = $usuario->getDirImg();
+            $nomu = $usuario->getNomImg();        
+            echo "<div class='media comment_section'>";
+            echo "<div class='pull-left post_comments'>";
+            echo "<img src=".$diru.$nomu." class='img-circle' alt='' /></a>";         
+            echo "</div>";
+            echo "<div class='media-body post_reply_comments'>";
+            echo "<h3>$nomusu</h3>";
+            echo "<h4>$fech</h4>";
+            echo "<p>$cont</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+        if ($_SESSION){
+                $idco = $_SESSION["id"];
+                echo"<div id='contact-page clearfix'>";
+                echo"<div class='message_heading'>";            
+                echo"<h4>Dejar una comentario</h4>";                
+                echo"</div>";                       
+                echo"<form class='contact-form' name='contact-form' method='post' action='subirComentario.php?idc=$idco&idp=$id'>";
+                echo"<div class='row'>";
+                echo"<div class='col-sm-7'>";
+                echo"<div class='form-grou'>";
+                echo"<label>Mensaje *</label>";
+                echo"<textarea name='message' id='message' required class='form-control' rows='8'></textarea>";
+                echo"</div>";                        
+                echo"<div class='form-group'>";
+                echo"<button type='submit' class='btn btn-primary btn-lg' required='required'>comentario</button>";
+                echo"</div>";
+                echo"</div>";
+                echo"</div>";
+                echo"</form>";     
+                echo"</div><!--/#contact-page-->";        
+            }
+    
+                    echo "</div><!--/.col-md-8-->";                
+
+            echo "</div><!--/.row-->";
+
+         echo "</div><!--/.blog-->";
+
+    echo "</section><!--/#blog-->";
+    ?>
+    
+
 
     <footer id="footer" class="midnight-blue">
             <div class="container">
@@ -146,7 +217,6 @@ session_start();
                 </div>
             </div><!--/.container-->
     </footer><!--/#footer-->
-
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
