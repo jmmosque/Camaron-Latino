@@ -130,7 +130,7 @@ session_start();
                                         <div class="form-row">
                                         <div class="col-md-6">
                                             <br>
-                                            <label>Elija Nueva Imagen de  Producto</label><br>
+                                            <label>Elija Nueva Imagen de  Perfil</label><br>
                                             <input type="file" name="fileToUpload" id="fileToUpload" required="required">
                                             </div>
                                         </div>
