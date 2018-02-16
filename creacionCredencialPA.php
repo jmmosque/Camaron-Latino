@@ -121,15 +121,15 @@
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Ingrese usuario</label>
-                        <input class="form-control" placeholder="" name="usu">
+                        <input class="form-control" placeholder="" name="usu" required="required">
                       </div>
                       <div class="col-md-6">
                         <label>Ingresar Clave</label>
-                        <input class="form-control" placeholder="" name="log">
+                        <input class="form-control" placeholder="" name="log" required="required">
                       </div>
                     </div>
                   </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
+                     <button button class="btn btn-primary btn-block" type="submit" required="required"> Crear </button>
                 </form>
               </div>
             </div>
