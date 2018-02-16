@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2018-02-13 06:41:44.102
+-- Last modification date: 2018-02-15 05:14:39.593
 
 -- tables
 -- Table: comentario
@@ -8,6 +8,7 @@ CREATE TABLE comentario (
     comentario varchar(300)  NOT NULL,
     id_publicacion int  NOT NULL,
     id_usuario int  NOT NULL,
+    fecha_comentario varchar(50)  NOT NULL,
     CONSTRAINT comentario_pk PRIMARY KEY (id_comentario)
 );
 
@@ -41,9 +42,12 @@ CREATE TABLE producto_imagen (
 -- Table: publicacion
 CREATE TABLE publicacion (
     id_publicacion serial  NOT NULL,
-    titulo varchar(20)  NOT NULL,
+    titulo varchar(40)  NOT NULL,
     contenido varchar(300)  NOT NULL,
     id_usuario int  NOT NULL,
+    fecha_publicacion varchar(50)  NOT NULL,
+    imagen varchar(100)  NOT NULL,
+    direccion varchar(50)  NOT NULL,
     CONSTRAINT publicacion_pk PRIMARY KEY (id_publicacion)
 );
 
@@ -77,8 +81,8 @@ CREATE TABLE servicio_imagen (
 -- Table: sugerencia
 CREATE TABLE sugerencia (
     id_sugerencia serial  NOT NULL,
-    tema varchar(20)  NOT NULL,
-    mensaje varchar(50)  NOT NULL,
+    tema varchar(50)  NOT NULL,
+    mensaje varchar(200)  NOT NULL,
     id_usuario int  NOT NULL,
     CONSTRAINT sugerencia_pk PRIMARY KEY (id_sugerencia)
 );
@@ -107,6 +111,8 @@ CREATE TABLE usuario (
     direccion varchar(45)  NOT NULL,
     id_credencial int  NOT NULL,
     id_rol int  NOT NULL,
+    imagen varchar(100)  NOT NULL,
+    dir_imagen varchar(50)  NOT NULL,
     CONSTRAINT usuario_pk PRIMARY KEY (id_usuario)
 );
 
