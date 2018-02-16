@@ -182,7 +182,7 @@ session_start();
                                                     $no = $r->getNombre();
                                                     echo "<option value='$id' selected>$no</option>";
                                                 }
-                                                echo "</select>"; 
+                                                echo "</select>";  
                                                 }                                
                                                 ?>
                                             </div>
