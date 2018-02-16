@@ -19,6 +19,6 @@
     }else{
         $nrol = $objColector->creartipoServicio($nombre);
         $mensaje="Nuevo Tipo de Servicio Ingresado";
-        header("location:mensajeAdmin.php?mensaje=$mensaje");
+        header("location:mensajeTTServicio.php?mensaje=$mensaje");
     }   
 ?>

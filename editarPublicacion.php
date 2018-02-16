@@ -48,7 +48,7 @@
     // verifica si encontro algun error;
     if ($uploadOk == 0) {
         $fmensaje = "Este archivo no puede ser cargado. ".$mensaje;
-        header("location:mensajeAdmin.php?mensaje=$fmensaje");
+        header("location:mensajeTPublicacion.php?mensaje=$fmensaje");
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -61,10 +61,10 @@
             $nomimg = basename( $_FILES["fileToUpload"]["name"]);
             $persona = $colpersona->editarPublicacion($tem,$mes,$cod,$nomimg,$fec);
             $fmensaje = "publicacion actualizada correctamente";
-            header("location:mensajeAdmin.php?mensaje=$fmensaje");
+            header("location:mensajeTPublicacion.php?mensaje=$fmensaje");
         } else {
             $fmensaje = "Hubo un error al cargar la imagen.";
-            header("location:mensajeAdmin.php?mensaje=$fmensaje");
+            header("location:mensajeTPublicacion.php?mensaje=$fmensaje");
         }
     }
 ?>

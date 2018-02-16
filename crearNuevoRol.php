@@ -21,6 +21,6 @@
     }else{
         $nrol = $objColector->crearrol($nombre,$descri);
         $mensaje="Nuevo Rol Ingresado";
-        header("location:mensajeAdmin.php?mensaje=$mensaje");
+        header("location:mensajeTRol.php?mensaje=$mensaje");
     }   
 ?>

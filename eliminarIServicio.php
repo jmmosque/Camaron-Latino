@@ -18,5 +18,5 @@
     unlink($dir.$nom);
     $usubo = $objeto->deleteImagen($valor);
     $mensaje="Imagen del Servicio eliminado correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje"); 
+    header("location:mensajeTIServicio.php?mensaje=$mensaje"); 
 ?>

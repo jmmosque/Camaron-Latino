@@ -34,6 +34,6 @@
     }else{
         $actcre = $tse->actualizartipoProducto($nom,$cod);
         $mensaje="tipo de servicio actualizado correctamente";
-        header("location:mensajeAdmin.php?mensaje=$mensaje");
+        header("location:mensajeTTProducto.php?mensaje=$mensaje");
     }
 ?>

@@ -25,7 +25,7 @@
             $objColector = new productoCollector();
             $cred = $objColector->crearProducto($opc,$op2,$nom,$mes);
             $mensaje="Nuevo Producto Ingresado";
-            header("location:mensajeAdmin.php?mensaje=$mensaje");
+            header("location:mensajeProducto.php?mensaje=$mensaje");
         }
     }
 ?>

@@ -50,7 +50,6 @@ session_start();
                         <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li class="active"><a href="blog.php">Publicacion</a></li> 
                         
                         <!--<li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
@@ -64,8 +63,14 @@ session_start();
                         <?php
                             if ($_SESSION){
                         ?>
-                            <li><a href="contact-us.php">Contáctenos</a></li>
-                           
+                            <li class="active" class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publicacion <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">                                
+                                    <li><a href="blog.php">Ver</a></li>
+                                    <li><a href="publicacionUsuario.php?mensaje=">Crear</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact-us.php">Contáctenos</a></li>                           
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>

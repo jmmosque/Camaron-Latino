@@ -17,5 +17,5 @@
     $sug = new sugerenciaCollector();
     $actcre = $sug->editarSugerencia($tem,$mes,$cod);
     $mensaje="sugerencia actualizado correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje");
+    header("location:mensajeTSugerencia.php?mensaje=$mensaje");
 ?>

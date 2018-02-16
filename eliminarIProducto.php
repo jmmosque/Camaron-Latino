@@ -18,5 +18,5 @@
     unlink($dir.$nom);
     $usubo = $objeto->deleteImagen($valor);
     $mensaje="Imagen del Producto eliminado correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje"); 
+    header("location:mensajeTIProducto.php?mensaje=$mensaje"); 
 ?>

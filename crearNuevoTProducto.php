@@ -19,6 +19,6 @@
     }else{
         $nrol = $objColector->creartipoProducto($nombre);
         $mensaje="Nuevo Tipo de Producto Ingresado";
-        header("location:mensajeAdmin.php?mensaje=$mensaje");
+        header("location:mensajeTTProducto.php?mensaje=$mensaje");
     }   
 ?>

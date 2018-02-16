@@ -33,14 +33,29 @@
              $contsi = $contsi + 1;
         }
     }
-
+    
     if($contno > 0){
         $mensaje="ya existe un usuario con esta credencial";
         header("location:editarCredencialPA.php?mens=$mensaje&id=$codper");
     }else{
-        $actcre = $credencial->actualizarcredencial($usuari,$contra,$codper);
-        $mensaje="credenciales actualizadas correctamente";
-        //echo "cod es:".$codcredencial;
-        header("location:mensajeAdmin.php?mensaje=$mensaje");
+        if($codper==1){
+            if($_SESSION["id"]==1){
+                $actcre = $credencial->actualizarcredencial($usuari,$contra,$codper);
+                $mensaje="credenciales actualizadas correctamente";
+                //echo "cod es:".$codcredencial;
+                header("location:mensajeTCredencial.php?mensaje=$mensaje");
+            }else{
+                $mensaje="no tiene permiso para cambiar esta credencial";
+                //echo "cod es:".$codcredencial;
+                header("location:mensajeTCredencial.php?mensaje=$mensaje");
+            }
+        }else{
+                $actcre = $credencial->actualizarcredencial($usuari,$contra,$codper);
+                $mensaje="credenciales actualizadas correctamente";
+                //echo "cod es:".$codcredencial;
+                header("location:mensajeTCredencial.php?mensaje=$mensaje");
+            
+        }
+        
     }
 ?>

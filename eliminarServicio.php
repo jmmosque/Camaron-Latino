@@ -14,5 +14,5 @@
     $objeto = new servicioCollector();
     $usubo = $objeto->deleteServicio($valor);
     $mensaje="Servicio eliminado correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje"); 
+    header("location:mensajeTServicio.php?mensaje=$mensaje"); 
 ?>

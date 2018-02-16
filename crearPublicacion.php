@@ -50,7 +50,7 @@
         // verifica si encontro algun error;
         if ($uploadOk == 0) {
             $fmensaje = "Este archivo no puede ser cargado. ".$mensaje;
-            header("location:mensajeAdmin.php?mensaje=$fmensaje");
+            header("location:mensajeTPublicacion.php?mensaje=$fmensaje");
         // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -59,11 +59,11 @@
                 $objColector= new publicacionCollector();
                 $nomimg = basename( $_FILES["fileToUpload"]["name"]);
                 $fmensaje ="Nueva Publicacion Ingresada";
-                header("location:mensajeAdmin.php?mensaje=$fmensaje");               
+                header("location:mensajeTPublicacion.php?mensaje=$fmensaje");               
                 $cred = $objColector->crearPublicacion($tem,$mes,$opc,$fec,$nomimg,$target_dir);        
             } else {
                 $fmensaje = "Hubo un error al cargar la imagen.";
-                header("location:mensajeAdmin.php?mensaje=$fmensaje");
+                header("location:mensajeTPublicacion.php?mensaje=$fmensaje");
             }
         }        
     }

@@ -1,6 +1,10 @@
 <?php
     session_start();
-
+    if ($_SESSION){     
+                                    
+    }else{
+        header("location:index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,16 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Acerca de nosotros | Camarón Latino</title>
-	
-	<!-- core CSS -->
+    <title>Blog | Camarón Latino</title>
+    
+    <!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
-	
+    
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -45,26 +49,33 @@
                     </button>
                     <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>
                 </div>
-				
-                 <div class="collapse navbar-collapse navbar-right">
+                <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li ><a href="index.php">Inicio</a></li>
-                        <li class="active"><a href="about-us.php">Nosotros</a></li>
+                        <li><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
                         
-                          <!--<li><a href="login.html">Login</a></li>-->
+                        <!--<li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="blog-item.html">Blog Single</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="404.html">404</a></li>
+                                <li><a href="shortcodes.html">Shortcodes</a></li>
+                            </ul>
+                        </li>-->
                         <?php
                             if ($_SESSION){
                         ?>
-                            <li class="dropdown">
+                            <li class="active" class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publicacion <i class="fa fa-angle-down"></i></a>
                                 <ul class="dropdown-menu">                                
                                     <li><a href="blog.php">Ver</a></li>
                                     <li><a href="publicacionUsuario.php?mensaje=">Crear</a></li>
                                 </ul>
                             </li>
-                            <li><a href="contact-us.php">Contáctenos</a></li>
+                            <li><a href="contact-us.php">Contáctenos</a></li>                           
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
@@ -93,133 +104,63 @@
                             <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
-                        ?>
+                        ?>          
                     </ul>
                 </div>
             </div><!--/.container-->
         </nav><!--/nav-->
-	</header><!--/header-->
+        
+    </header><!--/header-->
 
-    <section id="about-us">
-        <div class="container">
-			<div class="center wow fadeInDown">
-				<h2>Acerca de Nosotros</h2>
-				<p class="lead">Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
-			</div>
+    <section id="blog" class="container">
+        <div class="center">
+            <h2>Publicaciones</h2>
+            <p class="lead"></p>
+        </div>
+         <?php
+         $mensaje = $_GET["mensaje"];
+        ?>
+        <div class="text-center"><p><?php echo $mensaje;?></p></div>
+        <div class="containerlogin">
+            <div class="card card-register mx-auto mt-5">
+              <div class="card-header"> </div>
+              <div class="card-body">
+                <form action="crearPublicacionUsuario.php" method="post" enctype="multipart/form-data"> 
+                    <div class="form-group">
+                       <div class="form-row">
+                      <div class="col-md-6">
+                          <br>
+                        <label>Elija Imagen de Publicacion</label><br>
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                      </div>
+                    </div>    
+                    </div>
+                    <div class="form-group">
+                        
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <label>Ingrese Título</label>
+                        <input class="form-control" placeholder="" name="tem">
+                      </div>
+                
+                    </div>
+                    </div>
+                  <div class="form-group">
+                    <label>Contenido</label>
+                    <!--<input class="form-control" placeholder="" name="des">-->
+                    <textarea name="message" id="message" required="required" class="form-control" rows="6"></textarea>
+                  </div>
+                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
+                </form>
+              </div>
+            </div>
+          </div>
 
-			<!-- our-team -->
-			<div class="team">
-				<div class="center wow fadeInDown">
-					<h2>Equipo de Camarón Latino</h2>
-					<p class="lead">Nuestro Equipo está encargado de filtrar los mejores proveedores y productos para satisfacer sus necesidades</p>
-				</div>
+    </section><!--/#blog-->
 
-				<div class="row clearfix">
-					<div class="col-md-4 col-sm-6">	
-						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-							<div class="media">
-								<div class="pull-left">
-									<a href="#"><img class="media-object" src="images/personal1.jpg" alt=""></a>
-								</div>
-								<div class="media-body">
-									<h4>Daniel Flor</h4>
-									<h5>Fundador y Programador</h5>
-									<ul class="social_icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div><!--/.media -->
-							<p>Estudiante de Licenciatura en Sistemas de Información </p>
-						</div>
-					</div><!--/.col-lg-4 -->
-					
-					
-					<div class="col-md-4 col-sm-6 col-md-offset-2">	
-						<div class="single-profile-top wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-							<div class="media">
-								<div class="pull-left">
-									<a href="#"><img class="media-object" src="images/personal2.jpg" alt=""></a>
-								</div>
-								<div class="media-body">
-									<h4>Freddy Rada</h4>
-									<h5>Fundador y Asistente de programación</h5>
-									<ul class="social_icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div><!--/.media -->
-							<p>Estudiante de Licenciatura en Diseño Web y Multimedia</p>
-						</div>
-					</div><!--/.col-lg-4 -->					
-				</div> <!--/.row -->
-				<div class="row team-bar">
-					<div class="first-one-arrow hidden-xs">
-						<hr>
-					</div>
-					<div class="first-arrow hidden-xs">
-						<hr> <i class="fa fa-angle-up"></i>
-					</div>
-					<div class="second-arrow hidden-xs">
-						<hr> <i class="fa fa-angle-down"></i>
-					</div>
-					<div class="third-arrow hidden-xs">
-						<hr> <i class="fa fa-angle-up"></i>
-					</div>
-					<div class="fourth-arrow hidden-xs">
-						<hr> <i class="fa fa-angle-down"></i>
-					</div>
-				</div> <!--skill_border-->       
+  
 
-				<div class="row clearfix">   
-					<div class="col-md-4 col-sm-6 col-md-offset-2">	
-						<div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-							<div class="media">
-								<div class="pull-left">
-									<a href="#"><img class="media-object" src="images/personal3.jpg" alt=""></a>
-								</div>
-
-								<div class="media-body">
-									<h4>Jennifer Mosquera</h4>
-									<h5>Fundadora y Analista Informático</h5>
-									<ul class="social_icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div><!--/.media -->
-							<p>Estudiante de Licenciatura en Sistemas de Información
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-6 col-md-offset-2">
-						<div class="single-profile-bottom wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="600ms">
-							<div class="media">
-								<div class="pull-left">
-									<a href="#"><img class="media-object" src="images/personal4.jpg" alt=""></a>
-								</div>
-								<div class="media-body">
-									<h4>Carlos Moncayo</h4>
-									<h5>Fundador y Director Ejecutivo</h5>
-									<ul class="social_icons">
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
-										<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									</ul>
-								</div>
-							</div><!--/.media -->
-							<p>Estudiante de Licenciatura en Sistemas de Información</p>
-						</div>
-					</div>
-				</div>	<!--/.row-->
-			</div><!--section-->
-		</div><!--/.container-->
-    </section><!--/about-us-->
-
-       <footer id="footer" class="midnight-blue">
+    <footer id="footer" class="midnight-blue">
             <div class="container">
                 <div class="row">
                       <div class="col-sm-6">
@@ -240,12 +181,8 @@
                 </div>
             </div><!--/.container-->
     </footer><!--/#footer-->
-    
 
     <script src="js/jquery.js"></script>
-    <script type="text/javascript">
-        $('.carousel').carousel()
-    </script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>

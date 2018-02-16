@@ -112,7 +112,7 @@
                 <?php
                  }
                 ?>
-            <a class="btn btn-primary" href="indexadministrativo.php">Regresar al Inicio</a>
+            <a class="btn btn-primary" href="tablaimagenservicio.php">Regresar al Inicio</a>
         </div>
     </section><!--/#error-->
 </body>

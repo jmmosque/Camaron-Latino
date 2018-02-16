@@ -14,5 +14,5 @@
     $objeto = new tiposervicioCollector();
     $usubo = $objeto->deleteTipoServicio($valor);
     $mensaje="Tipo de Servicio eliminado correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje"); 
+    header("location:mensajeTTServicio.php?mensaje=$mensaje"); 
 ?>

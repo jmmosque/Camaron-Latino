@@ -42,6 +42,6 @@ require_once("rolCollector.php");
         $actcre = $rol->actualizarRol($usuari,$contra,$codper);
         $mensaje="rol actualizado correctamente";
         //echo "cod es:".$codcredencial;
-        header("location:mensajeAdmin.php?mensaje=$mensaje");
+        header("location:mensajeTRol.php?mensaje=$mensaje");
     }
 ?>

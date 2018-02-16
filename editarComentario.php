@@ -17,5 +17,5 @@
     $sug = new comentarioCollector();
     $actcre = $sug->editarComentario($mes,$cod,$fec);
     $mensaje="comentario actualizado correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje");
+    header("location:mensajeTComentario.php?mensaje=$mensaje");
 ?>

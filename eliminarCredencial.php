@@ -12,14 +12,12 @@
     $valor = $_GET["id"];
     if($valor==1){
         $mensaje="no se puede eliminar esta credencial";
-        header("location:mensajeAdmin.php?mensaje=$mensaje"); 
+        header("location:mensajeTCredencial.php?mensaje=$mensaje"); 
     }else{        
         $objeto = new credencialCollector();
         $usubo = $objeto->deleteCredencial($valor);
         $mensaje="Credencial eliminada correctamente";
-        header("location:mensajeAdmin.php?mensaje=$mensaje");
+        header("location:mensajeTCredencial.php?mensaje=$mensaje");
     }
-
-    
-     
+   
 ?>

@@ -14,5 +14,5 @@
     $objeto = new sugerenciaCollector();
     $usubo = $objeto->deleteSugerencia($valor);
     $mensaje="Sugerencia eliminada correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje"); 
+    header("location:mensajeTSugerencia.php?mensaje=$mensaje"); 
 ?>

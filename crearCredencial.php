@@ -21,6 +21,6 @@
     }else{
         $cred = $objColector->crearcredencial($usu,$log);
         $mensaje="Nueva Credencial Ingresada";
-        header("location:mensajeAdmin.php?mensaje=$mensaje");
+        header("location:mensajeTCredencial.php?mensaje=$mensaje");
     }   
 ?>

@@ -50,7 +50,7 @@
         // verifica si encontro algun error;
         if ($uploadOk == 0) {
             $fmensaje = "Este archivo no puede ser cargado. ".$mensaje;
-            header("location:mensajeAdmin.php?mensaje=$fmensaje");
+            header("location:mensajeTIServicio.php?mensaje=$fmensaje");
         // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -59,10 +59,10 @@
                 $nombre = basename( $_FILES["fileToUpload"]["name"]);
                 $imagen = $objeto->crearImagen($target_dir,$nombre,$id);
                 $fmensaje = "Imagen subida exitosamente.";
-                header("location:mensajeAdmin.php?mensaje=$fmensaje");
+                header("location:mensajeTIServicio.php?mensaje=$fmensaje");
             } else {
                 $fmensaje = "Hubo un error al cargar la imagen.";
-                header("location:mensajeAdmin.php?mensaje=$fmensaje");
+                header("location:mensajeTIServicio.php?mensaje=$fmensaje");
             }
         }
     }

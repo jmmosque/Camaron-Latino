@@ -18,6 +18,6 @@
     
     $actcre = $tse->actualizartipoProducto($nom,$des,$cod);
     $mensaje="Producto actualizado correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje");
+    header("location:mensajeProducto.php?mensaje=$mensaje");
     
 ?>

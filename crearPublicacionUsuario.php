@@ -1,22 +1,10 @@
 <?php
-session_start();
-    if ($_SESSION){     
-        if ($_SESSION["perfil"]=="admin"){        
-        }else{
-            header("location:index.php"); 
-        }                        
-    }else{
-        header("location:index.php");
-    }
-    require_once('productoimagenCollector.php');
-
-    if(empty($_POST["select"])){    
-        $mensaje="No existen productos disponibles para crear la imagen";
-        header("location:mensajeAdmin.php?mensaje=$mensaje");             
-    }else{
-        $id = $_POST["select"];
-        //direccion de donde se encuentra ubicado la imagen
-        $target_dir = "images/producto";
+    session_start();
+    
+    require_once("publicacionCollector.php");
+    $tem = $_POST["tem"];
+    $mes = $_POST["message"];
+    $target_dir = "images/publicacion/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -50,20 +38,19 @@ session_start();
         // verifica si encontro algun error;
         if ($uploadOk == 0) {
             $fmensaje = "Este archivo no puede ser cargado. ".$mensaje;
-            header("location:mensajeTIProducto.php?mensaje=$fmensaje");
+            header("location:publicacionUusuario.php?mensaje=$fmensaje");
         // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                 //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-                $objeto = new productoimagenCollector();
-                $nombre = basename( $_FILES["fileToUpload"]["name"]);
-                $imagen = $objeto->crearImagen($target_dir,$nombre,$id);
-                $fmensaje = "Imagen subida exitosamente.";
-                header("location:mensajeTIProducto.php?mensaje=$fmensaje");
+                $objColector= new publicacionCollector();
+                $nomimg = basename( $_FILES["fileToUpload"]["name"]);
+                $fecha_actual = date('Y-m-d');
+                $cred = $objColector->crearPublicacion($tem,$mes,$_SESSION["id"],$fecha_actual,$nomimg,$target_dir);
+                header("location:publicacion.php?");   
             } else {
                 $fmensaje = "Hubo un error al cargar la imagen.";
-                header("location:mensajeTIProducto.php?mensaje=$fmensaje");
+                header("location:publicacionUsuario.php?mensaje=$fmensaje");
             }
-        }
-    }
+        }            
 ?>

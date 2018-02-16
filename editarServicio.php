@@ -18,6 +18,6 @@
     
     $actcre = $tse->actualizartipoServicio($nom,$des,$cod);
     $mensaje="Servicio actualizado correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje");
+    header("location:mensajeTServicio.php?mensaje=$mensaje");
     
 ?>
