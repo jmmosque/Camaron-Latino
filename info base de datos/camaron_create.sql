@@ -236,6 +236,7 @@ ALTER TABLE usuario ADD CONSTRAINT usuario_rol
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
-
--- End of file.
-
+INSERT INTO credencial (usuario,clave) VALUES ('deflor','1234');
+INSERT INTO rol (nombre,descripcion) VALUES ('admin','administrador');
+INSERT INTO rol (nombre,descripcion) VALUES ('usuario','general');
+INSERT INTO usuario (nombre,identificacion,correo,telefono,direccion,id_credencial,id_rol,imagen,dir_imagen) VALUES('daniel','0919398214','deflor@espol.edu.ec','0985011726','guayaquil',1,1,'personal1.jpg','images/perfil/');
