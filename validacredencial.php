@@ -7,10 +7,7 @@
     $clave =$_POST["cla"];
     $objColector= new credencialCollector();
     $credencial=$objColector->consultarCredencial("$usuario","$clave");
-    if($credencial->getUsuario() and $credencial->getClave()){
-        $_SESSION["id"]=$credencial->getIdCredencial();
-        
-                
+    if($credencial->getUsuario() and $credencial->getClave()){                        
         $comprobar = "";
         foreach($objColector->mostrarCredencial() as $rc){
             $noc = $rc->getUsuario();
@@ -28,10 +25,14 @@
             if($usuario->getIdRol()==1){
                 $_SESSION["perfil"]="admin";
                 $_SESSION["usu"]=$usuario->getNombre();
+                $_SESSION["id"]=$usuario->getIdUsuario();
+                $_SESSION["idr"]=$usuario->getIdRol();
                 header("location:index.php");
             }else{
                 $_SESSION["perfil"]="usuario";
                 $_SESSION["usu"]=$usuario->getNombre();
+                $_SESSION["id"]=$usuario->getIdUsuario();
+                $_SESSION["idr"]=$usuario->getIdRol();
                 header("location:index.php");
             }
    

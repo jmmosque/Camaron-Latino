@@ -170,9 +170,10 @@ session_start();
                                                 <?php $rol = $persona->getRol(); ?>
                                                 <input class="form-control" type="text" placeholder="" name="rol" value="<?php echo $rol ?>" disabled="true">
                                             </div>
-                                            <div class="col-md-6">
-                                                <label>Elegir Nuevo Rol</label><br>
+                                            <div class="col-md-6">                                                
                                                 <?php
+                                                if($codper != 1){
+                                                echo "<label>Elegir Nuevo Rol</label><br>";
                                                 require_once('rolCollector.php');
                                                 $objeto = new rolCollector();
                                                 echo "<select name='select' id='select' required='required'>";
@@ -181,7 +182,8 @@ session_start();
                                                     $no = $r->getNombre();
                                                     echo "<option value='$id' selected>$no</option>";
                                                 }
-                                                echo "</select>";
+                                                echo "</select>"; 
+                                                }                                
                                                 ?>
                                             </div>
                                         </div>

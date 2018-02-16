@@ -149,7 +149,7 @@ session_start();
                             </div>
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
-                                    <img src="images/slider/img3.png" class="img-responsive">
+                                    
                                 </div>
                             </div>
                         </div>

@@ -15,7 +15,11 @@
     $telefo = $_POST["tel"];
     $correo = $_POST["cor"];
     $direcc = $_POST["dir"];
-    $opcion = $_POST["select"];
+    if($codper==1){
+        $opcion = 1;
+    }else{
+        $opcion = $_POST["select"];   
+    }
     $target_dir = "images/perfil/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
@@ -53,7 +57,42 @@
         header("location:mensajeAdmin.php?mensaje=$fmensaje");
     // if everything is ok, try to upload file
     } else {
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        if($_SESSION["id"]==$codper){
+            if($_SESSION["idr"]== $opcion){
+                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                $colpersona = new usuarioCollector();
+                $imgi = $colpersona->todaInfoID($codper);
+                $diri = $imgi->getDirImg();
+                $nomi = $imgi->getNomImg();
+                unlink($diri.$nomi);
+                $nomimg = basename( $_FILES["fileToUpload"]["name"]);
+                $persona = $colpersona->editarusuario($codper,$nombre,$cedula,$correo,$telefo,$direcc,$opcion,$nomimg);
+                $fmensaje = "usuario actualizado correctamente";
+                header("location:mensajeAdmin.php?mensaje=$fmensaje");
+                } else {
+                    $fmensaje = "Hubo un error al cargar la imagen.";
+                    header("location:mensajeAdmin.php?mensaje=$fmensaje");
+                }
+            }else{
+                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                $colpersona = new usuarioCollector();
+                $imgi = $colpersona->todaInfoID($codper);
+                $diri = $imgi->getDirImg();
+                $nomi = $imgi->getNomImg();
+                unlink($diri.$nomi);
+                $nomimg = basename( $_FILES["fileToUpload"]["name"]);
+                $persona = $colpersona->editarusuario($codper,$nombre,$cedula,$correo,$telefo,$direcc,$opcion,$nomimg);
+                session_destroy();
+                header("Location:index.php");
+                } else {
+                    $fmensaje = "Hubo un error al cargar la imagen.";
+                    header("location:mensajeAdmin.php?mensaje=$fmensaje");
+                }
+            }  
+        }else{
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             //echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
             $colpersona = new usuarioCollector();
             $imgi = $colpersona->todaInfoID($codper);
@@ -64,9 +103,10 @@
             $persona = $colpersona->editarusuario($codper,$nombre,$cedula,$correo,$telefo,$direcc,$opcion,$nomimg);
             $fmensaje = "usuario actualizado correctamente";
             header("location:mensajeAdmin.php?mensaje=$fmensaje");
-        } else {
-            $fmensaje = "Hubo un error al cargar la imagen.";
-            header("location:mensajeAdmin.php?mensaje=$fmensaje");
+            } else {
+                $fmensaje = "Hubo un error al cargar la imagen.";
+                header("location:mensajeAdmin.php?mensaje=$fmensaje");
+            }
         }
     }
 
