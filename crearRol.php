@@ -121,15 +121,15 @@
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Nuevo rol</label>
-                        <input class="form-control" placeholder="" name="nue">
+                        <input class="form-control" placeholder="" name="nue" require="require" >
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <label>Descripción</label>
-                    <input class="form-control" placeholder="" name="des">
+                    <input class="form-control" placeholder="" name="des" require ="require" >
                   </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
+                     <button button class="btn btn-primary btn-block" type="submit" require ="require" > Crear </button>
                 </form>
               </div>
             </div>

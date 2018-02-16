@@ -122,11 +122,11 @@
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Nombre</label>
-                        <input class="form-control" placeholder="" name="nom">
+                        <input class="form-control" placeholder="" name="nom" required="required">
                       </div>
                       <div class="col-md-6">
                         <label>Cédula/RUC</label>
-                        <input class="form-control" placeholder="" name="ced">
+                        <input class="form-control" placeholder="" name="ced" required="required">
                       </div>
                     </div>
                   </div>
@@ -134,17 +134,17 @@
                     <div class="form-row">
                       <div class="col-md-6">
                         <label>Teléfono</label>
-                        <input class="form-control" placeholder="" name="tel">
+                        <input class="form-control" placeholder="" name="tel" required="required">
                       </div>
                       <div class="col-md-6">
                         <label>Correo electrónico</label>
-                        <input class="form-control" placeholder="" name="cor">
+                        <input class="form-control" placeholder="" name="cor" required="required">
                       </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <label>Dirección</label>
-                    <input class="form-control" placeholder="" name="dir">
+                    <input class="form-control" placeholder="" name="dir" required="required">
                   </div>
                     <div class="form-group">
                     <div class="form-row">
@@ -188,7 +188,7 @@
                       </div>
                     </div>
                     </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Registrar </button>
+                     <button button class="btn btn-primary btn-block" type="submit" required="required"> Registrar </button>
                 </form>
               </div>
             </div>
