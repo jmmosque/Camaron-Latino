@@ -33,7 +33,7 @@
              $contsi = $contsi + 1;
         }
     }
-   
+
     if($contno > 0){
         $mensaje="ya existe un usuario con esta credencial";
         header("location:editarCredencialPA.php?mens=$mensaje&id=$codper");

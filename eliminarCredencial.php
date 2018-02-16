@@ -10,8 +10,16 @@
     }
     require_once("credencialCollector.php");
     $valor = $_GET["id"];
-    $objeto = new credencialCollector();
-    $usubo = $objeto->deleteCredencial($valor);
-    $mensaje="Credencial eliminada correctamente";
-    header("location:mensajeAdmin.php?mensaje=$mensaje"); 
+    if($valor==1){
+        $mensaje="no se puede eliminar esta credencial";
+        header("location:mensajeAdmin.php?mensaje=$mensaje"); 
+    }else{        
+        $objeto = new credencialCollector();
+        $usubo = $objeto->deleteCredencial($valor);
+        $mensaje="Credencial eliminada correctamente";
+        header("location:mensajeAdmin.php?mensaje=$mensaje");
+    }
+
+    
+     
 ?>

@@ -1,8 +1,3 @@
--- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2018-02-15 05:14:39.593
-
--- tables
--- Table: comentario
 CREATE TABLE comentario (
     id_comentario serial  NOT NULL,
     comentario varchar(300)  NOT NULL,
