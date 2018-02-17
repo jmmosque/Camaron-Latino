@@ -139,7 +139,6 @@ session_start();
                       $envio = $usuario->getIdentificacion();
                       $valor = $usuario->getIdUsuario();
                       echo "<td>". "<a href='editarUsuariosPA.php?usu=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
-<<<<<<< HEAD
                       echo "<td>". "<a data-toggle='modal' data-target='#exampleModal2' href='indexadministrativo?valor=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
                           echo "<div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                           echo "<div class='modal-dialog' role='document'>";
@@ -151,18 +150,14 @@ session_start();
                                 echo "</button>";
                                echo "</div>";
                                $valor=$_GET['valor'];
-                              echo "<div class='modal-footer'>";
-                                  
+                              echo "<div class='modal-footer'>";              
                                    echo "<button class='btn btn-secondary' type='button' data-dismiss='modal'>Cancel</button>";
                                    echo "<a class='btn btn-primary' href='eliminarUsuarioPA.php?mensaje=$valor'>Eliminar</a>";
-                                  
                               echo "</div>";
                             echo "</div>";
                           echo "</div>";
                         echo "</div>";
-=======
                       echo "<td>". "<a href='eliminarUsuarioPA.php?mensaje=$valor'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
->>>>>>> 4dbbf30fda4428c3ff2e976c5ce7d4bc88ea8cb4
                   }
                 ?>
               </tbody>
