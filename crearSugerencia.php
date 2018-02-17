@@ -11,11 +11,11 @@
     require_once("sugerenciaCollector.php");
     $tem = $_POST["tem"];
     $mes = $_POST["message"];
-    if(empty($_POST["select2"])){    
+    if(empty($_POST["select"])){    
         $mensaje="No existen usuarios disponibles para crear la sugerencia";
         header("location:mensajeTSugerencia.php?mensaje=$mensaje");             
     }else{
-        $opc = $_POST["select2"];
+        $opc = $_POST["select"];
         $objColector= new sugerenciaCollector();
         $cred = $objColector->crearSugerencia($tem,$mes,$opc);
         $mensaje="Nueva Sugerencia Ingresada";
