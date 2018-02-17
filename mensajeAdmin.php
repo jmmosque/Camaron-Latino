@@ -1,5 +1,13 @@
 <?php
-session_start();
+    session_start();
+    if ($_SESSION){     
+        if ($_SESSION["perfil"]=="admin"){            
+        }else{
+            header("location:index.php"); 
+        }                            
+    }else{
+        header("location:index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +33,7 @@ session_start();
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php">Camaron Latino</a>
+    <a class="navbar-brand" href="index.php">Camarón Latino</a>
     
       
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,26 +41,51 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="indexadministrativo.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user-md"></i>
+            <span class="nav-link-text">Usuario</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li><a href="indexadministrativo.php">Tabla Usuario</a></li>
+            <li><a href="tablacredencial.php">Tabla Credencial</a></li>
+            <li><a href="tablarol.php">Tabla Rol</a></li>
+            <li><a href="tablasugerencia.php">Tabla Sugerencia</a></li>
+          </ul>
         </li>
-
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="tablaservicio.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Dashboard</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file-text-o"></i>
+            <span class="nav-link-text">Publicación</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents2">
+            <li><a href="tablapublicacion.php">Tabla Publicación</a></li>
+            <li><a href="tablacomentario.php">Tabla Comentario</a></li>
+          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.php">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-server"></i>
+            <span class="nav-link-text">Servicio</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents3">
+            <li><a href="tablaservicio.php">Tabla Servicio</a></li>
+            <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
+            <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
+          </ul>
         </li>
-        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-product-hunt"></i>
+            <span class="nav-link-text">Producto</span>
+          </a>
+           <ul class="sidenav-second-level collapse" id="collapseComponents4">
+            <li><a href="tablaproducto.php">Tabla Producto</a></li>
+            <li><a href="tablatipoproducto.php">Tabla Tipo Producto</a></li>
+            <li><a href="tablaimagenproducto.php">Tabla Imagen Producto</a></li>
+          </ul>
+        </li>    
+      
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -64,13 +97,13 @@ session_start();
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesión</a>
         </li>
       </ul>
     </div>
   </nav>
       <section id="error" class="container text-center">
-        <div class="containererror">
+        <div class="containererror micolor">
               <?php
                  if($_GET["mensaje"]){
                 ?>
@@ -79,7 +112,7 @@ session_start();
                 <?php
                  }
                 ?>
-            <a class="btn btn-primary" href="indexadministrativo.php">Regresar a inicio</a>
+            <a class="btn btn-primary" href="indexadministrativo.php">Regresar al Inicio</a>
         </div>
     </section><!--/#error-->
 </body>

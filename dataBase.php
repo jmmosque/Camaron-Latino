@@ -1,5 +1,4 @@
 <?php
-
 class dataBase
 {
   public $isConnected;

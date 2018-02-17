@@ -1,5 +1,6 @@
 <?php
-session_start();
+    session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>About Us | Corlate</title>
+    <title>Acerca de nosotros | Camarón Latino</title>
 	
 	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +38,7 @@ session_start();
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
+                        <span class="sr-only">Navegación</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -51,25 +52,45 @@ session_start();
                         <li class="active"><a href="about-us.php">Nosotros</a></li>
                         <li><a href="servicios.php">Servicios</a></li>
                         <li><a href="productos.php">Productos</a></li> 
-                        <li><a href="contact-us.php">Contáctenos</a></li> 
+                        
                           <!--<li><a href="login.html">Login</a></li>-->
                         <?php
                             if ($_SESSION){
                         ?>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Publicacion <i class="fa fa-angle-down"></i></a>
+                                <ul class="dropdown-menu">                                
+                                    <li><a href="blog.php">Ver</a></li>
+                                    <li><a href="publicacionUsuario.php?mensaje=">Crear</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact-us.php">Contáctenos</a></li>
                         <?php
                                 if ($_SESSION["perfil"]=="admin"){
                         ?>
-                            <li><a href="index.php"><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a href="indexadministrativo.php"><strong> <?php echo $_SESSION["usu"];?> </strong> </a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
                         <?php
                                 }else{
-                        ?>
-                            <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION['id'];?></a></li>
+                        ?>                            
+                            
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bienvenido <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">                                
+                                <li><a title="Bienvenido" ><strong>Bienvenido:  </strong> <?php echo $_SESSION["usu"];?></a></li>
+                                <li><a href="logout.php">Cerrar Sesión</a></li>
+                            </ul>
+                            </li>
                         <?php
                                 }
                             }else{
                         ?>
-                            <li><a href="login.php">Login</a></li>
+                            <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
                         ?>
@@ -83,47 +104,14 @@ session_start();
         <div class="container">
 			<div class="center wow fadeInDown">
 				<h2>Acerca de Nosotros</h2>
-				<p class="lead">Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores </p>
+				<p class="lead">Somos una comunidad dedicada a ofrecer los mejores servicios y productos para el desarrollo camaronero del país. Con respuesta directa de los mejores proveedores.</p>
 			</div>
-			
-			<!-- about us slider -->
-			<div id="about-slider">
-				<div id="carousel-slider" class="carousel slide" data-ride="carousel">
-					<!-- Indicators -->
-				  	<ol class="carousel-indicators visible-xs">
-					    <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
-					    <li data-target="#carousel-slider" data-slide-to="1"></li>
-					    <li data-target="#carousel-slider" data-slide-to="2"></li>
-				  	</ol>
-
-					<div class="carousel-inner">
-						<div class="item active">
-							<img src="images/slider_one.jpg" class="img-responsive" alt=""> 
-					   </div>
-					   <div class="item">
-							<img src="images/slider_one.jpg" class="img-responsive" alt=""> 
-					   </div> 
-					   <div class="item">
-							<img src="images/slider_one.jpg" class="img-responsive" alt=""> 
-					   </div> 
-					</div>
-					
-					<a class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
-						<i class="fa fa-angle-left"></i> 
-					</a>
-					
-					<a class=" right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
-						<i class="fa fa-angle-right"></i> 
-					</a>
-				</div> <!--/#carousel-slider-->
-			</div><!--/#about-slider-->
-						
 
 			<!-- our-team -->
 			<div class="team">
 				<div class="center wow fadeInDown">
 					<h2>Equipo de Camarón Latino</h2>
-					<p class="lead">Nuestro Equipo encargado de filtrar los mejores proveedores y productos para satisfacer sus necesidades</p>
+					<p class="lead">Nuestro Equipo está encargado de filtrar los mejores proveedores y productos para satisfacer sus necesidades</p>
 				</div>
 
 				<div class="row clearfix">
@@ -135,7 +123,7 @@ session_start();
 								</div>
 								<div class="media-body">
 									<h4>Daniel Flor</h4>
-									<h5>fundador y Programador</h5>
+									<h5>Fundador y Programador</h5>
 									<ul class="social_icons">
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
@@ -143,7 +131,7 @@ session_start();
 									</ul>
 								</div>
 							</div><!--/.media -->
-							<p>Estudiante de Licenciatura en sistemas de Información </p>
+							<p>Estudiante de Licenciatura en Sistemas de Información </p>
 						</div>
 					</div><!--/.col-lg-4 -->
 					
@@ -196,7 +184,7 @@ session_start();
 
 								<div class="media-body">
 									<h4>Jennifer Mosquera</h4>
-									<h5>Fundadora y Analista informático</h5>
+									<h5>Fundadora y Analista Informático</h5>
 									<ul class="social_icons">
 										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 										<li><a href="#"><i class="fa fa-twitter"></i></a></li> 
@@ -223,7 +211,7 @@ session_start();
 									</ul>
 								</div>
 							</div><!--/.media -->
-							<p>Estudiante de Licenciatura en Sistemas de información</p>
+							<p>Estudiante de Licenciatura en Sistemas de Información</p>
 						</div>
 					</div>
 				</div>	<!--/.row-->

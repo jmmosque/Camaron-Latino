@@ -1,5 +1,14 @@
 <?php
     session_start();
+    if ($_SESSION){    
+        if ($_SESSION["perfil"]=="admin"){                
+        }else{
+            header("location:index.php"); 
+        }                            
+    }else{
+        header("location:index.php");
+    }
+
     require_once("credencialCollector.php");
     require_once("usuarioCollector.php");
     $nombre = $_POST["nom"];
@@ -36,8 +45,8 @@
                     $cred = $objColector->crearcredencial($usuari,$contra);
                     $idcre = $objColector->consultarCredencial($usuari,$contra);
                     $prov = $objColector2->crearusuario($nombre,$cedula,$correo,$telefo,$direcc,$idcre->getIdCredencial(),$idrol);
-                    $mensaje="Usuario creado coreectamente";
-                    header("location:404.php?mensaje=$mensaje"); 
+                    $mensaje="Usuario creado correctamente";
+                    header("location:login.php?mensaje=$mensaje"); 
                 } 
             }
         }   

@@ -1,9 +1,13 @@
 <?php
+
 class producto
 {
     private $idproducto;
     private $idtipoproducto;
     private $idusuario;
+    private $producto;
+    private $descripcion;
+    private $usuario;
 
      function __construct() {
      }
@@ -26,5 +30,23 @@ class producto
      function getIdUsuario(){
        return $this->idusuario;
      }
+    function setProducto($producto){
+        $this->producto = $producto;
+    } 
+    function getProducto(){
+        return $this->producto;
+    }
+    function setDescripcion($descripcion){
+        $this->descripcion = $descripcion;
+    } 
+    function getDescripcion(){
+        return $this->descripcion;
+    }
+    function setUsuario($usuario){
+        $this->idusuario = $usuario;
+    } 
+    function getUsuario(){
+        return $this->idusuario;
+    }
 }
 ?> 

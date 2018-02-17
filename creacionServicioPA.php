@@ -1,5 +1,13 @@
 <?php
-session_start();
+    session_start();
+    if ($_SESSION){     
+        if ($_SESSION["perfil"]=="admin"){
+        }else{
+            header("location:index.php"); 
+        }                            
+    }else{
+        header("location:index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,13 +27,14 @@ session_start();
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.php">Camaron Latino</a>
+    <a class="navbar-brand" href="index.php">Camarón Latino</a>
     
       
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,38 +42,55 @@ session_start();
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="indexadministrativo.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Uusarios</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-user-md"></i>
+            <span class="nav-link-text">Usuario</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li><a href="indexadministrativo.php">Tabla Usuario</a></li>
+            <li><a href="tablacredencial.php">Tabla Credencial</a></li>
+            <li><a href="tablarol.php">Tabla Rol</a></li>
+            <li><a href="tablasugerencia.php">Tabla Sugerencia</a></li>
+          </ul>
         </li>
-
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="tablaservicio.php">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Servicios</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents2" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-file-text-o"></i>
+            <span class="nav-link-text">Publicación</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents2">
+            <li><a href="tablapublicacion.php">Tabla Publicación</a></li>
+            <li><a href="tablacomentario.php">Tabla Comentario</a></li>
+          </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.php">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents3" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-server"></i>
+            <span class="nav-link-text">Servicio</span>
           </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents3">
+            <li><a href="tablaservicio.php">Tabla Servicio</a></li>
+            <li><a href="tablatiposervicio.php">Tabla Tipo Servicio</a></li>
+            <li><a href="tablaimagenservicio.php">Tabla Imagen Servicio</a></li>
+          </ul>
         </li>
-        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents4" data-parent="#exampleAccordion">
+            <i class="fa fa-fw fa-product-hunt"></i>
+            <span class="nav-link-text">Producto</span>
+          </a>
+           <ul class="sidenav-second-level collapse" id="collapseComponents4">
+            <li><a href="tablaproducto.php">Tabla Producto</a></li>
+            <li><a href="tablatipoproducto.php">Tabla Tipo Producto</a></li>
+            <li><a href="tablaimagenproducto.php">Tabla Imagen Producto</a></li>
+          </ul>
+        </li>
       </ul>
-      <ul class="navbar-nav sidenav-toggler">
+                  <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link text-center" id="sidenavToggler">
-            <i class="fa fa-fw fa-angle-left"></i>
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          <a class="nav-link" href="logout.php">
+            <i class="fa fa-fw fa-sign-out"></i>Cerrar Sesión</a>
         </li>
       </ul>
     </div>
@@ -74,84 +100,62 @@ session_start();
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
+          <a href="tablaservicio.php">Servicio</a>
         </li>
-        <li class="breadcrumb-item active">Creacion Usuario</li>
+        <li class="breadcrumb-item active">Creación Servicio</li>
       </ol>
    <section id="tamasec">
-        <?php
-         if($_GET["mensaje"]){
-        ?>
-              <div class="text-center"><p><?php echo $_GET["mensaje"];?></p></div>
-        <?php
-         }
-        ?>
         <div class="containerlogin">
             <div class="card card-register mx-auto mt-5">
-              <div class="card-header">Registro de cuenta</div>
+              <div class="card-header">Crear  </div>
               <div class="card-body">
-                <form action="creacionAdministrativaUsuario.php" method="post">
-                  <div class="form-group">
+                <form action="crearServicio.php" method="post">
                     <div class="form-row">
                       <div class="col-md-6">
-                        <label>Ingrese nombre</label>
-                        <input class="form-control" placeholder="" name="nom">
+                        <label>Elija Tipo Servicio</label><br>
+                           <?php 
+                          require_once('tiposervicioCollector.php');
+                          $objet = new tiposervicioCollector();
+                          $arra = $objet->showTiposervicios();
+                          echo "<select name='select2'>";
+                            foreach($arra as $rc){
+                                $idc = $rc->getIdTipoServicio();
+                                $noc = $rc->getNombre();
+                                echo "<option value='$idc' selected>$noc</option>";
+                            }
+                          echo "</select>";
+                          ?>
                       </div>
                       <div class="col-md-6">
-                        <label>Ingrese cédula o ruc</label>
-                        <input class="form-control" placeholder="" name="ced">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Ingrese telefono</label>
-                        <input class="form-control" placeholder="" name="tel">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Correo electrónico</label>
-                        <input class="form-control" placeholder="" name="cor">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label>Direccion</label>
-                    <input class="form-control" placeholder="" name="dir">
-                  </div>
-                  <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-6">
-                        <label>Usuario</label>
-                        <input class="form-control" type="text" placeholder="" name="usu">
-                      </div>
-                      <div class="col-md-6">
-                        <label>Contraseña</label>
-                        <input class="form-control"  type="password" placeholder="" name="con">
-                      </div>
-                    </div>
-                  </div>
-                    <div class="form-group">
-                    <div class="form-row">
-                      <div class="col-md-12">
-                        <label>Rol</label>
-                      </div>
-                      <div class="col-md-12">
-                        <?php
-                            require_once('rolCollector.php');
-                            $objeto = new rolCollector();
-                            echo "<select name='select' id='select'>";
-                            foreach($objeto->showRoles() as $r){
-                                $id = $r->getIdRol();
+                        <label>Elija Usuario</label><br>
+                          <?php 
+                          require_once('usuarioCollector.php');
+                          $objeto = new usuarioCollector();
+                          $array = $objeto->showUsuarios();
+                          echo "<select name='select'>";
+                            foreach($array as $r){
+                                $id = $r->getIdUsuario();
                                 $no = $r->getNombre();
                                 echo "<option value='$id' selected>$no</option>";
                             }
                           echo "</select>";
-                        ?>   
+                          ?>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-row">
+                      <div class="col-md-6">
+                        <label>Nuevo Servico</label>
+                        <input class="form-control" placeholder="" name="nue">
                       </div>
                     </div>
                   </div>
-                     <button button class="btn btn-primary btn-block" type="submit"> Registrar </button>
+                  <div class="form-group">
+                    <label >Descripción del Servicio</label>
+                    <!--<input class="form-control" placeholder="" name="des">-->
+                    <textarea name="message" id="message" required="required" class="form-control" rows="6"></textarea>
+                  </div>
+                     <button button class="btn btn-primary btn-block" type="submit"> Crear </button>
                 </form>
               </div>
             </div>
@@ -172,42 +176,9 @@ session_start();
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-    <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-              <form action="logout.php">
-               <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-              
-               <a class="btn btn-primary" href="logout.php">Logout</a>
-              </form>
-           
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="vendor/datatables/jquery.dataTables.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="js2/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="js2/sb-admin-datatables.min.js"></script>
-    <script src="js2/sb-admin-charts.min.js"></script>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>  
+
   </div>
 </body>
 

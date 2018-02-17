@@ -18,34 +18,44 @@ class rolCollector extends Collector
     }
     return $arrayRol;        
   }
-    function showRol($id) {
-      $rows = self::$db->getRows("SELECT * FROM public.rol WHERE id_rol= ?", array("{$id}"));        
+  function showRol($id) {
+      $rows = self::$db->getRows("SELECT * FROM rol WHERE id_rol= ?", array($id));        
       $aux = new rol();
       foreach ($rows as $c){ 
        $aux->setIdRol($c{'id_rol'});
        $aux->setNombre($c{'nombre'});
        $aux->setDescripcion($c{'descripcion'});
-    }
+      }
+      return $aux;        
+   }
+   function showRolNombre($nom) {
+      $rows = self::$db->getRows("SELECT * FROM public.rol WHERE nombre= ?", array("{$nom}"));        
+      $aux = new rol();
+      foreach ($rows as $c){ 
+       $aux->setIdRol($c{'id_rol'});
+       $aux->setNombre($c{'nombre'});
+       $aux->setDescripcion($c{'descripcion'});
+      }
       return $aux;        
    } 
-    function deleteRol($id){
-        echo "processing delete id:". $id ."<br>";
-        $deleterow = self::$db->deleteRow("DELETE FROM public.rol WHERE id_rol= ?", array("{$id}"));
-        echo "delete completed<br>";
+   function deleteRol($id){
+      $deleterow = self::$db->deleteRow("DELETE FROM rol WHERE id_rol= ?", array($id));
+   }
+   function crearrol($nom,$des){
+      $insertarrow = self::$db->insertRow("INSERT INTO public.rol (nombre,descripcion) VALUES (?,?)", array ("{$nom}","{$des}"));
+   }
+   function comprobarRol($rol) {
+    $rows = self::$db->getRows("SELECT * FROM public.rol WHERE nombre=? ", array("{$rol}"));        
+    $ObjRol = new rol();
+        foreach($rows as $c){
+            $ObjRol->setIdRol($c{'id_rol'});
+            $ObjRol->setNombre($c{'nombre'});
+            $ObjRol->setDescripcion($c{'descripcion'});  
+        }
+        return $ObjRol;        
     }
-    function crearrol($nom,$des){
-        $insertarrow = self::$db->insertRow("INSERT INTO public.rol (nombre,descripcion) VALUES (?,?)", array ("{$nom}","{$des}"));
-        echo "crear completed<br>";
+    function actualizarRol($usu,$cla,$id){
+        $row = self::$db->getRows("UPDATE rol SET nombre = ? , descripcion = ? where id_rol= ?",array("{$usu}","{$cla}",$id));
     }
 }
-//$objeto = new rolCollector();
-//foreach($objeto->showroles() as $rol){
-  //  echo "el id es: " . $rol->getIdRol() . "<br>";
-//    echo "nombre  : " . $rol->getNombre() . "<br>";
-  //  echo "descrip : " . $rol->getDescripcion() . "<br>";
-//}
-//$r = $objeto->showRol("1");
-  //  echo "el id es: " . $r->getIdRol() . "<br>";
-//    echo "nombre  : " . $r->getNombre() . "<br>";
-  //  echo "descrip : " . $r->getDescripcion() . "<br>";
 ?>
