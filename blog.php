@@ -96,6 +96,7 @@ session_start();
                                 }
                             }else{
                         ?>
+                            <li><a href="blog.php">Publicacion</a></li>
                             <li><a href="login.php?mensaje=">Inicio de Sesión</a></li>
                         <?php
                             }
