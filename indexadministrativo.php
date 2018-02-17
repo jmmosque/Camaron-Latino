@@ -139,6 +139,24 @@ session_start();
                       $envio = $usuario->getIdentificacion();
                       $valor = $usuario->getIdUsuario();
                       echo "<td>". "<a href='editarUsuariosPA.php?usu=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
+                      echo "<td>". "<a data-toggle='modal' data-target='#exampleModal2' href='indexadministrativo?valor=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
+                          echo "<div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
+                          echo "<div class='modal-dialog' role='document'>";
+                            echo "<div class='modal-content'>";
+                              echo "<div class='modal-header'>";
+                                echo "<h5 class='modal-title' id='exampleModalLabel2'>Estas seguro?</h5>";
+                                echo "<button class='close' type='button' data-dismiss='modal' aria-label='Close'>";
+                                  echo "<span aria-hidden='true'>×</span>";
+                                echo "</button>";
+                               echo "</div>";
+                               $valor=$_GET['valor'];
+                              echo "<div class='modal-footer'>";              
+                                   echo "<button class='btn btn-secondary' type='button' data-dismiss='modal'>Cancel</button>";
+                                   echo "<a class='btn btn-primary' href='eliminarUsuarioPA.php?mensaje=$valor'>Eliminar</a>";
+                              echo "</div>";
+                            echo "</div>";
+                          echo "</div>";
+                        echo "</div>";
                       echo "<td>". "<a href='eliminarUsuarioPA.php?mensaje=$valor'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
                   }
                 ?>
@@ -161,11 +179,29 @@ session_start();
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
+<<<<<<< HEAD
 
 
     <script src="vendor2/jquery/jquery.min.js"></script>
     <script src="vendor2/bootstrap/js/bootstrap.bundle.min.js"></script>    
   </div>
+=======
+<!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="js/sb-admin-datatables.min.js"></script>
+    <script src="js/sb-admin-charts.min.js"></script>  
+    </div>
+>>>>>>> produccion
 </body>
 
 </html>

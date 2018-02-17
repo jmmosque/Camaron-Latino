@@ -47,7 +47,7 @@
                 $nomimg = basename( $_FILES["fileToUpload"]["name"]);
                 $fecha_actual = date('Y-m-d');
                 $cred = $objColector->crearPublicacion($tem,$mes,$_SESSION["id"],$fecha_actual,$nomimg,$target_dir);
-                header("location:publicacion.php?");   
+                header("location:blog.php");   
             } else {
                 $fmensaje = "Hubo un error al cargar la imagen.";
                 header("location:publicacionUsuario.php?mensaje=$fmensaje");
