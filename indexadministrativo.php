@@ -157,7 +157,7 @@ session_start();
                             echo "</div>";
                           echo "</div>";
                         echo "</div>";
-                      echo "<td>". "<a href='eliminarUsuarioPA.php?mensaje=$valor'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
+                     
                   }
                 ?>
               </tbody>
