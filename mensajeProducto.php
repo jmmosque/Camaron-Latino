@@ -112,7 +112,7 @@
                 <?php
                  }
                 ?>
-            <a class="btn btn-primary" href="producto.php">Regresar al Inicio</a>
+            <a class="btn btn-primary" href="tablaproducto.php">Regresar al Inicio</a>
         </div>
     </section><!--/#error-->
 </body>
