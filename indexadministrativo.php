@@ -139,9 +139,8 @@ session_start();
                       $envio = $usuario->getIdentificacion();
                       $valor = $usuario->getIdUsuario();
                       echo "<td>". "<a href='editarUsuariosPA.php?usu=$envio'><button class='material-icons button2 edit'>edit</button></a>" . "</td>";
-<<<<<<< HEAD
                       echo "<td>". "<a href='eliminarUsuarioPA.php?mensaje=$valor'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
-=======
+
                       echo "<td>". "<a data-toggle='modal' data-target='#exampleModal2' href='indexadministrativo?valor=$envio'><button class='material-icons button2 delete'>delete</button></a>" . "</td>";
                           echo "<div class='modal fade' id='exampleModal2' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>";
                           echo "<div class='modal-dialog' role='document'>";
@@ -160,8 +159,6 @@ session_start();
                             echo "</div>";
                           echo "</div>";
                         echo "</div>";
-                     
->>>>>>> f9026524d0f0f873fc8558acdf96fe9fd23f3671
                   }
                 ?>
               </tbody>
