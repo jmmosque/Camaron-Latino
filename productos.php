@@ -102,12 +102,20 @@ session_start();
                <p class="lead">Obtén los productos con los más altos estandares en calidad</p>
             </div>
         
-
+            
             <ul class="portfolio-filter text-center">
                 <li><a class="btn btn-default active" href="#" data-filter="*" tabindex="-1">Todos</a></li>
                 <li><a class="btn btn-default" href="#" data-filter=".bootstrap" tabindex="-1">Larvas</a></li>
                 <li><a class="btn btn-default" href="#" data-filter=".html" tabindex="-1">Balanceado</a></li>
                 <li><a class="btn btn-default" href="#" data-filter=".wordpress" tabindex="-1">Otros</a></li>
+                <?php 
+                require_once('tipoproductoCollector.php');
+                $objeto = new tipoproductoCollector();
+                $mostar = $objeto->showtipoProductos();
+                foreach($mostar as $c){
+                    echo "<li><a class='btn btn-default' href='' data-filter='.wordpress' tabindex='-1'>".$c->getNombre()."</a></li>";
+                }
+                ?>
             </ul><!--/#portfolio-filter-->
 
             <div class="row">
