@@ -163,11 +163,9 @@
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
     </a>
-<<<<<<< HEAD
     <script src="vendor2/jquery/jquery.min.js"></script>
-=======
                   <script src="vendor2/jquery/jquery.min.js"></script>
->>>>>>> f9026524d0f0f873fc8558acdf96fe9fd23f3671
+
     <script src="vendor2/bootstrap/js/bootstrap.bundle.min.js"></script>    
   
     </div>
